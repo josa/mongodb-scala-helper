@@ -1,0 +1,5 @@
+release
+update
+sbt update
+package
+test

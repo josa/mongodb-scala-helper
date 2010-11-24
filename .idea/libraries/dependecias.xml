@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="dependecias">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib_managed/scala_2.8.0/compile" />
+      <root url="file://$PROJECT_DIR$/lib_managed/scala_2.8.0/test" />
+      <root url="file://$PROJECT_DIR$/project/boot/scala-2.8.0/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib_managed/scala_2.8.0/compile" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib_managed/scala_2.8.0/test" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/project/boot/scala-2.8.0/lib" recursive="false" />
+  </library>
+</component>

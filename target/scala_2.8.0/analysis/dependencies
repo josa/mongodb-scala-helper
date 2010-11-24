@@ -1,0 +1,6 @@
+#Source Dependencies
+#Wed Nov 24 00:15:09 BRST 2010
+src/main/scala/br/com/gfuture/mongodbhelper/model/EntityTest.scala=
+src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala
+src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala=src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/EntityTest.scala
+src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala=

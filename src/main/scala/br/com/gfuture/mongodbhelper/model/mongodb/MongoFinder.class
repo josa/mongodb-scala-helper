@@ -1,0 +1,18 @@
+package br.com.gfuture.openclesia.model.mongodb
+
+import org.bson.types.ObjectId
+
+/**
+ * Implementa pesquisas no mongodb
+ * 
+ * User: Jeosadache Galvão
+ * Date: Nov 20, 2010
+ * Time: 1:13:06 AM
+ */
+object MongoFinder{
+
+  def get(id:ObjectId, documentType: Class): Document = {
+    MongoProvider.getCollection(documentType.as)
+  }
+
+}

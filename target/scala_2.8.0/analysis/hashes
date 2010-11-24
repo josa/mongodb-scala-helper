@@ -1,0 +1,6 @@
+#Source Hashes
+#Wed Nov 24 00:15:09 BRST 2010
+src/main/scala/br/com/gfuture/mongodbhelper/model/EntityTest.scala=1907bafd20703288dc142be5f7ef832afe2998d6
+src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala=799e5e030c2355dae40dab107fbf1aae6ec1c0ed
+src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala=ece31b728c54e6ab7c398b28fa123edb15d61a45
+src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala=8acdec15bec595f9bb0d4004097c25cc57975692

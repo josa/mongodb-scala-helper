@@ -1,0 +1,5 @@
+#Tests
+#Wed Nov 24 00:15:10 BRST 2010
+src/test/scala/br/com/gfuture/mongodbhelper/model/DocumentSpec.scala=br.com.gfuture.mongodbhelper.model.mongodb.DocumentSpec<<org.scalatest.Suite
+src/test/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDaoSpec.scala=br.com.gfuture.mongodbhelper.model.dao.MongoDaoSpec<<org.scalatest.Suite
+src/test/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProviderSpec.scala=br.com.gfuture.mongodbhelper.model.mongodb.MongoProviderSpec<<org.scalatest.Suite
