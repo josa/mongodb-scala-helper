@@ -7,8 +7,9 @@ package br.com.gfuture.mongodbhelper.model
  * Date: Nov 21, 2010
  * Time: 1:49:42 PM
  */
-class EntityTest(title: String) extends Document {
+class EntityTest(title: String) extends Document[EntityTest](classOf[EntityTest]) {
 
+  def this() = this(null)
   /**
    * define o nome da coleção onde o objeto será gravado
    */

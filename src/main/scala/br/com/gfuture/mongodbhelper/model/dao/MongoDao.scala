@@ -16,7 +16,9 @@ import com.mongodb.{DBObject, DBCollection}
 class MongoDao[T] {
 
   //private var dataType:T = Class.forName("Any").newInstance.asInstanceOf[T]
-
+       /**
+   * Salva o objeto no mongodb, o id gerando pelo driver do mongo é atribuido
+   * ao _id do document passado como parametro
   def findByObjectId(objectId: ObjectId): Document = {
     //println(this.dataType)
     val dbObject: DBObject = (MongoDBObject.newBuilder += "_id" -> objectId).result
@@ -25,28 +27,29 @@ class MongoDao[T] {
     clazz.newInstance.asInstanceOf[Document]
   }
 
-  /**
-   * Salva o objeto no mongodb, o id gerando pelo driver do mongo é atribuido
-   * ao _id do document passado como parametro
-   */
+
+
   def save(document: Document) = {
     val dbObject = document.toFullDBObject
     getCollection(document.collectionName).save(dbObject)
     document.setObjectId(dbObject.get("_id").asInstanceOf[ObjectId])
   }
+ */
 
   /**
    * Deletes the object MongoDB
-   */
+
   def delete(document: Document) = {
     getCollection(document.collectionName).remove(document.toFullDBObject)
   }
 
+  */
   /**
    * Return the mongo collection
-   */
+   x
   private def getCollection(collectionName: String): DBCollection = {
     MongoProvider.getCollection(collectionName)
   }
+  */
 
 }

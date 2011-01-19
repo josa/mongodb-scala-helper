@@ -1,5 +1,5 @@
 #Source Dependencies
-#Wed Nov 24 00:15:10 BRST 2010
-src/test/scala/br/com/gfuture/mongodbhelper/model/DocumentSpec.scala=
-src/test/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDaoSpec.scala=
+#Wed Jan 19 00:03:25 BRST 2011
+src/test/scala/br/com/gfuture/mongodbhelper/model/dao/converter/MyEntity.scala=src/test/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverterSpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProviderSpec.scala=
+src/test/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverterSpec.scala=

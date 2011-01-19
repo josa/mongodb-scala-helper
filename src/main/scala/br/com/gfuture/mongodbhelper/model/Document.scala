@@ -11,7 +11,7 @@ import org.bson.types.ObjectId
  * Date: Nov 17, 2010
  * Time: 11:56:16 PM
  */
-trait Document {
+abstract class Document[T](clazz:Class[T]) {
 
   /**
    * ObjectId do MongoDB
@@ -28,11 +28,6 @@ trait Document {
    *  Describes the collection name for the entity
    */
   def collectionName: String
-
-  /**
-   * Return name of class
-   */
-  def getEntityName: String = {getClass.getName}
 
   /**
    * Generates OBObject to search, use only the objectId
