@@ -1,5 +1,5 @@
 #Generated Classes
-#Wed Jan 19 17:57:10 BRST 2011
+#Thu Jan 20 04:57:25 BRST 2011
 src/main/scala/br/com/gfuture/mongodbhelper/model/SimpleAnnotation.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/SimpleAnnotation.class
 src/main/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.class
 src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.class

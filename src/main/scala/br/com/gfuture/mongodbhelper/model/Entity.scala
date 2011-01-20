@@ -3,8 +3,11 @@ package br.com.gfuture.mongodbhelper.model
 import dao.converter.ObjectConverter
 import com.mongodb.DBObject
 import com.novus.casbah.mongodb.MongoDBObject
+import java.lang.reflect.Field
 
 trait Entity[T] {
+
+  val transientFields = scala.collection.mutable.Set.empty[String]
 
   def getConverter(): ObjectConverter[T];
 
@@ -12,10 +15,17 @@ trait Entity[T] {
     val builder = MongoDBObject.newBuilder
     getClass.getDeclaredFields.foreach {
       field =>
-        field.setAccessible(true)
-        builder += field.getName -> field.get(this)
+        if (validateField(field)) {
+          field.setAccessible(true)
+          builder += field.getName -> field.get(this)
+        }
     }
     builder.result
+  }
+
+  def validateField(field:Field):Boolean = {
+    //Fields transients
+    !transientFields.contains(field.getName)
   }
 
 }
