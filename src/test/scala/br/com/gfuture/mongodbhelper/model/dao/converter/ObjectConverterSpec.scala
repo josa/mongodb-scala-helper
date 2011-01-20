@@ -2,6 +2,7 @@ package br.com.gfuture.mongodbhelper.model.dao.converter
 
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
+import br.com.gfuture.mongodbhelper.model.EntityTest
 
 /**
  * Created by IntelliJ IDEA.
@@ -16,8 +17,8 @@ class ObjectConverterSpec extends Spec with ShouldMatchers with BeforeAndAfterEa
   describe("MongoDao") {
 
     it("should generate simple object"){
-      val objectConverter = new ObjectConverter[MyEntity](classOf[MyEntity])
-      objectConverter.getTypeInstance.getClass should equal(classOf[MyEntity])
+      val objectConverter = new ObjectConverter[EntityTest](classOf[EntityTest])
+      objectConverter.getTypeInstance.getClass should equal(classOf[EntityTest])
     }
 
   }

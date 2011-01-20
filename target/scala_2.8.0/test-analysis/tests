@@ -1,4 +1,6 @@
 #Tests
-#Wed Jan 19 00:03:25 BRST 2011
+#Wed Jan 19 17:57:13 BRST 2011
+src/test/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDaoSpec.scala=br.com.gfuture.mongodbhelper.model.dao.MongoDaoSpec<<org.scalatest.Suite
+src/test/scala/br/com/gfuture/mongodbhelper/model/EntitySpec.scala=br.com.gfuture.mongodbhelper.model.EntitySpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProviderSpec.scala=br.com.gfuture.mongodbhelper.model.mongodb.MongoProviderSpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverterSpec.scala=br.com.gfuture.mongodbhelper.model.dao.converter.ObjectConverterSpec<<org.scalatest.Suite
