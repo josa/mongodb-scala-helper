@@ -1,5 +1,5 @@
 #External Dependencies
-#Thu Jan 20 04:57:25 BRST 2011
+#Thu Jan 20 05:09:51 BRST 2011
 /usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar=src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.scala
 /home/josa/Working/josa/mongodb-scala-helper/project/boot/scala-2.8.0/lib/scala-library.jar=src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/SimpleAnnotation.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.scala
 /home/josa/Working/josa/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/casbah_2.8.0-1.0.8.5.jar=src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala

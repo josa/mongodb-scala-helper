@@ -7,9 +7,16 @@ import java.lang.reflect.Field
 
 trait Entity[T] {
 
+  var objectId: org.bson.types.ObjectId = null
   val transientFields = scala.collection.mutable.Set.empty[String]
 
   def getConverter(): ObjectConverter[T];
+
+  def toDBObjectId: com.mongodb.DBObject = {
+    val builder = MongoDBObject.newBuilder
+    builder += "_id" -> objectId
+    return builder.result
+  }
 
   def toDBObject(): DBObject = {
     val builder = MongoDBObject.newBuilder
