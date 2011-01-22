@@ -5,7 +5,11 @@ import org.scalatest.{Spec, BeforeAndAfterEach}
 
 class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
-  var entity = new EntityTest
+  var entity:EntityTest = null
+
+  override def beforeEach() {
+    entity = new EntityTest
+  }
 
   describe("EntitySpec") {
 
@@ -23,10 +27,33 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
         dbObject.get("description") should equal("My Description")
       }
 
-      it("should not load transient field"){
+      it("should not load transient field") {
         entity.transient = "value of transient"
         val dbObject = entity.toDBObject
         dbObject.get("transient") should equal(null)
+      }
+
+    }
+
+    describe("Collection") {
+
+      it("should return default collection") {
+        val collectionName = entity.getCollectionName
+        collectionName should equal("EntityTest");
+      }
+
+    }
+
+    describe("persistence") {
+
+      describe("save") {
+
+        it("should save entity") {
+          entity.title = "My Title"
+          entity.save
+          entity.objectId should not equal (null)
+        }
+
       }
 
     }

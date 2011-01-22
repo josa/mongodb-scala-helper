@@ -1,16 +1,22 @@
 package br.com.gfuture.mongodbhelper.model
 
 import dao.converter.ObjectConverter
-import com.mongodb.DBObject
 import com.novus.casbah.mongodb.MongoDBObject
 import java.lang.reflect.Field
+import mongodb.MongoProvider
+import com.mongodb.{DBCollection, DBObject}
+import org.bson.types.ObjectId
 
-trait Entity[T] {
+abstract class Entity[T](val entityType:Class[T]) {
 
   var objectId: org.bson.types.ObjectId = null
   val transientFields = scala.collection.mutable.Set.empty[String]
 
-  def getConverter(): ObjectConverter[T];
+  def getCollectionName = getClass.getSimpleName
+
+  def getConverter(): ObjectConverter[T] = {
+      new ObjectConverter[T](entityType)
+  }
 
   def toDBObjectId: com.mongodb.DBObject = {
     val builder = MongoDBObject.newBuilder
@@ -33,6 +39,16 @@ trait Entity[T] {
   def validateField(field:Field):Boolean = {
     //Fields transients
     !transientFields.contains(field.getName)
+  }
+
+  def save = {
+    val dbObject = toDBObject
+    getCollection.save(dbObject)
+    objectId = dbObject.get("_id").asInstanceOf[ObjectId]
+  }
+
+  private def getCollection: DBCollection = {
+    MongoProvider.getCollection(getCollectionName)
   }
 
 }
