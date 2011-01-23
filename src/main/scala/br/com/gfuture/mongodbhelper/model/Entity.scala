@@ -7,18 +7,22 @@ import mongodb.MongoProvider
 import com.mongodb.{DBCollection, DBObject}
 import org.bson.types.ObjectId
 
-abstract class Entity[T](val entityType:Class[T]) {
+abstract class Entity[T](val entityType: Class[T]) {
 
-  var objectId: org.bson.types.ObjectId = null
-  val transientFields = scala.collection.mutable.Set.empty[String]
+  private var objectId: org.bson.types.ObjectId = null
+  protected val transientFields = scala.collection.mutable.Set.empty[String]
+
+  def getObjectId: ObjectId = this.objectId
 
   def getCollectionName = getClass.getSimpleName
 
   def getConverter(): ObjectConverter[T] = {
-      new ObjectConverter[T](entityType)
+    new ObjectConverter[T](entityType)
   }
 
   def toDBObjectId: com.mongodb.DBObject = {
+    if (getObjectId == null)
+      return null
     val builder = MongoDBObject.newBuilder
     builder += "_id" -> objectId
     return builder.result
@@ -26,6 +30,8 @@ abstract class Entity[T](val entityType:Class[T]) {
 
   def toDBObject(): DBObject = {
     val builder = MongoDBObject.newBuilder
+    if (getObjectId != null)
+      builder += "_id" -> getObjectId
     getClass.getDeclaredFields.foreach {
       field =>
         if (validateField(field)) {
@@ -36,7 +42,7 @@ abstract class Entity[T](val entityType:Class[T]) {
     builder.result
   }
 
-  def validateField(field:Field):Boolean = {
+  def validateField(field: Field): Boolean = {
     //Fields transients
     !transientFields.contains(field.getName)
   }

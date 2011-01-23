@@ -51,7 +51,16 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
         it("should save entity") {
           entity.title = "My Title"
           entity.save
-          entity.objectId should not equal (null)
+          entity.getObjectId should not equal (null)
+        }
+
+        it("should update entity"){
+          entity.title = "Titulo Original"
+          entity.save
+          val objectId01 = entity.getObjectId
+          entity.title = "Titulo Alterado"
+          entity.save
+          entity.getObjectId should equal(objectId01)
         }
 
       }

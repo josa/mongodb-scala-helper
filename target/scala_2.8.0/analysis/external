@@ -1,5 +1,5 @@
 #External Dependencies
-#Sat Jan 22 18:16:49 BRST 2011
+#Sun Jan 23 17:06:07 BRST 2011
 /usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar=src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala
 /home/josa/Working/projects/mongodb-scala-helper/project/boot/scala-2.8.0/lib/scala-library.jar=src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/SimpleAnnotation.scala
 /home/josa/Working/projects/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/mongo-java-driver-2.0.jar=src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala

@@ -8,12 +8,6 @@ class MongoDaoSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     describe("save") {
 
       /**
-      it("should save simple object") {
-        val simpleObject = new EntityTest("Simple Object")
-        val dao = new MongoDao[EntityTest]
-        dao.save(simpleObject)
-        simpleObject.getObjectId should not equal (null)
-      }
 
       it("should find by object") {
         val simpleObject = new EntityTest("Simple Object")

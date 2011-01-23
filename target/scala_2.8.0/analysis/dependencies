@@ -1,5 +1,5 @@
 #Source Dependencies
-#Sat Jan 22 18:16:49 BRST 2011
+#Sun Jan 23 17:06:07 BRST 2011
 src/main/scala/br/com/gfuture/mongodbhelper/model/SimpleAnnotation.scala=
 src/main/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.scala=src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala
 src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala
