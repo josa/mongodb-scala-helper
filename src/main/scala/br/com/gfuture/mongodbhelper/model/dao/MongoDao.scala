@@ -1,9 +1,5 @@
 package br.com.gfuture.mongodbhelper.model.dao
 
-import org.bson.types.ObjectId
-import br.com.gfuture.mongodbhelper.model.mongodb.MongoProvider
-import br.com.gfuture.mongodbhelper.model.Document
-import com.novus.casbah.mongodb.MongoDBObject
 import com.mongodb.{DBObject, DBCollection}
 
 /**

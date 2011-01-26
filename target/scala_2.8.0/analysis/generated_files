@@ -1,8 +1,7 @@
 #Generated Classes
-#Sun Jan 23 17:06:07 BRST 2011
-src/main/scala/br/com/gfuture/mongodbhelper/model/SimpleAnnotation.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/SimpleAnnotation.class
-src/main/scala/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/dao/converter/ObjectConverter.class
+#Tue Jan 25 23:53:53 BRST 2011
+src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Query.class
 src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider$.class
-src/main/scala/br/com/gfuture/mongodbhelper/model/Document.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/Document$$anonfun$br$com$gfuture$mongodbhelper$model$Document$$getMethodByName$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/Document.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/Document$$anonfun$toFullDBObject$1.class
 src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/dao/MongoDao.class
-src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/Entity$$anonfun$toDBObject$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/model/Entity.class
+src/main/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverter.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/converter/ObjectConverter.class
+src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$toDBObject$1.class

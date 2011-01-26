@@ -19,3 +19,25 @@ console
 test
 tset
 test
+clean
+clean-plugins
+clean-lib
+sbt update
+update
+test
+update
+test
+tset
+test
+test -unchecked
+test
+compile -unchecked
+compile
+clean
+compile
+compile  -unchecked
+clean
+test
+cleaan
+clean
+test

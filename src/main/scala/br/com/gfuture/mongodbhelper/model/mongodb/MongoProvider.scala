@@ -1,7 +1,7 @@
 package br.com.gfuture.mongodbhelper.model.mongodb
 
-import com.novus.casbah.mongodb.{MongoCollection, MongoConnection}
 import com.mongodb.DBCollection
+import com.mongodb.casbah.MongoConnection
 
 /**
  *  Prover acesso ao mongodb
