@@ -2,8 +2,9 @@ package br.com.gfuture.mongodbhelper
 
 import java.lang.reflect.Field
 import com.mongodb.{DBCollection, DBObject}
-import model.mongodb.MongoProvider
+
 import com.mongodb.casbah.commons.MongoDBObject
+import mongodb.MongoProvider
 
 abstract class Entity[T]() {
 
@@ -11,8 +12,6 @@ abstract class Entity[T]() {
   protected val transientFields = scala.collection.mutable.Set.empty[String]
 
   def getObjectId: org.bson.types.ObjectId = this.objectId
-
-  def getCollectionName = getClass.getSimpleName
 
   def toDBObjectId: com.mongodb.DBObject = {
     if (getObjectId == null)
@@ -49,7 +48,7 @@ abstract class Entity[T]() {
     case _ => throw new RuntimeException(getClass.getName + ", é obrigatório implementar o método equals")
   }
 
-  private def getCollection: DBCollection = MongoProvider.getCollection(getCollectionName)
+  private def getCollection: DBCollection = MongoProvider.getCollection(getClass.getSimpleName)
 
   private def isTransientField(field: Field): Boolean = !transientFields.contains(field.getName)
 

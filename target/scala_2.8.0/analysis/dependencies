@@ -1,7 +1,6 @@
 #Source Dependencies
-#Tue Jan 25 23:53:53 BRST 2011
+#Fri Jan 28 18:26:51 BRST 2011
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=
-src/main/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala
-src/main/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDao.scala=
-src/main/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverter.scala=
+src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/Query.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala
 src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=
+src/main/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverter.scala=

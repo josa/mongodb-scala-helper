@@ -1,8 +1,7 @@
 #Source Hashes
-#Tue Jan 25 23:53:55 BRST 2011
-src/test/scala/br/com/gfuture/mongodbhelper/model/dao/MongoDaoSpec.scala=0122a94cf7dc4af96f7894ce90eb9aa8f36820f0
+#Fri Jan 28 17:28:03 BRST 2011
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=da517a48e324389e07c59a3d7ae49cb83a6348ac
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=f0d5cf21cafbf7ea531c6d695660dedf585a68fc
-src/test/scala/br/com/gfuture/mongodbhelper/model/mongodb/MongoProviderSpec.scala=c3a57f4b37af451df35e94022bb854c5cd9e34ea
 src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala=65494b9acd072f58d939a0d3041abb5c19da2b36
+src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=1810b811bd63fcbf165fbbbd5a7832e89fd143c4
 src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala=6144d1b11633b74dc6d76398e53c72554b9402e8
