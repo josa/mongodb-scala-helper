@@ -11,7 +11,16 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     entity = new EntityTest
   }
 
-  describe("EntitySpec") {
+  describe("Entity") {
+
+    describe("create"){
+
+      it("should create instanceof EntityTest"){
+        val create: Unit = Entity.create(classOf[br.com.gfuture.mongodbhelper.EntityTest])
+        val entity:br.com.gfuture.mongodbhelper.EntityTest = (br.com.gfuture.mongodbhelper.EntityTest)create
+      }
+
+    }
 
     describe("DBObject") {
 

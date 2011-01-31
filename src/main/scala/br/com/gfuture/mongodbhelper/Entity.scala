@@ -6,7 +6,7 @@ import com.mongodb.{DBCollection, DBObject}
 import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
 
-trait Entity{
+abstract class  Entity{
 
   private var objectId: org.bson.types.ObjectId = null
   protected val transientFields = scala.collection.mutable.Set.empty[String]
@@ -56,7 +56,9 @@ trait Entity{
 
 object Entity{
 
-  def create(entityClass: Class[Entity]):Entity = {
+  type T <: Entity
+
+  def create(entityClass: Class[T]):Entity = {
     entityClass.newInstance
   }
 

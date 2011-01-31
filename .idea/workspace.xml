@@ -65,16 +65,7 @@
       <file leaf-file-name="Entity.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="12" selection-start="198" selection-end="204" vertical-scroll-proportion="0.17751479">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntityTest.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="35" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+            <state line="8" column="15" selection-start="207" selection-end="207" vertical-scroll-proportion="0.17751479">
               <folding />
             </state>
           </provider>
@@ -83,7 +74,7 @@
       <file leaf-file-name="EntitySpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="935" selection-end="935" vertical-scroll-proportion="0.0">
+            <state line="42" column="63" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -637,23 +628,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="935" selection-end="935" vertical-scroll-proportion="0.0">
+        <state line="2" column="12" selection-start="50" selection-end="50" vertical-scroll-proportion="0.044378698">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="35" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+        <state line="42" column="63" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="12" selection-start="198" selection-end="204" vertical-scroll-proportion="0.17751479">
+        <state line="8" column="15" selection-start="207" selection-end="207" vertical-scroll-proportion="0.17751479">
           <folding />
         </state>
       </provider>
