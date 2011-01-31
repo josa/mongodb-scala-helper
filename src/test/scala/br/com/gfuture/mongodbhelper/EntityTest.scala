@@ -1,6 +1,6 @@
 package br.com.gfuture.mongodbhelper
 
-final class EntityTest() extends Entity[EntityTest] {
+final class EntityTest extends Entity {
 
   var title: String = null
   var description: String = null

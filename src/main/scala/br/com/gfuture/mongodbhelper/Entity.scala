@@ -6,7 +6,7 @@ import com.mongodb.{DBCollection, DBObject}
 import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
 
-abstract class Entity[T]() {
+trait Entity{
 
   private var objectId: org.bson.types.ObjectId = null
   protected val transientFields = scala.collection.mutable.Set.empty[String]
@@ -51,5 +51,13 @@ abstract class Entity[T]() {
   private def getCollection: DBCollection = MongoProvider.getCollection(getClass.getSimpleName)
 
   private def isTransientField(field: Field): Boolean = !transientFields.contains(field.getName)
+
+}
+
+object Entity{
+
+  def create(entityClass: Class[Entity]):Entity = {
+    entityClass.newInstance
+  }
 
 }

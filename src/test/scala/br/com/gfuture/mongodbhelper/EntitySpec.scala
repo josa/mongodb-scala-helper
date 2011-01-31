@@ -35,15 +35,6 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
     }
 
-    describe("Collection") {
-
-      it("should return default collection") {
-        val collectionName = entity.getCollectionName
-        collectionName should equal("EntityTest");
-      }
-
-    }
-
     describe("persistence") {
 
       describe("save") {
