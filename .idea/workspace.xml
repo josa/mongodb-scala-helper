@@ -65,7 +65,7 @@
       <file leaf-file-name="Entity.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="31" selection-start="795" selection-end="795" vertical-scroll-proportion="0.62116563">
+            <state line="86" column="4" selection-start="2324" selection-end="2324" vertical-scroll-proportion="0.6088957">
               <folding />
             </state>
           </provider>
@@ -667,7 +667,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="31" selection-start="795" selection-end="795" vertical-scroll-proportion="0.62116563">
+        <state line="86" column="4" selection-start="2324" selection-end="2324" vertical-scroll-proportion="0.6088957">
           <folding />
         </state>
       </provider>

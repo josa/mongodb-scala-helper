@@ -80,6 +80,12 @@ object Entity {
     builder.result
   }
 
+  /**
+   * Salva a entidade no mongodb
+   *
+   * @param entity, a entidade a ser salva
+   *
+   */
   def save[T<:Entity](entity: T) = {
     val dbObject = toMongoObject(entity)
     calculateCollection(entity).save(dbObject)

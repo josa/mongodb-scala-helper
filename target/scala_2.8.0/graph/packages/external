@@ -1,0 +1,12 @@
+digraph externalDependencies {
+"br.com.gfuture.mongodbhelper" -> "casbah-commons_2.8.0-2.0.1.jar"
+"br.com.gfuture.mongodbhelper.mongodb" -> "mongo-java-driver-2.4.jar"
+"br.com.gfuture.mongodbhelper" -> "mongo-java-driver-2.4.jar"
+"br.com.gfuture.mongodbhelper.mongodb" -> "rt.jar"
+"br.com.gfuture.mongodbhelper" -> "rt.jar"
+"br.com.gfuture.mongodbhelper.converter" -> "rt.jar"
+"br.com.gfuture.mongodbhelper.mongodb" -> "scala-library.jar"
+"br.com.gfuture.mongodbhelper" -> "scala-library.jar"
+"br.com.gfuture.mongodbhelper.converter" -> "scala-library.jar"
+"br.com.gfuture.mongodbhelper.mongodb" -> "casbah-core_2.8.0-2.0.1.jar"
+}
