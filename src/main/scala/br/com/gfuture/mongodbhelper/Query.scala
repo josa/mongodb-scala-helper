@@ -2,8 +2,7 @@ package br.com.gfuture.mongodbhelper
 
 import mongodb.MongoProvider
 import com.mongodb.casbah.commons.MongoDBObject
-import com.mongodb.DBCursor
-
+import com.mongodb.{DBObject}
 
 /**
  * Implementa uma interface de consultas ao mongo mais amigável
@@ -12,15 +11,14 @@ import com.mongodb.DBCursor
  * Date: 1/25/11
  * Time: 5:39 PM
  */
-class Query[T](val entityType: Class[T]) {
-
+class Query[T <: Entity](val entityType: Class[T]) {
+  //Entity.create(dbObject, classOf[EntityTest])
   def findById(objectId: org.bson.types.ObjectId): T = {
     val obj = entityType.newInstance
-    println(obj)
     val builder = MongoDBObject.newBuilder
     builder += "_id" -> objectId
-    val cursor: DBCursor = MongoProvider.getCollection(entityType.getSimpleName).find(builder.result)
-    obj
+    val dbObject: DBObject = MongoProvider.getCollection(entityType.getSimpleName).findOne(builder.result)
+    Entity.create(dbObject, entityType)
   }
 
 }

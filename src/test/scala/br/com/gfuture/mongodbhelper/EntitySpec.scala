@@ -27,7 +27,7 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
       it("should create instanceof EntityTest") {
         val entity: EntityTest = Entity.create(dbObject, classOf[EntityTest])
         entity.title should equal(dbObject.get("title"))
-        entity.getObjectId should equal(dbObject.get("id"))
+        entity.getObjectId should equal(dbObject.get("_id"))
       }
 
       it("should not load transient fields") {

@@ -8,19 +8,19 @@ import mongodb.MongoProvider
 
 trait Entity {
 
-  protected var objectId: org.bson.types.ObjectId = null
+  protected var _id: org.bson.types.ObjectId = null
 
   protected val transientFields = scala.collection.mutable.Set.empty[String]
 
-  def getObjectId: org.bson.types.ObjectId = this.objectId
+  def getObjectId: org.bson.types.ObjectId = this._id
 
-  def toUniqueMongoObject = Entity.toMongoObject(objectId)
+  def toUniqueMongoObject = Entity.toMongoObject(_id)
 
   def toMongoObject = Entity.toMongoObject(this)
 
   def save = Entity.save(this)
 
-  private def validate(field: Field): Boolean = !transientFields.contains(field.getName)
+  def getTransientFields = this.transientFields
 
   override def equals(that: Any) = that match {
     case _ => throw new RuntimeException(getClass.getName + ", é obrigatório implementar o método equals")
@@ -36,12 +36,15 @@ object Entity {
    * @param dbObject, o "json" do mongodb
    * @param entityClass, a tipo que será criado
    */
-  def create[T](dbObject: DBObject, entityClass: Class[T]): T = {
+  def create[T <: Entity](dbObject: DBObject, entityClass: Class[T]): T = {
     val entity: T = entityClass.newInstance
+    val arrayOfFields: Array[Field] = entityClass.getDeclaredFields
     entityClass.getDeclaredFields.foreach {
       field =>
-        field.setAccessible(true)
-        field.set(entity, dbObject.get(field.getName))
+        if (Entity.validatePersistenteField(entity, field)) {
+          field.setAccessible(true)
+          field.set(entity, dbObject.get(field.getName))
+        }
     }
     entity
   }
@@ -52,7 +55,7 @@ object Entity {
    * @param objectId, instancia da classe org.bson.types.ObjectId
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toMongoObject[T<:Entity](objectId: org.bson.types.ObjectId): DBObject = {
+  def toMongoObject[T <: Entity](objectId: org.bson.types.ObjectId): DBObject = {
     val builder = MongoDBObject.newBuilder
     builder += "_id" -> objectId
     return builder.result
@@ -64,15 +67,12 @@ object Entity {
    * @param entity, a entidade a ser convertida
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toMongoObject[T<:Entity](entity: T): DBObject = {
+  def toMongoObject[T <: Entity](entity: T): DBObject = {
     val builder = MongoDBObject.newBuilder
-
-    if (entity.getObjectId != null)
-      builder += "_id" -> entity.getObjectId
-
+    builder += "_id" -> entity.getObjectId
     entity.getClass.getDeclaredFields.foreach {
       field =>
-        if (entity.validate(field)) {
+        if (validatePersistenteField(entity, field)) {
           field.setAccessible(true)
           builder += field.getName -> field.get(entity)
         }
@@ -86,16 +86,25 @@ object Entity {
    * @param entity, a entidade a ser salva
    *
    */
-  def save[T<:Entity](entity: T) = {
+  def save[T <: Entity](entity: T) = {
     val dbObject = toMongoObject(entity)
     calculateCollection(entity).save(dbObject)
-    val objectIdField: Field = entity.getClass.getDeclaredField("objectId")
+    val objectIdField: Field = entity.getClass.getDeclaredField("_id")
     objectIdField.setAccessible(true)
     objectIdField.set(entity, dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId])
   }
 
-  private def calculateCollection[T<:Entity](entity: T):DBCollection = {
-     MongoProvider.getCollection(entity.getClass.getSimpleName)
+  def validatePersistenteField[T <: Entity](entity: T, field: Field): Boolean = {
+    !entity.getTransientFields.contains(field.getName) && !field.getName.equals("transientFields")
+  }
+
+  /**
+   * Calcula a coleção em que a entidade vai ser salva
+   *
+   * @param entity, a entidade base
+   */
+  private def calculateCollection[T <: Entity](entity: T): DBCollection = {
+    MongoProvider.getCollection(entity.getClass.getSimpleName)
   }
 
 }

@@ -16,7 +16,6 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
   describe("br.com.gfuture.mongodbhelper.Query"){
 
     it("should find by id"){
-      pending
       val query = new Query[EntityTest](classOf[EntityTest]);
       val entityFind = query.findById(entity.getObjectId)
       entityFind should equal(entity)
