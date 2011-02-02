@@ -36,17 +36,20 @@ object Entity {
    * @param dbObject, o "json" do mongodb
    * @param entityClass, a tipo que será criado
    */
-  def create[T <: Entity](dbObject: DBObject, entityClass: Class[T]): T = {
-    val entity: T = entityClass.newInstance
-    val arrayOfFields: Array[Field] = entityClass.getDeclaredFields
-    entityClass.getDeclaredFields.foreach {
-      field =>
-        if (Entity.validatePersistenteField(entity, field)) {
-          field.setAccessible(true)
-          field.set(entity, dbObject.get(field.getName))
-        }
-    }
-    entity
+  def create[T <: Entity](dbObject: DBObject, entityClass: Class[T]): T = dbObject match {
+    case dbObjectMatch: Any =>
+      val entity: T = entityClass.newInstance
+      val arrayOfFields: Array[Field] = entityClass.getDeclaredFields
+      entityClass.getDeclaredFields.foreach {
+        field =>
+          if (Entity.validatePersistenteField(entity, field)) {
+            field.setAccessible(true)
+            field.set(entity, dbObjectMatch.get(field.getName))
+          }
+      }
+      entity
+    case _ =>
+      null.asInstanceOf[T]
   }
 
   /**
