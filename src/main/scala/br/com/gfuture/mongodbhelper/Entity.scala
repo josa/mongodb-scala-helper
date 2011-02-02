@@ -42,9 +42,11 @@ object Entity {
       val arrayOfFields: Array[Field] = entityClass.getDeclaredFields
       entityClass.getDeclaredFields.foreach {
         field =>
-          if (Entity.validatePersistenteField(entity, field)) {
-            field.setAccessible(true)
-            field.set(entity, dbObjectMatch.get(field.getName))
+          Entity.validatePersistenteField(entity, field) match {
+            case true =>
+              field.setAccessible(true)
+              field.set(entity, dbObjectMatch.get(field.getName))
+            case false =>
           }
       }
       entity
@@ -75,9 +77,11 @@ object Entity {
     builder += "_id" -> entity.getObjectId
     entity.getClass.getDeclaredFields.foreach {
       field =>
-        if (validatePersistenteField(entity, field)) {
-          field.setAccessible(true)
-          builder += field.getName -> field.get(entity)
+        Entity.validatePersistenteField(entity, field) match {
+          case true =>
+            field.setAccessible(true)
+            builder += field.getName -> field.get(entity)
+          case false =>
         }
     }
     builder.result
