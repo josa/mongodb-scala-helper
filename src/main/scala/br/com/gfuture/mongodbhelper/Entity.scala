@@ -55,6 +55,20 @@ object Entity {
   }
 
   /**
+   * Salva a entidade no mongodb
+   *
+   * @param entity, a entidade a ser salva
+   *
+   */
+  def save[T <: Entity](entity: T) = {
+    val dbObject = toMongoObject(entity)
+    calculateCollection(entity).save(dbObject)
+    val objectIdField: Field = entity.getClass.getDeclaredField("_id")
+    objectIdField.setAccessible(true)
+    objectIdField.set(entity, dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId])
+  }
+
+  /**
    * Converte o _id em um objeto de persistencia do mongo
    *
    * @param _id, instancia da classe org.bson.types.ObjectId
@@ -88,19 +102,12 @@ object Entity {
   }
 
   /**
-   * Salva a entidade no mongodb
+   * Valida os fields persistentes
    *
-   * @param entity, a entidade a ser salva
-   *
+   * @param entity, a entidade em questão
+   * @param o field a ser validado
+   * @return true caso o field atenda os critérios para serem persistidos
    */
-  def save[T <: Entity](entity: T) = {
-    val dbObject = toMongoObject(entity)
-    calculateCollection(entity).save(dbObject)
-    val objectIdField: Field = entity.getClass.getDeclaredField("_id")
-    objectIdField.setAccessible(true)
-    objectIdField.set(entity, dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId])
-  }
-
   def validatePersistenteField[T <: Entity](entity: T, field: Field): Boolean = {
     !entity.getTransientFields.contains(field.getName) && !field.getName.equals("transientFields")
   }
