@@ -50,9 +50,9 @@ object Entity {
   }
 
   /**
-   * Converte o objectId em um objeto de persistencia do mongo
+   * Converte o _id em um objeto de persistencia do mongo
    *
-   * @param objectId, instancia da classe org.bson.types.ObjectId
+   * @param _id, instancia da classe org.bson.types.ObjectId
    * @return uma instancia da classe com.mongodb.DBObject
    */
   def toMongoObject[T <: Entity](objectId: org.bson.types.ObjectId): DBObject = {

@@ -12,13 +12,17 @@ import com.mongodb.{DBObject}
  * Time: 5:39 PM
  */
 class Query[T <: Entity](val entityType: Class[T]) {
-  //Entity.create(dbObject, classOf[EntityTest])
-  def findById(objectId: org.bson.types.ObjectId): T = {
-    val obj = entityType.newInstance
-    val builder = MongoDBObject.newBuilder
-    builder += "_id" -> objectId
-    val dbObject: DBObject = MongoProvider.getCollection(entityType.getSimpleName).findOne(builder.result)
-    Entity.create(dbObject, entityType)
+
+  /**
+   * Busca o objeto pelo seu _id, refere-se ao _id do mongodb
+   *
+   * @param _id, o _id do mongo
+   * @return uma implementação do trait Entity
+   */
+  def findById(_id: org.bson.types.ObjectId): T = {
+    val query = MongoDBObject("_id" -> _id)
+    val dbObjectResult: DBObject = MongoProvider.getCollection(entityType.getSimpleName).findOne(query)
+    Entity.create(dbObjectResult, entityType)
   }
 
 }
