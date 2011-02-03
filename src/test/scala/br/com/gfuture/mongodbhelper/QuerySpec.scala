@@ -13,6 +13,10 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     entity.save
   }
 
+  override def afterEach() {
+    entity.delete
+  }
+
   describe("br.com.gfuture.mongodbhelper.Query") {
 
     it("should find by id") {

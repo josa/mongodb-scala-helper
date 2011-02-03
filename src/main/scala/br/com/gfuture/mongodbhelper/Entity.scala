@@ -20,6 +20,8 @@ trait Entity {
 
   def save = Entity.save(this)
 
+  def delete = Entity.delete(this)
+
   def getTransientFields = this.transientFields
 
   override def equals(that: Any) = that match {
@@ -66,6 +68,16 @@ object Entity {
     val objectIdField: Field = entity.getClass.getDeclaredField("_id")
     objectIdField.setAccessible(true)
     objectIdField.set(entity, dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId])
+  }
+
+  /**
+   * Exclui a entidade do mongodb
+   *
+   * @param a entidade
+   * @return voids
+   */
+  def delete[T <: Entity](entity:T){
+    calculateCollection(entity).remove(entity.toUniqueMongoObject)
   }
 
   /**

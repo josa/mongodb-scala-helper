@@ -20,6 +20,10 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
   }
 
+  override def afterEach() {
+    entity.delete
+  }
+
   describe("Entity") {
 
     describe("create") {
@@ -83,7 +87,17 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
       describe("delete") {
 
         it("should delete entity") {
+          //when
+          entity.title = "entity del"
+          entity.save
 
+          //given
+          entity.delete
+
+          //then
+          val query = new Query[EntityTest](classOf[EntityTest]);
+          val entityResult: EntityTest = query.findById(entity.getObjectId)
+          entityResult should equal(null)
         }
 
       }
