@@ -100,6 +100,20 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
           entityResult should equal(null)
         }
 
+        it("should delete entity by objectId"){
+          //when
+          entity.title = "entity del"
+          entity.save
+
+          //given
+          Entity.delete(entity.getObjectId, classOf[EntityTest])
+
+          //then
+          val query = new Query[EntityTest](classOf[EntityTest]);
+          val entityResult: EntityTest = query.findById(entity.getObjectId)
+          entityResult should equal(null)
+        }
+
       }
 
     }

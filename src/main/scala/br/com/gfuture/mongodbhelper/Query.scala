@@ -21,7 +21,7 @@ class Query[T <: Entity](val entityType: Class[T]) {
    */
   def findById(_id: org.bson.types.ObjectId): T = {
     val query = MongoDBObject("_id" -> _id)
-    val dbObjectResult: DBObject = MongoProvider.getCollection(entityType.getSimpleName).findOne(query)
+    val dbObjectResult: DBObject = Entity.mongoCollection(entityType).findOne(query)
     Entity.create(dbObjectResult, entityType)
   }
 

@@ -14,7 +14,7 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
   }
 
   override def afterEach() {
-    entity.delete
+    //entity.delete
   }
 
   describe("br.com.gfuture.mongodbhelper.Query") {

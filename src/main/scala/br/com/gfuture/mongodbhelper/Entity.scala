@@ -62,9 +62,9 @@ object Entity {
    * @param entity, a entidade a ser salva
    *
    */
-  def save[T <: Entity](entity: T) = {
+  def save[T <: Entity](entity: T) {
     val dbObject = toMongoObject(entity)
-    calculateCollection(entity).save(dbObject)
+    mongoCollection(entity).save(dbObject)
     val objectIdField: Field = entity.getClass.getDeclaredField("_id")
     objectIdField.setAccessible(true)
     objectIdField.set(entity, dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId])
@@ -76,8 +76,18 @@ object Entity {
    * @param a entidade
    * @return voids
    */
-  def delete[T <: Entity](entity:T){
-    calculateCollection(entity).remove(entity.toUniqueMongoObject)
+  def delete[T <: Entity](entity: T) {
+    mongoCollection(entity).remove(entity.toUniqueMongoObject)
+  }
+
+  /**
+   * Exclui a entidade pelo objectId
+   *
+   * @param o objectId, identificador único do documento
+   * @return void
+   */
+  def delete[T <: Entity](objectId: org.bson.types.ObjectId, entityClass: Class[T]) {
+    mongoCollection(entityClass).remove(toMongoObject(objectId))
   }
 
   /**
@@ -87,9 +97,7 @@ object Entity {
    * @return uma instancia da classe com.mongodb.DBObject
    */
   def toMongoObject[T <: Entity](objectId: org.bson.types.ObjectId): DBObject = {
-    val builder = MongoDBObject.newBuilder
-    builder += "_id" -> objectId
-    return builder.result
+    MongoDBObject("_id" -> objectId)
   }
 
   /**
@@ -125,12 +133,19 @@ object Entity {
   }
 
   /**
-   * Calcula a coleção em que a entidade vai ser salva
+   * retorna a coleção da entidade
    *
    * @param entity, a entidade base
    */
-  private def calculateCollection[T <: Entity](entity: T): DBCollection = {
-    MongoProvider.getCollection(entity.getClass.getSimpleName)
+  def mongoCollection[T <: Entity](entity: T): DBCollection = {
+    MongoProvider.getCollection(entity.getClass.getSimpleName.toLowerCase)
+  }
+
+  /**
+   * Retorna a coleção da classe
+    */
+  def mongoCollection[T <: Entity](entityClass: Class[T]): DBCollection = {
+    MongoProvider.getCollection(entityClass.getSimpleName.toLowerCase)
   }
 
 }
