@@ -1,5 +1,5 @@
 #External Dependencies
-#Sat Feb 05 11:40:18 BRST 2011
+#Sat Feb 05 16:13:13 BRST 2011
 /home/josa/Working/projects/mongodb-scala-helper/target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/converter/ObjectConverter.class=src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala
 /home/josa/Working/projects/mongodb-scala-helper/target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity.class=src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala\:src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
 /home/josa/Working/projects/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/scalatest-1.2.1-SNAPSHOT.jar=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala
