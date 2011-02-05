@@ -45,3 +45,6 @@ graph-pkg
 test
 graph-pkg
 test
+deliver-local
+deliver
+release
