@@ -1,5 +1,5 @@
 #External Dependencies
-#Thu Feb 17 12:41:46 BRST 2011
+#Thu Feb 17 18:17:28 BRST 2011
 /home/josa/Working/josa/mongodb-scala-helper/project/boot/scala-2.8.0/lib/scala-library.jar=src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala
 /home/josa/Working/josa/mongodb-scala-helper/target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider$.class=src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala
 /home/josa/Working/josa/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/casbah-commons_2.8.0-2.0.1.jar=src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
