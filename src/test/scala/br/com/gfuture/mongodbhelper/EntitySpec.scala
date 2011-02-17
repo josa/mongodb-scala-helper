@@ -4,6 +4,7 @@ import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
 import com.mongodb.casbah.commons.MongoDBObject
 import com.mongodb.DBObject
+import otherpackage.EntityOtherPackage
 
 class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
@@ -100,7 +101,7 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
           entityResult should equal(null)
         }
 
-        it("should delete entity by objectId"){
+        it("should delete entity by objectId") {
           //when
           entity.title = "entity del"
           entity.save
