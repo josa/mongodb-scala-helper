@@ -65,43 +65,16 @@
       <file leaf-file-name="EntitySpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="2263" selection-end="2263" vertical-scroll-proportion="0.0">
+            <state line="6" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityOtherPackageSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackageSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="37" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntityTest.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EntityTest.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="28" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Entity.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="2" selection-start="210" selection-end="210" vertical-scroll-proportion="0.23006135">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntityOtherPackage.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackage.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="36" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
+            <state line="2" column="28" selection-start="66" selection-end="66" vertical-scroll-proportion="0.044313148">
               <folding />
             </state>
           </provider>
@@ -121,9 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/model/converter/ObjectConverterSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/model/Entity.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/model/EntitySpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/model/QuerySpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/converter/converter/ObjectConverterSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala" />
@@ -134,9 +104,12 @@
         <option value="$PROJECT_DIR$/project/build/MongodbScalaHelper.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntityOtherPackageSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackage.scala" />
-        <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackageSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/otherpackage/SubEntity.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/otherpackage/EntityOtherPackageSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/otherpackage/EntityOtherPackage.scala" />
       </list>
     </option>
   </component>
@@ -285,36 +258,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mongodbhelper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb-scala-helper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb-scala-helper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mongodbhelper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="otherpackage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -687,11 +630,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/project/boot/scala-2.8.0/lib/scala-library.jar!/scala/ScalaObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="37" selection-start="51" selection-end="51" vertical-scroll-proportion="0.027522936" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" />
@@ -742,37 +680,23 @@
         <state line="18" column="41" selection-start="557" selection-end="557" vertical-scroll-proportion="0.49541286" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="28" selection-start="66" selection-end="66" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="2263" selection-end="2263" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackageSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="37" selection-start="439" selection-end="439" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackage.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="36" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
+        <state line="6" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="2" selection-start="210" selection-end="210" vertical-scroll-proportion="0.23006135">
+        <state line="10" column="9" selection-start="214" selection-end="217" vertical-scroll-proportion="0.12555392">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="28" selection-start="66" selection-end="66" vertical-scroll-proportion="0.044313148">
           <folding />
         </state>
       </provider>

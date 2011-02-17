@@ -4,7 +4,6 @@ import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
 import com.mongodb.casbah.commons.MongoDBObject
 import com.mongodb.DBObject
-import otherpackage.EntityOtherPackage
 
 class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
