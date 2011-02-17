@@ -1,6 +1,6 @@
 #Tests
-#Thu Feb 17 19:25:24 BRST 2011
-src/test/scala/otherpackage/EntityOtherPackageSpec.scala=otherpackage.EntityOtherPackageSpec<<org.scalatest.Suite
+#Thu Feb 17 19:45:39 BRST 2011
+src/test/scala/br/com/gfuture/mongodbhelper/SubEntitySpec.scala=br.com.gfuture.mongodbhelper.SubEntitySpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=br.com.gfuture.mongodbhelper.EntitySpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=br.com.gfuture.mongodbhelper.QuerySpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala=br.com.gfuture.mongodbhelper.converter.ObjectConverterSpec<<org.scalatest.Suite
