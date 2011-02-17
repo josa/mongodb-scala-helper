@@ -1,5 +1,5 @@
 #Source Hashes
-#Thu Feb 17 18:36:15 BRST 2011
+#Thu Feb 17 18:50:22 BRST 2011
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=2f9fe0cf5fac94d4a8be13b6c405c0c070e78f0f
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=5baba661c2c481b78abfe2b9487e4f841afcb50e
 src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackage.scala=dd25849b0aa9e3b16b419b8f8dd616231964a877

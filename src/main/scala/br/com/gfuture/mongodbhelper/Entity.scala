@@ -8,7 +8,7 @@ import mongodb.MongoProvider
 
 trait Entity {
 
-  protected var _id: org.bson.types.ObjectId = null
+  var _id: org.bson.types.ObjectId = null
 
   protected val transientFields = scala.collection.mutable.Set.empty[String]
 
