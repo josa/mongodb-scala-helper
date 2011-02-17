@@ -1,3 +1,0 @@
-digraph dependencies {
-"br.com.gfuture.mongodbhelper" -> "br.com.gfuture.mongodbhelper.mongodb"
-}

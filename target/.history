@@ -50,3 +50,12 @@ deliver
 release
 test
 update
+increment-version 
+release
+package
+increment-version 
+clean
+increment-version 
+release
+increment-version 
+release

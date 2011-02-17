@@ -1,8 +1,8 @@
 #Source Dependencies
-#Thu Feb 17 18:29:23 BRST 2011
+#Thu Feb 17 18:36:15 BRST 2011
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=
-src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackage.scala=src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackageSpec.scala
+src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackage.scala=src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackageSpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala=
 src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=
 src/test/scala/br/com/gfuture/mongodbhelper/otherpackage/EntityOtherPackageSpec.scala=
