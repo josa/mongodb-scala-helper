@@ -21,10 +21,6 @@ trait Entity {
 
   def getTransientFields = this.transientFields
 
-  override def equals(that: Any) = that match {
-    case _ => throw new RuntimeException(getClass.getName + ", é obrigatório implementar o método equals")
-  }
-
 }
 
 object Entity {

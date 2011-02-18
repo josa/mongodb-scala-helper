@@ -1,10 +1,10 @@
 #Source Dependencies
-#Fri Feb 18 18:38:32 BRST 2011
+#Fri Feb 18 20:10:21 BRST 2011
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala=
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=
-src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=
-src/test/scala/br/com/gfuture/mongodbhelper/util/EntityTest.scala=src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala\:src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala
+src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala
+src/test/scala/br/com/gfuture/mongodbhelper/util/EntityTest.scala=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala
 src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=
