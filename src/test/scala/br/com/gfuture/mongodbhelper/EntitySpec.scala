@@ -3,121 +3,53 @@ package br.com.gfuture.mongodbhelper
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
 import com.mongodb.casbah.commons.MongoDBObject
+import org.bson.types.ObjectId
 import com.mongodb.DBObject
+import java.lang.reflect.Field
+import util.{EntityTest, SubClass1}
 
 class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
-  var entity: EntityTest = null
   var dbObject: DBObject = null
 
-  override def beforeEach() {
-    entity = new EntityTest
-
-    val builder = MongoDBObject.newBuilder
-    builder += "_id" -> org.bson.types.ObjectId.get
-    builder += "title" -> "Título"
-    dbObject = builder.result
-
-  }
-
-  override def afterEach() {
-    entity.delete
+  override def beforeEach {
+    dbObject = MongoDBObject("_id" -> org.bson.types.ObjectId.get, "title" -> "Título")
   }
 
   describe("Entity") {
 
-    describe("create") {
+    it("deveria salvar um dbObject no mongo") {
+      val mongoId: ObjectId = Entity.save(dbObject, "abacate")
+      mongoId should not equal (null)
+    }
 
-      it("should create instanceof EntityTest") {
-        val entity: EntityTest = Entity.create(dbObject, classOf[EntityTest])
-        entity.title should equal(dbObject.get("title"))
-        entity.getObjectId should equal(dbObject.get("_id"))
-      }
+    it("deveria retornar o field _id da classe SubClass1") {
+      val subClass1 = new SubClass1()
+      val field: Field = Entity.findField("_id", subClass1.getClass)
+      field should not equal (null)
+    }
 
-      it("should not load transient fields") {
-        val entity: EntityTest = Entity.create(dbObject, classOf[EntityTest])
-        entity.transient should equal(null)
-      }
+    it("deveria lançar exceção caso pesquise por um field que não exista") {
+      val subClass1 = new SubClass1()
+      evaluating {
+        Entity.findField("abacateazul", subClass1.getClass)
+      } should produce[RuntimeException]
+    }
+
+    describe("equals"){
+
+        it("deveria testar dois objetos"){
+          val object1 = new EntityTest()
+          object1._id =  org.bson.types.ObjectId.get
+          val object2 = new EntityTest()
+          object2._id =  object1._id
+          object1.equals(object2) should equal(true)
+        }
 
     }
 
-    describe("to DBObject") {
-
-      it("should load title") {
-        entity.title = "My Title"
-        val dbObject = entity.toMongoObject
-        dbObject.get("title") should equal("My Title")
-      }
-
-      it("should load description") {
-        entity.description = "My Description"
-        val dbObject = entity.toMongoObject
-        dbObject.get("description") should equal("My Description")
-      }
-
-      it("should not load transient field") {
-        entity.transient = "value of transient"
-        val dbObject = entity.toMongoObject
-        dbObject.get("transient") should equal(null)
-      }
-
-    }
-
-    describe("persistence") {
-
-      describe("save") {
-
-        it("should save entity") {
-          entity.title = "My Title"
-          entity.save
-          entity.getObjectId should not equal (null)
-        }
-
-        it("should update entity") {
-          entity.title = "Titulo Original"
-          entity.save
-          val objectId01 = entity.getObjectId
-          entity.title = "Titulo Alterado"
-          entity.save
-          entity.getObjectId should equal(objectId01)
-        }
-
-      }
-
-      describe("delete") {
-
-        it("should delete entity") {
-          //when
-          entity.title = "entity del"
-          entity.save
-
-          //given
-          entity.delete
-
-          //then
-          val query = new Query[EntityTest](classOf[EntityTest]);
-          val entityResult: EntityTest = query.findById(entity.getObjectId)
-          entityResult should equal(null)
-        }
-
-        it("should delete entity by objectId") {
-          //when
-          entity.title = "entity del"
-          entity.save
-
-          //given
-          Entity.delete(entity.getObjectId, classOf[EntityTest])
-
-          //then
-          val query = new Query[EntityTest](classOf[EntityTest]);
-          val entityResult: EntityTest = query.findById(entity.getObjectId)
-          entityResult should equal(null)
-        }
-
-      }
-
-    }
 
   }
 
 }
+

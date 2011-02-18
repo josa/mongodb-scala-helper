@@ -1,9 +1,10 @@
 #Source Hashes
-#Thu Feb 17 19:45:39 BRST 2011
-src/test/scala/br/com/gfuture/mongodbhelper/SubEntitySpec.scala=b235c424c6fef0d2e30feba4caefd511e01f5254
-src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=907674bf7ad3dd579521738fe631b3e60db62a49
-src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=5baba661c2c481b78abfe2b9487e4f841afcb50e
-src/test/scala/br/com/gfuture/mongodbhelper/converter/ObjectConverterSpec.scala=65494b9acd072f58d939a0d3041abb5c19da2b36
-src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=1810b811bd63fcbf165fbbbd5a7832e89fd143c4
-src/test/scala/br/com/gfuture/mongodbhelper/SubEntity.scala=751b31e802adb957d34405f7db27603ba6fab465
-src/test/scala/br/com/gfuture/mongodbhelper/EntityTest.scala=699fd60adc157a64c4468e0dd72e2eb2e012fcfb
+#Fri Feb 18 18:38:25 BRST 2011
+src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala=a9fbcb5d7700b874f2fac2fbd62fd30f19923bcd
+src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala=f522934b8f54a83affe07b3c5d3dabad5263f46a
+src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=ae4a78d444b1a676758ac7436c3bb6e365695312
+src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala=ed2ac91f06aa69ee670f3c9350ba67d62058fefd
+src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=b15a5f4bca80c71b51426a7e3dd56fe469c50c0c
+src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala=632040e34cf4143abe905b46034bfebd3e67b458
+src/test/scala/br/com/gfuture/mongodbhelper/util/EntityTest.scala=16f6bed6f23d2fe3caed79cb7f5e83df4443ab26
+src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=86e21834f6e7e77c9d7663341bf0ea5f74e932a5

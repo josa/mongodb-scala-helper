@@ -1,5 +1,7 @@
 #External Dependencies
-#Thu Feb 17 19:44:07 BRST 2011
+#Fri Feb 18 17:22:52 BRST 2011
+/home/josa/Working/josa/mongodb-scala-helper/project/plugins/target/scala_2.7.7/plugin-classes/reaktor/scct/ScctProject.class=MongodbScalaHelper.scala
 /home/josa/Working/josa/mongodb-scala-helper/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.4/ivy_2.7.7-0.7.4.jar=MongodbScalaHelper.scala
 /home/josa/Working/josa/mongodb-scala-helper/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.4/sbt_2.7.7-0.7.4.jar=MongodbScalaHelper.scala
 /home/josa/Working/josa/mongodb-scala-helper/project/boot/scala-2.7.7/lib/scala-library.jar=MongodbScalaHelper.scala
+/home/josa/Working/josa/mongodb-scala-helper/project/plugins/target/scala_2.7.7/plugin-classes/reaktor/scct/ScctProject$class.class=MongodbScalaHelper.scala

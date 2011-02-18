@@ -1,4 +1,6 @@
-package br.com.gfuture.mongodbhelper
+package br.com.gfuture.mongodbhelper.util
+
+import br.com.gfuture.mongodbhelper.Entity
 
 class EntityTest extends Entity {
 

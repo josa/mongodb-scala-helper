@@ -62,3 +62,24 @@ release
 increment-version 
 release
 test
+test-only br.com.gfuture.mongodbhelper.EntitySpec 
+test
+test-only br.com.gfuture.mongodbhelper.EntitySpec -unchecked 
+test-only br.com.gfuture.mongodbhelper.EntitySpec
+test
+test-only br.com.gfuture.mongodbhelper.EntitySpec
+test
+test-only br.com.gfuture.mongodbhelper.EntitySpec 
+test
+test-only br.com.gfuture.mongodbhelper.QuerySpec 
+test-only br.com.gfuture.mongodbhelper.mongodb.MongoProviderSpec 
+update
+test-only br.com.gfuture.mongodbhelper.mongodb.MongoProviderSpec 
+update
+test-coverage
+test-only br.com.gfuture.mongodbhelper.EntitySpec 
+test-coverage
+test-only br.com.gfuture.mongodbhelper.EntitySpec 
+test-coverage
+test-only br.com.gfuture.mongodbhelper.EntitySpec 
+test-coverage

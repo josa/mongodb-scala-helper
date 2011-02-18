@@ -5,6 +5,7 @@ import com.mongodb.{DBCollection, DBObject}
 
 import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
+import org.bson.types.ObjectId
 
 trait Entity {
 
@@ -13,10 +14,6 @@ trait Entity {
   protected val transientFields = scala.collection.mutable.Set.empty[String]
 
   def getObjectId: org.bson.types.ObjectId = this._id
-
-  def toUniqueMongoObject = Entity.toMongoObject(_id)
-
-  def toMongoObject = Entity.toMongoObject(this)
 
   def save = Entity.save(this)
 
@@ -41,8 +38,7 @@ object Entity {
   def create[T <: Entity](dbObject: DBObject, entityClass: Class[T]): T = dbObject match {
     case dbObjectMatch: Any =>
       val entity: T = entityClass.newInstance
-      val arrayOfFields: Array[Field] = entityClass.getDeclaredFields
-      entityClass.getDeclaredFields.foreach {
+      loadFieldsRecursively(entityClass).foreach {
         field =>
           Entity.validatePersistenteField(entity, field) match {
             case true =>
@@ -56,18 +52,18 @@ object Entity {
       null.asInstanceOf[T]
   }
 
-  /**
-   * Salva a entidade no mongodb
-   *
-   * @param entity, a entidade a ser salva
-   *
-   */
   def save[T <: Entity](entity: T) {
-    val dbObject = toMongoObject(entity)
-    mongoCollection(entity).save(dbObject)
-    val objectIdField: Field = entity.getClass.getDeclaredField("_id")
-    objectIdField.setAccessible(true)
-    objectIdField.set(entity, dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId])
+    entity._id = save(toMongoObject(entity), entity.getClass.getSimpleName.toLowerCase)
+  }
+
+  /**Salva o dbObject no mongodb
+   *
+   * @param o dbObject
+   */
+  def save[T <: Entity](dbObject: DBObject, collectionName: String): ObjectId = {
+    val bCollection: DBCollection = MongoProvider.getCollection(collectionName)
+    bCollection.save(dbObject)
+    dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId]
   }
 
   /**
@@ -77,7 +73,7 @@ object Entity {
    * @return voids
    */
   def delete[T <: Entity](entity: T) {
-    mongoCollection(entity).remove(entity.toUniqueMongoObject)
+    delete(entity._id, entity.getClass.getSimpleName.toLowerCase)
   }
 
   /**
@@ -86,8 +82,8 @@ object Entity {
    * @param o objectId, identificador único do documento
    * @return void
    */
-  def delete[T <: Entity](objectId: org.bson.types.ObjectId, entityClass: Class[T]) {
-    mongoCollection(entityClass).remove(toMongoObject(objectId))
+  def delete(objectId: org.bson.types.ObjectId, collectionName: String) {
+    MongoProvider.getCollection(collectionName).remove(toMongoObject(objectId))
   }
 
   /**
@@ -100,8 +96,7 @@ object Entity {
     MongoDBObject("_id" -> objectId)
   }
 
-  /**
-   * Converte o objeto em um objeto de persistencia do mongo
+  /**Converte o objeto em um objeto de persistencia do mongo
    *
    * @param entity, a entidade a ser convertida
    * @return uma instancia da classe com.mongodb.DBObject
@@ -109,7 +104,7 @@ object Entity {
   def toMongoObject[T <: Entity](entity: T): DBObject = {
     val builder = MongoDBObject.newBuilder
     builder += "_id" -> entity.getObjectId
-    entity.getClass.getDeclaredFields.foreach {
+    loadFieldsRecursively(entity.getClass).foreach {
       field =>
         Entity.validatePersistenteField(entity, field) match {
           case true =>
@@ -121,6 +116,51 @@ object Entity {
     builder.result
   }
 
+  /**Pesquisa um field da classe e superclasses reculsirvamente
+   *
+   * @param o nome do field
+   * @param a classe da entidade
+   *
+   */
+  def findField[T](name: String, entityClass: Class[T]): Field = {
+    try {
+      entityClass.getDeclaredField(name)
+    } catch {
+      case e: java.lang.NoSuchFieldException =>
+        entityClass.getSuperclass match {
+          case x: Class[T] =>
+            findField(name, entityClass.getSuperclass)
+          case _ =>
+            throw new RuntimeException("field not found: " + entityClass.getName + "[" + name + "]")
+        }
+
+    }
+  }
+
+  /**Carrega os fields da classe e superclasses recusivamente
+   *
+   * @param a classe
+   *
+   */
+  def loadFieldsRecursively[T](entityClass: Class[T]): List[Field] = {
+    loadFieldsRecursively(entityClass, List.empty[Field])
+  }
+
+  /**Carrega os fields da classe e superclasses recusivamente
+   *
+   * @param a classe
+   * @param a lista de fields
+   *
+   */
+  def loadFieldsRecursively[T](entityClass: Class[T], fieldList: List[Field]): List[Field] = {
+    entityClass match {
+      case c: Class[T] =>
+        loadFieldsRecursively(entityClass.getSuperclass, fieldList union c.getDeclaredFields.toList)
+      case _ =>
+        fieldList
+    }
+  }
+
   /**
    * Valida os fields persistentes
    *
@@ -130,22 +170,6 @@ object Entity {
    */
   def validatePersistenteField[T <: Entity](entity: T, field: Field): Boolean = {
     !entity.getTransientFields.contains(field.getName) && !field.getName.equals("transientFields")
-  }
-
-  /**
-   * retorna a coleção da entidade
-   *
-   * @param entity, a entidade base
-   */
-  def mongoCollection[T <: Entity](entity: T): DBCollection = {
-    MongoProvider.getCollection(entity.getClass.getSimpleName.toLowerCase)
-  }
-
-  /**
-   * Retorna a coleção da classe
-    */
-  def mongoCollection[T <: Entity](entityClass: Class[T]): DBCollection = {
-    MongoProvider.getCollection(entityClass.getSimpleName.toLowerCase)
   }
 
 }

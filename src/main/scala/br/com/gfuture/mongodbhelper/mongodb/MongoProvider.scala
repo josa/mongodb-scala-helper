@@ -13,10 +13,26 @@ import com.mongodb.casbah.MongoConnection
  */
 object MongoProvider {
 
+  //TODO remover isso para um arquivo de property
   val connection = MongoConnection("localhost", 27017)
 
-  def getCollection(name: String): DBCollection = {
-    connection.getDB("openclesia").getCollection(name)
-  }
+  /**Gera um nome para a coleção do mongo
+   *
+   * @param a tipo esperado
+   */
+  def generateCollectionName[T](classType: Class[T]) = classType.getSimpleName.toLowerCase
+
+  /**Carrega a coleção do mongo para operaçoes diversas
+   *
+   * @param a entidade
+   */
+  def getCollection[T](classType: Class[T]): DBCollection =
+    connection.getDB("openclesia").getCollection(generateCollectionName(classType))
+
+  /**Carrega a coleção do mongo para operaçoes diversas
+   *
+   * @param o nome da coleção
+   */
+  def getCollection(name: String): DBCollection = connection.getDB("openclesia").getCollection(name)
 
 }

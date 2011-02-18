@@ -2,6 +2,7 @@ package br.com.gfuture.mongodbhelper
 
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
+import util.EntityTest
 
 class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 

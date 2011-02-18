@@ -2,7 +2,7 @@ package br.com.gfuture.mongodbhelper
 
 import mongodb.MongoProvider
 import com.mongodb.casbah.commons.MongoDBObject
-import com.mongodb.{DBObject}
+import com.mongodb.{DBCollection, DBObject}
 
 /**
  * Implementa uma interface de consultas ao mongo mais amigável
@@ -21,7 +21,8 @@ class Query[T <: Entity](val entityType: Class[T]) {
    */
   def findById(_id: org.bson.types.ObjectId): T = {
     val query = MongoDBObject("_id" -> _id)
-    val dbObjectResult: DBObject = Entity.mongoCollection(entityType).findOne(query)
+    val collection: DBCollection = MongoProvider.getCollection(entityType.getSimpleName.toLowerCase)
+    val dbObjectResult: DBObject = collection.findOne(query)
     Entity.create(dbObjectResult, entityType)
   }
 
