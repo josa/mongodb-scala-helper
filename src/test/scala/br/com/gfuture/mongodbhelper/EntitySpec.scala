@@ -102,4 +102,3 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
   }
 
 }
-

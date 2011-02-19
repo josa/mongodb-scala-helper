@@ -87,3 +87,4 @@ test-coverage-compile
 test-coverage
 test
 test-only br.com.gfuture.mongodbhelper.EntitySpec 
+test-only br.com.gfuture.mongodbhelper.QuerySpec 
