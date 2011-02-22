@@ -90,3 +90,4 @@ test-only br.com.gfuture.mongodbhelper.EntitySpec
 test-only br.com.gfuture.mongodbhelper.QuerySpec 
 update
 test
+release
