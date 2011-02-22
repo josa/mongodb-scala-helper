@@ -1,5 +1,5 @@
 #Generated Classes
-#Sat Feb 19 22:11:49 BRST 2011
+#Tue Feb 22 18:16:49 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Query.class
-src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.class
-src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$class.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$create$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$toMongoObject$1.class
+src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider$.class
+src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$toMongoObject$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$class.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$create$1.class

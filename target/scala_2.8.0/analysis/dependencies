@@ -1,5 +1,5 @@
 #Source Dependencies
-#Sat Feb 19 22:11:49 BRST 2011
+#Tue Feb 22 18:16:49 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=
-src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
+src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/Query.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala
 src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=src/main/scala/br/com/gfuture/mongodbhelper/Query.scala

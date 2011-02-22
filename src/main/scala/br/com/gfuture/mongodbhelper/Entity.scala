@@ -11,7 +11,7 @@ trait Entity {
 
   var _id: org.bson.types.ObjectId = null
 
-  protected val transientFields = scala.collection.mutable.Set.empty[String]
+  private val transientFields = scala.collection.mutable.Set.empty[String]
 
   def getObjectId: org.bson.types.ObjectId = this._id
 
@@ -36,7 +36,7 @@ object Entity {
       val entity: T = entityClass.newInstance
       loadFieldsRecursively(entityClass).foreach {
         field =>
-          Entity.validatePersistenteField(entity, field) match {
+          Entity.validatePersistenteField(entity, field.getName) match {
             case true =>
               field.setAccessible(true)
               field.set(entity, dbObjectMatch.get(field.getName))
@@ -102,7 +102,7 @@ object Entity {
     builder += "_id" -> entity.getObjectId
     loadFieldsRecursively(entity.getClass).foreach {
       field =>
-        Entity.validatePersistenteField(entity, field) match {
+        Entity.validatePersistenteField(entity, field.getName) match {
           case true =>
             field.setAccessible(true)
             builder += field.getName -> field.get(entity)
@@ -164,8 +164,17 @@ object Entity {
    * @param o field a ser validado
    * @return true caso o field atenda os critérios para serem persistidos
    */
-  def validatePersistenteField[T <: Entity](entity: T, field: Field): Boolean = {
-    !entity.getTransientFields.contains(field.getName) && !field.getName.equals("transientFields")
+  def validatePersistenteField[T <: Entity](entity: T, fieldName: String): Boolean = {
+    !entity.getTransientFields.contains(fieldName) && {
+      fieldName match {
+        case "transientFields" =>
+          false
+        case "br$com$gfuture$mongodbhelper$Entity$$transientFields" =>
+          false
+        case _ =>
+          true
+      }
+    }
   }
 
 }

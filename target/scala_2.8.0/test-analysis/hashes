@@ -1,10 +1,10 @@
 #Source Hashes
-#Sat Feb 19 22:12:02 BRST 2011
+#Tue Feb 22 18:16:52 BRT 2011
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala=a9fbcb5d7700b874f2fac2fbd62fd30f19923bcd
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala=f522934b8f54a83affe07b3c5d3dabad5263f46a
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=cc229ee430aeffb093d583a6905a9b3e5b4001e3
-src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=070850c3107dbb3693d42b062cf4b010f97c12a8
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala=ed2ac91f06aa69ee670f3c9350ba67d62058fefd
-src/test/scala/br/com/gfuture/mongodbhelper/util/EntityTest.scala=16f6bed6f23d2fe3caed79cb7f5e83df4443ab26
+src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=070850c3107dbb3693d42b062cf4b010f97c12a8
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala=632040e34cf4143abe905b46034bfebd3e67b458
+src/test/scala/br/com/gfuture/mongodbhelper/util/EntityTest.scala=70bb4de689e6f4200a0ea437fcf9ec8c94fde6b0
 src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=86e21834f6e7e77c9d7663341bf0ea5f74e932a5

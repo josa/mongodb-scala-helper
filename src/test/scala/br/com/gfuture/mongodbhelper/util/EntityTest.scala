@@ -1,6 +1,7 @@
 package br.com.gfuture.mongodbhelper.util
 
 import br.com.gfuture.mongodbhelper.Entity
+import collection.mutable.Set
 
 class EntityTest extends Entity {
 
@@ -8,7 +9,9 @@ class EntityTest extends Entity {
   var description: String = null
   var transient: String = null
 
-  transientFields += "transient"
+  override def getTransientFields:Set[String] ={
+    super.getTransientFields += "transient"
+  }
 
   override def equals(that: Any) = that match {
     case other: EntityTest => other.getClass == getClass && other.getObjectId.equals(getObjectId)
