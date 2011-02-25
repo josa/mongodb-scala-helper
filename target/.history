@@ -91,3 +91,4 @@ test-only br.com.gfuture.mongodbhelper.QuerySpec
 update
 test
 release
+update
