@@ -164,8 +164,15 @@ object Entity {
    * @param o field a ser validado
    * @return true caso o field atenda os critérios para serem persistidos
    */
-  def validatePersistenteField[T <: Entity](entity: T, field: Field): Boolean = {
-    !entity.getTransientFields.contains(field.getName) && !field.getName.equals("transientFields")
+  def validatePersistenteField[T <: Entity](entity: T, fieldName: String): Boolean = {
+    !entity.getTransientFields.contains(fieldName) && {
+      fieldName match {
+        case "transientFields" =>
+          false
+        case _ =>
+          true
+      }
+    }
   }
 
 }
