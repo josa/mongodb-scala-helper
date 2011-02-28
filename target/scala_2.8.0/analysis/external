@@ -1,7 +1,7 @@
 #External Dependencies
-#Tue Feb 22 18:23:22 BRT 2011
-/home/josa/Working/josa/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/mongo-java-driver-2.4.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala
-/usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala
-/home/josa/Working/josa/mongodb-scala-helper/project/boot/scala-2.8.0/lib/scala-library.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala
-/home/josa/Working/josa/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/casbah-commons_2.8.0-2.0.1.jar=src/main/scala/br/com/gfuture/mongodbhelper/Query.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala
-/home/josa/Working/josa/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/casbah-core_2.8.0-2.0.1.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala
+#Sun Feb 27 22:35:01 BRT 2011
+/home/josa/Working/projects/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/mongo-java-driver-2.4.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
+/home/josa/Working/projects/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/casbah-core_2.8.0-2.0.1.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala
+/usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
+/home/josa/Working/projects/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/casbah-commons_2.8.0-2.0.1.jar=src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
+/home/josa/Working/projects/mongodb-scala-helper/project/boot/scala-2.8.0/lib/scala-library.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
