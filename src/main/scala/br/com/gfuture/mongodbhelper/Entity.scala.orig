@@ -11,25 +11,15 @@ trait Entity {
 
   var _id: org.bson.types.ObjectId = null
 
+  private val transientFields = scala.collection.mutable.Set.empty[String]
+
   def getObjectId: org.bson.types.ObjectId = this._id
 
-  def save = {
-
-    prePersist
-
-    Entity.save(this)
-
-    posPersist
-
-  }
+  def save = Entity.save(this)
 
   def delete = Entity.delete(this)
 
-  def getTransientFields: Set[String]
-
-  def prePersist = {}
-
-  def posPersist = {}
+  def getTransientFields = this.transientFields
 
 }
 

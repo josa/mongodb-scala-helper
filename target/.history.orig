@@ -91,7 +91,11 @@ test-only br.com.gfuture.mongodbhelper.QuerySpec
 update
 test
 release
+<<<<<<< HEAD
 update
+=======
 test
 clean
 release
+[5k5pcnfvd  ld f f ]dk n oorrrr f
+>>>>>>> 890f98d779701b8a7b7c8732ecb1d3673036ef53

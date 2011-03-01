@@ -1,0 +1,10 @@
+#External Dependencies
+<<<<<<< HEAD
+#Tue Feb 22 18:25:40 BRT 2011
+/home/josa/Working/josa/mongodb-scala-helper/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.4/sbt_2.7.7-0.7.4.jar=Plugins.scala
+/home/josa/Working/josa/mongodb-scala-helper/project/boot/scala-2.7.7/lib/scala-library.jar=Plugins.scala
+=======
+#Sun Feb 27 22:34:46 BRT 2011
+/home/josa/Working/projects/mongodb-scala-helper/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.4/sbt_2.7.7-0.7.4.jar=Plugins.scala
+/home/josa/Working/projects/mongodb-scala-helper/project/boot/scala-2.7.7/lib/scala-library.jar=Plugins.scala
+>>>>>>> 890f98d779701b8a7b7c8732ecb1d3673036ef53
