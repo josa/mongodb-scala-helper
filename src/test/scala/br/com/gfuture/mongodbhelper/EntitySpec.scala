@@ -17,7 +17,7 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
   val collectionName: String = "entitspec_test"
 
   override def beforeEach {
-    dbObject = MongoDBObject("_id" -> org.bson.types.ObjectId.get, "title" -> "Título")
+    dbObject = MongoDBObject("title" -> "Título")
   }
 
   override def afterEach {

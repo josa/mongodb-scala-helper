@@ -95,3 +95,5 @@ update
 test
 clean
 release
+test
+release

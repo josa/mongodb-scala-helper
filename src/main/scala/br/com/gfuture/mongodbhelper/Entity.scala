@@ -6,6 +6,7 @@ import com.mongodb.{DBCollection, DBObject}
 import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
 import org.bson.types.ObjectId
+import java.lang.String
 
 trait Entity {
 
@@ -58,8 +59,18 @@ object Entity {
       null.asInstanceOf[T]
   }
 
+  /**Salva a entidade no mongodb
+   *
+   * @param a entidade a ser salva
+   */
   def save[T <: Entity](entity: T) {
-    entity._id = save(toMongoObject(entity), entity.getClass.getSimpleName.toLowerCase)
+    val collectionName: String = MongoProvider.generateCollectionName(entity.getClass)
+    entity._id match {
+      case objectId: ObjectId =>
+        update(toMongoObject(entity.getObjectId), toMongoObject(entity), collectionName)
+      case _ =>
+        entity._id = save(toMongoObject(entity), collectionName)
+    }
   }
 
   /**Salva o dbObject no mongodb
@@ -70,6 +81,16 @@ object Entity {
     val bCollection: DBCollection = MongoProvider.getCollection(collectionName)
     bCollection.save(dbObject)
     dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId]
+  }
+
+  /**Atualiza o dbObject no mongodb
+   *
+   * @param o unique dbObject
+   * @param o dbObject a ser salvo
+   */
+  def update[T <: Entity](uniqueDbObject: DBObject, dbObject: DBObject, collectionName: String) {
+    val collection: DBCollection = MongoProvider.getCollection(collectionName)
+    collection.update(uniqueDbObject, dbObject)
   }
 
   /**
@@ -109,7 +130,11 @@ object Entity {
    */
   def toMongoObject[T <: Entity](entity: T): DBObject = {
     val builder = MongoDBObject.newBuilder
-    builder += "_id" -> entity.getObjectId
+    entity.getObjectId match {
+      case obj: ObjectId =>
+        builder += "_id" -> entity.getObjectId
+      case _ =>
+    }
     loadFieldsRecursively(entity.getClass).foreach {
       field =>
         Entity.validatePersistenteField(entity, field.getName) match {
