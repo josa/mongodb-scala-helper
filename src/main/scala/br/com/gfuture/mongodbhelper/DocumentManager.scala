@@ -17,6 +17,10 @@ class DocumentManager[T <: Entity](val entityType: Class[T]) {
    */
   def createQuery: Query[T] = new Query[T](entityType)
 
+  /**Busca o documento pelo id
+   *
+   * @param o objectId
+   */
   def findById(_id: ObjectId): T = {
     createQuery.addClause("_id", _id).uniqueResult
   }

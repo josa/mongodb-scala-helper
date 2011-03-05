@@ -104,3 +104,5 @@ release
 test
 release
 test
+clean
+release

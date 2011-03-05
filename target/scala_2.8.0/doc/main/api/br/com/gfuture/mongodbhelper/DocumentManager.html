@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>Scaladoc for br.com.gfuture.mongodbhelper.Query</title>
+          <title>Scaladoc for br.com.gfuture.mongodbhelper.DocumentManager</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		      <script type="text/javascript" src="../../../../lib/jquery.js"></script>
           
@@ -17,16 +17,18 @@
 
       <div id="definition">
         <img src="../../../../lib/class_big.png" />
-        <h1>Query</h1>
+        <h1>DocumentManager</h1>
       </div>
 
       <h4 class="signature" id="signature">
       <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">Query</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="result"> extends <a href="log/Logged.html" class="extype" name="br.com.gfuture.mongodbhelper.log.Logged">Logged</a></span>
+        <span class="name">DocumentManager</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="result"> extends AnyRef</span>
       </span>
       </h4>
-      <div class="fullcomment" id="comment"><div class="comment cmt"><p>Interface de consulta no solr</p><p>by Jeosadache Galvão, josa.galvao@gmail.com
+      <div class="fullcomment" id="comment"><div class="comment cmt"><p>Implementa uma interface de consultas ao mongo mais amigável</p><p>User: Jeosadache Galvão, josa.galvao@gmail.com
+Date: 1/25/11
+Time: 5:39 PM
 </p></div>
             
             
@@ -40,7 +42,7 @@
           <div id="ancestors">
                 <span class="filtertype">Inherited</span>
                 <ol><li class="hideall">Hide All</li><li class="showall">Show all</li></ol>
-                <ol id="linearization"><li class="in" name="br.com.gfuture.mongodbhelper.log.Logged">Logged</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+                <ol id="linearization"><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
               </div>
           <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -50,11 +52,11 @@
         
         <div class="members" id="constructors">
               <h3>Instance constructors</h3>
-              <ol><li visbl="pub" name="br.com.gfuture.mongodbhelper.Query#this">
+              <ol><li visbl="pub" name="br.com.gfuture.mongodbhelper.DocumentManager#this">
       <h4 class="signature">
       <span class="kind">new</span>
       <span class="symbol">
-        <span class="name">Query</span><span class="params">(<span name="documentClass">documentClass: <span class="extype" name="java.lang.Class">Class</span>[T]</span>)</span>
+        <span class="name">DocumentManager</span><span class="params">(<span name="entityType">entityType: <span class="extype" name="java.lang.Class">Class</span>[T]</span>)</span>
       </span>
       </h4>
       
@@ -188,24 +190,6 @@
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Query#addClause">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">addClause</span><span class="params">(<span name="field">field: <span class="extype" name="java.lang.String">String</span></span>, <span name="value">value: <span class="extype" name="scala.Any">Any</span></span>)</span><span class="result">: <a href="" class="extype" name="br.com.gfuture.mongodbhelper.Query">Query</a>[T]</span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Adiciona a clausula na query
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Adiciona a clausula na query
-</p></div>
-            
-            
-            
-            
-          </div>
-          
     </li><li visbl="pub" name="scala.Any#asInstanceOf">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -249,24 +233,29 @@ part of compilation it is not possible to check whether the contents of the list
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.log.Logged#debug">
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.DocumentManager#createQuery">
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">debug</span><span class="params">(<span name="message">message: <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">createQuery</span><span class="result">: <a href="Query.html" class="extype" name="br.com.gfuture.mongodbhelper.Query">Query</a>[T]</span>
       </span>
       </h4>
       
+            <p class="shortcomment cmt">Cria a query apartir de uma query string
+</p>
+            <div class="fullcomment"><div class="comment cmt"><p>Cria a query apartir de uma query string
+</p></div>
             
-            <div class="fullcomment"><div class="block">
-          definition classes: <a href="log/Logged.html" class="extype" name="br.com.gfuture.mongodbhelper.log.Logged">Logged</a>
-        </div></div>
+            
+            
+            
+          </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Query#documentClass">
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.DocumentManager#entityType">
       <h4 class="signature">
       <span class="kind">val</span>
       <span class="symbol">
-        <span class="name">documentClass</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[T]</span>
+        <span class="name">entityType</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[T]</span>
       </span>
       </h4>
       
@@ -333,32 +322,6 @@ scala.Int
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.log.Logged#error">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">error</span><span class="params">(<span name="message">message: <span class="extype" name="scala.Unit">Unit</span></span>, <span name="throwable">throwable: <span class="extype" name="java.lang.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: <a href="log/Logged.html" class="extype" name="br.com.gfuture.mongodbhelper.log.Logged">Logged</a>
-        </div></div>
-          
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.log.Logged#error">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">error</span><span class="params">(<span name="throwable">throwable: <span class="extype" name="java.lang.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: <a href="log/Logged.html" class="extype" name="br.com.gfuture.mongodbhelper.log.Logged">Logged</a>
-        </div></div>
-          
     </li><li visbl="prt" name="scala.AnyRef#finalize">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -381,6 +344,14 @@ there are no more references to the object.</p><p>The details of when and if the
             
           </div>
           
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.DocumentManager#findById">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">findById</span><span class="params">(<span name="_id">_id: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>)</span><span class="result">: T</span>
+      </span>
+      </h4>
+      
     </li><li visbl="pub" name="scala.AnyRef#getClass">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -425,19 +396,6 @@ to verify that the behavior is consistent with the <code>equals</code> method.
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.log.Logged#info">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">info</span><span class="params">(<span name="message">message: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          definition classes: <a href="log/Logged.html" class="extype" name="br.com.gfuture.mongodbhelper.log.Logged">Logged</a>
-        </div></div>
-          
     </li><li visbl="pub" name="scala.Any#isInstanceOf">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -460,21 +418,6 @@ possible to check whether the contents of the list are of the requested typed.
             
             
           </div>
-          
-    </li><li visbl="prt" name="br.com.gfuture.mongodbhelper.log.Logged#logger">
-      <h4 class="signature">
-      <span class="kind">lazy val</span>
-      <span class="symbol">
-        <span class="name">logger</span><span class="result">: <span class="extype" name="org.slf4j.Logger">Logger</span></span>
-      </span>
-      </h4>
-      
-            
-            <div class="fullcomment"><div class="block">
-          attributes: protected 
-        </div><div class="block">
-          definition classes: <a href="log/Logged.html" class="extype" name="br.com.gfuture.mongodbhelper.log.Logged">Logged</a>
-        </div></div>
           
     </li><li visbl="pub" name="scala.AnyRef#ne">
       <h4 class="signature">
@@ -537,32 +480,6 @@ possible to check whether the contents of the list are of the requested typed.
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Query#queryBuilder">
-      <h4 class="signature">
-      <span class="kind">val</span>
-      <span class="symbol">
-        <span class="name">queryBuilder</span><span class="result">: <span class="extype" name="com.mongodb.casbah.commons.MongoDBObjectBuilder">MongoDBObjectBuilder</span></span>
-      </span>
-      </h4>
-      
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Query#resultList">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">resultList</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[T]</span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Retorna a lista de resultados
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Retorna a lista de resultados
-</p></div>
-            
-            
-            
-            
-          </div>
-          
     </li><li visbl="pub" name="scala.AnyRef#synchronized">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -591,24 +508,6 @@ possible to check whether the contents of the list are of the requested typed.
 </p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object.</p></dd></dl><div class="block">
           definition classes: AnyRef → Any
         </div>
-            
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Query#uniqueResult">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">uniqueResult</span><span class="result">: T</span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Retorna um resultado para a busca
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Retorna um resultado para a busca
-</p></div>
             
             
             
