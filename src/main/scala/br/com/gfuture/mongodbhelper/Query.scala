@@ -1,9 +1,9 @@
 package br.com.gfuture.mongodbhelper
 
-import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
-import com.mongodb.{DBCursor, DBObject, DBCollection}
+import com.mongodb.{DBCursor, DBCollection}
 import collection.mutable.Builder
+import com.mongodb.casbah.commons.{Imports, MongoDBObject}
 
 /**
  * Interface de consulta no solr
@@ -19,6 +19,9 @@ class Query[T <: Entity](val documentClass: Class[T]) extends log.Logged {
   def resultList: List[T] = {
     val listBuilder: Builder[T, List[T]] = List.newBuilder[T]
     val cursor: DBCursor = collection.find(queryBuilder.result)
+    debug({
+      "query for %s, %s, %s itens encontrados" format (documentClass.getSimpleName, cursor.getQuery.toString, cursor.size)
+    })
     while (cursor.hasNext) listBuilder += Entity.create(cursor.next, documentClass)
     listBuilder.result
   }
@@ -26,8 +29,11 @@ class Query[T <: Entity](val documentClass: Class[T]) extends log.Logged {
   /**Retorna um resultado para a busca
    */
   def uniqueResult: T = {
-    val dbObjectResult: DBObject = collection.findOne(queryBuilder.result)
-    Entity.create(dbObjectResult, documentClass)
+    val dbObject: Imports.DBObject = queryBuilder.result
+    debug({
+      "find unique result, query = " + dbObject.toString
+    })
+    Entity.create(collection.findOne(dbObject), documentClass)
   }
 
   /**Adiciona a clausula na query

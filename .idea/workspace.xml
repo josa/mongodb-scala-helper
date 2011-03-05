@@ -71,7 +71,7 @@
       <file leaf-file-name="Query.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Query.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="41" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.58715594">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -671,13 +671,6 @@
         <state line="5" column="28" selection-start="145" selection-end="145" vertical-scroll-proportion="0.11078287" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib_managed/scala_2.8.0/compile/mongo-java-driver-2.4.jar!/com/mongodb/DBCollection.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="22" selection-start="158" selection-end="158" vertical-scroll-proportion="0.15592515">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="8" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0">
@@ -748,9 +741,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/lib_managed/scala_2.8.0/compile/mongo-java-driver-2.4.jar!/com/mongodb/DBCollection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="38" selection-start="5557" selection-end="5557" vertical-scroll-proportion="0.34911242">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Query.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="41" selection-start="1060" selection-end="1060" vertical-scroll-proportion="0.58715594">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
