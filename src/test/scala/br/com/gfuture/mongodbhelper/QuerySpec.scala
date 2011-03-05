@@ -41,44 +41,44 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     entityNivel1.delete
   }
 
-  describe("Query") {
+  describe("DocumentManager") {
 
     describe("findById") {
 
       it("deveria buscar pelo id") {
-        val query = new Query[EntityTest](classOf[EntityTest]);
-        val entityFind = query.findById(entity.getObjectId)
+        val DocumentManager = new DocumentManager[EntityTest](classOf[EntityTest]);
+        val entityFind = DocumentManager.findById(entity.getObjectId)
         entityFind should equal(entity)
       }
 
       it("deveria retornar nulo para id inexistente") {
-        val query = new Query[EntityTest](classOf[EntityTest]);
+        val query = new DocumentManager[EntityTest](classOf[EntityTest]);
         val entityFind = query.findById(org.bson.types.ObjectId.get)
         entityFind should equal(null)
       }
 
       //TODO testar subclasses
       it("deveria consultar subclasse nivel 1") {
-        val query = new Query[SubClass1](classOf[SubClass1]);
+        val query = new DocumentManager[SubClass1](classOf[SubClass1]);
         val entityFind = query.findById(entityNivel1.getObjectId)
         entityFind should equal(entityNivel1)
       }
 
       it("deveria consultar subclasse nivel 2") {
-        val query = new Query[SubClass2](classOf[SubClass2]);
+        val query = new DocumentManager[SubClass2](classOf[SubClass2]);
         val entityFind = query.findById(entityNivel2.getObjectId)
         entityFind should equal(entityNivel2)
       }
 
       it("deveria consultar subclasse nivel 3") {
-        val query = new Query[SubClass3](classOf[SubClass3]);
+        val query = new DocumentManager[SubClass3](classOf[SubClass3]);
         val entityFind = query.findById(entityNivel3.getObjectId)
         entityFind should equal(entityNivel3)
       }
 
 
       it("deveria consultar subclasse nivel 4") {
-        val query = new Query[SubClass4](classOf[SubClass4]);
+        val query = new DocumentManager[SubClass4](classOf[SubClass4]);
         val entityFind = query.findById(entityNivel4.getObjectId)
         entityFind should equal(entityNivel4)
       }
@@ -86,7 +86,7 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     }
 
     describe("dinamic find"){
-      val query = new Query[EntityTest](classOf[EntityTest]);
+      val query = new DocumentManager[EntityTest](classOf[EntityTest]);
       // val entityFind = query.findyByUniqueField("title", "Entidade para pesquisa");
       //entityFind should equal(entity)
     }

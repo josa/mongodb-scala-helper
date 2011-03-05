@@ -1,29 +1,47 @@
 package br.com.gfuture.mongodbhelper
 
-import mongodb.MongoProvider
 import com.mongodb.casbah.commons.MongoDBObject
-import com.mongodb.{DBCollection, DBObject}
+import mongodb.MongoProvider
+import com.mongodb.{DBCursor, DBObject, DBCollection}
+import collection.mutable.Builder
 
 /**
- * Implementa uma interface de consultas ao mongo mais amigável
- *
- * User: Jeosadache Galvão, josa.galvao@gmail.com
- * Date: 1/25/11
- * Time: 5:39 PM
- */
-class Query[T <: Entity](val entityType: Class[T]) {
+ * Interface de consulta no solr
 
-  /**
-   * Busca o objeto pelo seu _id, refere-se ao _id do mongodb
-   *
-   * @param _id, o _id do mongo
-   * @return uma implementação do trait Entity
+ * by Jeosadache Galvão, josa.galvao@gmail.com
+ */
+class Query[T <: Entity](val documentClass: Class[T]) extends log.Logged {
+
+  val queryBuilder = MongoDBObject.newBuilder
+
+  /**Retorna a lista de resultados
    */
-  def findById(_id: org.bson.types.ObjectId): T = {
-    val query = MongoDBObject("_id" -> _id)
-    val collection: DBCollection = MongoProvider.getCollection(entityType.getSimpleName.toLowerCase)
-    val dbObjectResult: DBObject = collection.findOne(query)
-    Entity.create(dbObjectResult, entityType)
+  def resultList: List[T] = {
+    val listBuilder: Builder[T, List[T]] = List.newBuilder[T]
+    val cursor: DBCursor = collection.find(queryBuilder.result)
+    while (cursor.hasNext) listBuilder += Entity.create(cursor.next, documentClass)
+    listBuilder.result
   }
+
+  /**Retorna um resultado para a busca
+   */
+  def uniqueResult: T = {
+    val dbObjectResult: DBObject = collection.findOne(queryBuilder.result)
+    Entity.create(dbObjectResult, documentClass)
+  }
+
+  /**Adiciona a clausula na query
+   *
+   * @param o field
+   * @param o valor do field
+   */
+  def addClause(field: String, value: Any): Query[T] = {
+    queryBuilder += field -> value
+    this
+  }
+
+  /**Recupera a coleção do documento
+   */
+  private def collection: DBCollection = MongoProvider.getCollection(documentClass)
 
 }
