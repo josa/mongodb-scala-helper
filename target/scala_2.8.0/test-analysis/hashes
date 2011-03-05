@@ -1,5 +1,5 @@
 #Source Hashes
-#Fri Mar 04 23:17:32 BRT 2011
+#Sat Mar 05 00:07:27 BRT 2011
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala=a9fbcb5d7700b874f2fac2fbd62fd30f19923bcd
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala=f522934b8f54a83affe07b3c5d3dabad5263f46a
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=65f61bc24275b17c4dfb241f501d2688efa652be

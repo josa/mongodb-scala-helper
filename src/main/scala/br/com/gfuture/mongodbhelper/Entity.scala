@@ -90,7 +90,7 @@ object Entity {
    */
   def update[T <: Entity](uniqueDbObject: DBObject, dbObject: DBObject, collectionName: String) {
     val collection: DBCollection = MongoProvider.getCollection(collectionName)
-    collection.update(uniqueDbObject, dbObject)
+    println(collection.update(uniqueDbObject, dbObject))
   }
 
   /**

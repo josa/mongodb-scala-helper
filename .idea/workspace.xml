@@ -62,7 +62,7 @@
       <file leaf-file-name="Entity.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="34" selection-start="1342" selection-end="1342" vertical-scroll-proportion="0.22242647">
+            <state line="81" column="30" selection-start="1969" selection-end="1969" vertical-scroll-proportion="0.4522059">
               <folding />
             </state>
           </provider>
@@ -71,7 +71,7 @@
       <file leaf-file-name="MongoProvider.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="6" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0">
+            <state line="15" column="8" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,7 +107,6 @@
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Query.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala" />
         <option value="$PROJECT_DIR$/project/plugins/Plugins.scala" />
         <option value="$PROJECT_DIR$/project/build/MongodbScalaHelper.scala" />
@@ -115,6 +114,7 @@
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/util/EntityTest.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala" />
       </list>
     </option>
@@ -236,6 +236,48 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodbhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb-scala-helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb-scala-helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodbhelper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Entity.scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -616,14 +658,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="6" selection-start="877" selection-end="877" vertical-scroll-proportion="0.0">
+        <state line="15" column="8" selection-start="268" selection-end="268" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="34" selection-start="1342" selection-end="1342" vertical-scroll-proportion="0.22242647">
+        <state line="81" column="30" selection-start="1969" selection-end="1969" vertical-scroll-proportion="0.4522059">
           <folding />
         </state>
       </provider>

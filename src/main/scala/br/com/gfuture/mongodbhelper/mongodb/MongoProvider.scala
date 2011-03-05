@@ -14,7 +14,7 @@ import com.mongodb.casbah.MongoConnection
 object MongoProvider {
 
   //TODO remover isso para um arquivo de property
-  val connection = MongoConnection("localhost", 27017)
+  lazy val connection = MongoConnection("localhost", 27017)
 
   /**Gera um nome para a coleção do mongo
    *
