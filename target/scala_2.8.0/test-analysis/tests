@@ -1,5 +1,5 @@
 #Tests
-#Sat Mar 05 00:07:27 BRT 2011
+#Sat Mar 05 15:38:17 BRT 2011
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=br.com.gfuture.mongodbhelper.EntitySpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=br.com.gfuture.mongodbhelper.QuerySpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=br.com.gfuture.mongodbhelper.mongodb.MongoProviderSpec<<org.scalatest.Suite

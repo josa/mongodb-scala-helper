@@ -1,10 +1,10 @@
 #Source Dependencies
-#Sat Mar 05 00:07:27 BRT 2011
-src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala=src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
+#Sat Mar 05 15:38:17 BRT 2011
+src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=
-src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
+src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala\:src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/util/EntityTest.scala=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala
-src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
+src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala\:src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=

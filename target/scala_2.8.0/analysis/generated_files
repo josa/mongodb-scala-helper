@@ -1,5 +1,5 @@
 #Generated Classes
-#Sat Mar 05 00:07:27 BRT 2011
+#Sat Mar 05 15:38:11 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Query.class
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.class
 src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$class.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$create$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$toMongoObject$1.class
