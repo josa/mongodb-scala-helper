@@ -106,3 +106,9 @@ release
 test
 clean
 release
+test
+console
+test
+release
+clean
+release

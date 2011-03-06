@@ -57,7 +57,6 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
         entityFind should equal(null)
       }
 
-      //TODO testar subclasses
       it("deveria consultar subclasse nivel 1") {
         val query = new DocumentManager[SubClass1](classOf[SubClass1]);
         val entityFind = query.findById(entityNivel1.getObjectId)

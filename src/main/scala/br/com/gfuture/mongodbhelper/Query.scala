@@ -19,9 +19,8 @@ class Query[T <: Entity](val documentClass: Class[T]) extends log.Logged {
   def resultList: List[T] = {
     val listBuilder: Builder[T, List[T]] = List.newBuilder[T]
     val cursor: DBCursor = collection.find(queryBuilder.result)
-    debug({
-      "query for %s, %s, %s itens encontrados" format (documentClass.getSimpleName, cursor.getQuery.toString, cursor.size)
-    })
+    if (logger.isDebugEnabled())
+      logger.debug("find %s query[%s], %s itens encontrados".format(documentClass.getSimpleName, cursor.getQuery.toString, cursor.size))
     while (cursor.hasNext) listBuilder += Entity.create(cursor.next, documentClass)
     listBuilder.result
   }
@@ -30,9 +29,8 @@ class Query[T <: Entity](val documentClass: Class[T]) extends log.Logged {
    */
   def uniqueResult: T = {
     val dbObject: Imports.DBObject = queryBuilder.result
-    debug({
-      "find unique result, query = " + dbObject.toString
-    })
+    if (logger.isDebugEnabled())
+      logger.debug("find unique query[%s]" format (dbObject.toString))
     Entity.create(collection.findOne(dbObject), documentClass)
   }
 

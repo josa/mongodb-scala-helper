@@ -1,5 +1,5 @@
 #Generated Classes
-#Sat Mar 05 19:13:52 BRT 2011
+#Sun Mar 06 16:44:09 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Query.class
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.class
 src/main/scala/br/com/gfuture/mongodbhelper/log/Logged.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/log/Logged$class.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/log/Logged.class
