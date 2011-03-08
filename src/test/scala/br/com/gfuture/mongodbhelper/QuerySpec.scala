@@ -39,6 +39,9 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
   override def afterEach() {
     entity.delete
     entityNivel1.delete
+    entityNivel2.delete
+    entityNivel3.delete
+    entityNivel4.delete
   }
 
   describe("DocumentManager") {
@@ -51,10 +54,10 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
         entityFind should equal(entity)
       }
 
-      it("deveria incluir o objectId no documento(entidade)"){
+      it("deveria incluir o objectId no documento(entidade)") {
         val DocumentManager = new DocumentManager[EntityTest](classOf[EntityTest]);
         val entityFind = DocumentManager.findById(entity.getObjectId)
-        entityFind.getObjectId should not equal(null)
+        entityFind.getObjectId should not equal (null)
       }
 
       it("deveria retornar nulo para id inexistente") {
@@ -81,20 +84,25 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
         entityFind should equal(entityNivel3)
       }
 
-
       it("deveria consultar subclasse nivel 4") {
         val query = new DocumentManager[SubClass4](classOf[SubClass4]);
         val entityFind = query.findById(entityNivel4.getObjectId)
         entityFind should equal(entityNivel4)
       }
 
+      it("deveria recupearar o _id de uma subclasse") {
+        val query = new DocumentManager[SubClass4](classOf[SubClass4]);
+        val entityFind = query.findById(entityNivel4.getObjectId)
+        entityFind.getObjectId should not equal (null)
+      }
+
     }
 
-    describe("dinamic find"){
+    describe("dinamic find") {
       val documentManager = new DocumentManager[EntityTest](classOf[EntityTest]);
       val uniqueResult = documentManager.createQuery.addClause("title", "Entidade para pesquisa").uniqueResult
       uniqueResult.title should equal("Entidade para pesquisa")
-      uniqueResult._id should not equal(null)
+      uniqueResult.getObjectId should not equal (null)
     }
 
   }

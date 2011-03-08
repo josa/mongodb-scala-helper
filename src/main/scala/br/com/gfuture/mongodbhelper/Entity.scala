@@ -10,9 +10,7 @@ import java.lang.String
 
 trait Entity {
 
-  var _id: org.bson.types.ObjectId = null
-
-  def getObjectId: org.bson.types.ObjectId = this._id
+  protected var _id: ObjectId = null
 
   def save = {
 
@@ -32,7 +30,19 @@ trait Entity {
 
   def posPersist = {}
 
-  override def toString = {getClass.getSimpleName + ", "+ Entity.toMongoObject(this).toString}
+  def getObjectId: ObjectId = this._id
+
+  def setObjectId(_id: ObjectId) {
+    this._id = _id
+  }
+
+  def setObjectId(_id: String) {
+    this._id = new ObjectId(_id)
+  }
+
+  override def toString = {
+    getClass.getSimpleName + ", " + Entity.toMongoObject(this).toString
+  }
 
 }
 

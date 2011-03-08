@@ -17,6 +17,14 @@ class DocumentManager[T <: Entity](val entityType: Class[T]) {
    */
   def createQuery: Query[T] = new Query[T](entityType)
 
+  /**Busca o documento pela string que representa o id
+   *
+   * @param a string que representa o objectId
+   */
+  def findById(_id: String) {
+    findById(new ObjectId(_id))
+  }
+
   /**Busca o documento pelo id
    *
    * @param o objectId

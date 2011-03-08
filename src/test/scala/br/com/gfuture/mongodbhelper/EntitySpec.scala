@@ -91,9 +91,9 @@ class EntitySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
       it("deveria comparar dois objetos") {
         val object1 = new EntityTest()
-        object1._id = org.bson.types.ObjectId.get
+        object1.setObjectId(org.bson.types.ObjectId.get)
         val object2 = new EntityTest()
-        object2._id = object1._id
+        object2.setObjectId(object1.getObjectId)
         object1.equals(object2) should equal(true)
       }
 
