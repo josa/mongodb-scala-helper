@@ -1,5 +1,5 @@
 #External Dependencies
-#Tue Mar 08 16:58:48 BRT 2011
+#Tue Mar 08 17:07:26 BRT 2011
 /home/josa/Working/projects/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/mongo-java-driver-2.4.jar=src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala\:src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
 /home/josa/Working/projects/mongodb-scala-helper/lib_managed/scala_2.8.0/compile/casbah-core_2.8.0-2.0.1.jar=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala
 /usr/lib/jvm/java-6-openjdk/jre/lib/rt.jar=src/main/scala/br/com/gfuture/mongodbhelper/log/Logged.scala\:src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala\:src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala

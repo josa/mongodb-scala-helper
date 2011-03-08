@@ -1,5 +1,5 @@
 #Source Dependencies
-#Tue Mar 08 16:58:57 BRT 2011
+#Tue Mar 08 17:07:37 BRT 2011
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass4.scala=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass1.scala=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala\:src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/EntitySpec.scala=

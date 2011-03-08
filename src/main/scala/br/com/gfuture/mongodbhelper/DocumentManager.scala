@@ -21,7 +21,7 @@ class DocumentManager[T <: Entity](val entityType: Class[T]) {
    *
    * @param a string que representa o objectId
    */
-  def findById(_id: String) {
+  def findById(_id: String): T = {
     findById(new ObjectId(_id))
   }
 
