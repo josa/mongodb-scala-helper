@@ -112,3 +112,6 @@ test
 release
 clean
 release
+test
+clean
+release

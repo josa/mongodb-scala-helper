@@ -51,6 +51,12 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
         entityFind should equal(entity)
       }
 
+      it("deveria incluir o objectId no documento(entidade)"){
+        val DocumentManager = new DocumentManager[EntityTest](classOf[EntityTest]);
+        val entityFind = DocumentManager.findById(entity.getObjectId)
+        entityFind.getObjectId should not equal(null)
+      }
+
       it("deveria retornar nulo para id inexistente") {
         val query = new DocumentManager[EntityTest](classOf[EntityTest]);
         val entityFind = query.findById(org.bson.types.ObjectId.get)
@@ -85,9 +91,10 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     }
 
     describe("dinamic find"){
-      val query = new DocumentManager[EntityTest](classOf[EntityTest]);
-      // val entityFind = query.findyByUniqueField("title", "Entidade para pesquisa");
-      //entityFind should equal(entity)
+      val documentManager = new DocumentManager[EntityTest](classOf[EntityTest]);
+      val uniqueResult = documentManager.createQuery.addClause("title", "Entidade para pesquisa").uniqueResult
+      uniqueResult.title should equal("Entidade para pesquisa")
+      uniqueResult._id should not equal(null)
     }
 
   }

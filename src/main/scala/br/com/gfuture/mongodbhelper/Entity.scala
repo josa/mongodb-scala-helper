@@ -32,6 +32,8 @@ trait Entity {
 
   def posPersist = {}
 
+  override def toString = {getClass.getSimpleName + ", "+ Entity.toMongoObject(this).toString}
+
 }
 
 object Entity {

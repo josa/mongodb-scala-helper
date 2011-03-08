@@ -17,6 +17,4 @@ class EntityTest extends Entity {
     case _ => false
   }
 
-  override def toString = "EntityTest[_id="+getObjectId+"]"
-
 }
