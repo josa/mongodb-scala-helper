@@ -74,8 +74,8 @@ object Document {
           Document.validatePersistenteField(document, field.getName) match {
             case true =>
               field.setAccessible(true)
-              field.get(document) match {
-                case e: Association =>
+              field.getType.getName match {
+                case "br.com.gfuture.mongodbhelper.Reference" =>
 
                 case _ =>
                   field.set(document, dbObjectMatch.get(field.getName))
@@ -190,6 +190,7 @@ object Document {
                     e.getDocument.save
                 }
                 builder += field.getName -> e.getDocument.getObjectId
+              case null =>
               case _ =>
                 builder += field.getName -> field.get(document)
             }

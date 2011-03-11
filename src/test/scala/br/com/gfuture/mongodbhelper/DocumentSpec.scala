@@ -110,6 +110,19 @@ class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
         mongoObject.get("parent") should equal(referenceObject.getObjectId)
       }
 
+      it("deveria salvar e recupearar a referência ao objeto"){
+        pending
+        val baseObject = new Category
+        val referenceObject = new Category
+        baseObject.parent = new Reference(referenceObject)
+        baseObject.save
+        val byId = new DocumentManager[Category](classOf[Category]).findById(baseObject.getObjectId)
+        byId should not equal(null)
+        byId.parent should not equal(null)
+        byId.parent.getDocument should not equal(null)
+        byId.parent.getDocument.equals(referenceObject)
+      }
+
     }
 
   }
