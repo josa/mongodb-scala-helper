@@ -64,26 +64,26 @@ object Document {
    * Cria uma instancia de uma entidade
    *
    * @param dbObject, o "json" do mongodb
-   * @param entityClass, a tipo que será criado
+   * @param documentClass, a tipo que será criado
    */
-  def create[T <: Document](dbObject: DBObject, entityClass: Class[T]): T = dbObject match {
+  def create[T <: Document](dbObject: DBObject, documentClass: Class[T]): T = dbObject match {
     case dbObjectMatch: Any =>
-      val entity: T = entityClass.newInstance
-      loadFieldsRecursively(entityClass).foreach {
+      val document: T = documentClass.newInstance
+      loadFieldsRecursively(documentClass).foreach {
         field =>
-          Document.validatePersistenteField(entity, field.getName) match {
+          Document.validatePersistenteField(document, field.getName) match {
             case true =>
               field.setAccessible(true)
-              field.get(entity) match {
+              field.get(document) match {
                 case e: Association =>
 
                 case _ =>
-                  field.set(entity, dbObjectMatch.get(field.getName))
+                  field.set(document, dbObjectMatch.get(field.getName))
               }
             case false =>
           }
       }
-      entity
+      document
     case _ =>
       null.asInstanceOf[T]
   }
@@ -92,18 +92,18 @@ object Document {
    *
    * @param a entidade a ser salva
    */
-  def save[T <: Document](entity: T) {
-    val collectionName: String = MongoProvider.generateCollectionName(entity.getClass)
-    val mongoObject: DBObject = toMongoObject(entity)
+  def save[T <: Document](document: T) {
+    val collectionName: String = MongoProvider.generateCollectionName(document.getClass)
+    val mongoObject: DBObject = toMongoObject(document)
 
-    if (entity.logger.isDebugEnabled)
-      entity.logger.debug(mongoObject.toString)
+    if (document.logger.isDebugEnabled)
+      document.logger.debug(mongoObject.toString)
 
-    entity._id match {
+    document._id match {
       case objectId: ObjectId =>
-        update(toMongoObject(entity.getObjectId), mongoObject, collectionName)
+        update(toMongoObject(document.getObjectId), mongoObject, collectionName)
       case _ =>
-        entity._id = save(mongoObject, collectionName)
+        document._id = save(mongoObject, collectionName)
     }
   }
 
@@ -139,8 +139,8 @@ object Document {
    * @param a entidade
    * @return voids
    */
-  def delete[T <: Document](entity: T) {
-    delete(entity._id, entity.getClass.getSimpleName.toLowerCase)
+  def delete[T <: Document](document: T) {
+    delete(document._id, document.getClass.getSimpleName.toLowerCase)
   }
 
   /**
@@ -167,22 +167,22 @@ object Document {
 
   /**Converte o objeto em um objeto de persistencia do mongo
    *
-   * @param entity, a entidade a ser convertida
+   * @param document, a entidade a ser convertida
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toMongoObject[T <: Document](entity: T): DBObject = {
+  def toMongoObject[T <: Document](document: T): DBObject = {
     val builder = MongoDBObject.newBuilder
-    entity.getObjectId match {
+    document.getObjectId match {
       case obj: ObjectId =>
-        builder += "_id" -> entity.getObjectId
+        builder += "_id" -> document.getObjectId
       case _ =>
     }
-    loadFieldsRecursively(entity.getClass).foreach {
+    loadFieldsRecursively(document.getClass).foreach {
       field =>
-        Document.validatePersistenteField(entity, field.getName) match {
+        Document.validatePersistenteField(document, field.getName) match {
           case true =>
             field.setAccessible(true)
-            field.get(entity) match {
+            field.get(document) match {
               case e: Association =>
                 e.getDocument.getObjectId match {
                   case objectId: ObjectId =>
@@ -191,7 +191,7 @@ object Document {
                 }
                 builder += field.getName -> e.getDocument.getObjectId
               case _ =>
-                builder += field.getName -> field.get(entity)
+                builder += field.getName -> field.get(document)
             }
           case false =>
         }
@@ -205,16 +205,16 @@ object Document {
    * @param a classe da entidade
    *
    */
-  def findField[T](name: String, entityClass: Class[T]): Field = {
+  def findField[T](name: String, documentClass: Class[T]): Field = {
     try {
-      entityClass.getDeclaredField(name)
+      documentClass.getDeclaredField(name)
     } catch {
       case e: java.lang.NoSuchFieldException =>
-        entityClass.getSuperclass match {
+        documentClass.getSuperclass match {
           case x: Class[T] =>
-            findField(name, entityClass.getSuperclass)
+            findField(name, documentClass.getSuperclass)
           case _ =>
-            throw new RuntimeException("field not found: " + entityClass.getName + "[" + name + "]")
+            throw new RuntimeException("field not found: " + documentClass.getName + "[" + name + "]")
         }
 
     }
@@ -225,8 +225,8 @@ object Document {
    * @param a classe
    *
    */
-  def loadFieldsRecursively[T](entityClass: Class[T]): List[Field] = {
-    loadFieldsRecursively(entityClass, List.empty[Field])
+  def loadFieldsRecursively[T](documentClass: Class[T]): List[Field] = {
+    loadFieldsRecursively(documentClass, List.empty[Field])
   }
 
   /**Carrega os fields da classe e superclasses recusivamente
@@ -235,10 +235,10 @@ object Document {
    * @param a lista de fields
    *
    */
-  def loadFieldsRecursively[T](entityClass: Class[T], fieldList: List[Field]): List[Field] = {
-    entityClass match {
+  def loadFieldsRecursively[T](documentClass: Class[T], fieldList: List[Field]): List[Field] = {
+    documentClass match {
       case c: Class[T] =>
-        loadFieldsRecursively(entityClass.getSuperclass, fieldList union c.getDeclaredFields.toList)
+        loadFieldsRecursively(documentClass.getSuperclass, fieldList union c.getDeclaredFields.toList)
       case _ =>
         fieldList
     }
@@ -247,7 +247,7 @@ object Document {
   /**
    * Valida os fields persistentes
    *
-   * @param entity, a entidade em questão
+   * @param document, a entidade em questão
    * @param o field a ser validado
    * @return true caso o field atenda os critérios para serem persistidos
    */

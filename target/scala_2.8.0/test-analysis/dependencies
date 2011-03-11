@@ -1,5 +1,5 @@
 #Source Dependencies
-#Fri Mar 11 00:13:15 BRT 2011
+#Fri Mar 11 00:16:44 BRT 2011
 src/test/scala/br/com/gfuture/mongodbhelper/util/Category.scala=src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala
 src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala=
 src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass2.scala=src/test/scala/br/com/gfuture/mongodbhelper/util/SubClass3.scala\:src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala

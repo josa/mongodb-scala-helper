@@ -64,55 +64,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Document.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Document.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="0" selection-start="4801" selection-end="4801" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DocumentTest.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/util/DocumentTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="32" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Association.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Association.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="6" selection-start="245" selection-end="245" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Category.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/util/Category.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="22" selection-start="177" selection-end="186" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DocumentSpec.scala" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="0" selection-start="3403" selection-end="3403" vertical-scroll-proportion="0.6">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MongoProviderSpec.scala" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="45" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
+            <state line="237" column="39" selection-start="6554" selection-end="6554" vertical-scroll-proportion="1.0">
               <folding />
             </state>
           </provider>
@@ -145,9 +100,9 @@
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/util/Category.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Query.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala" />
       </list>
     </option>
   </component>
@@ -806,13 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="0" selection-start="4801" selection-end="4801" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/util/DocumentTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="32" selection-start="121" selection-end="121" vertical-scroll-proportion="0.0">
@@ -822,7 +770,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="0" selection-start="3403" selection-end="3403" vertical-scroll-proportion="0.6">
+        <state line="108" column="0" selection-start="3403" selection-end="3403" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="237" column="39" selection-start="6554" selection-end="6554" vertical-scroll-proportion="1.0">
           <folding />
         </state>
       </provider>

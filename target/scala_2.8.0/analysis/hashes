@@ -1,7 +1,7 @@
 #Source Hashes
-#Fri Mar 11 00:13:13 BRT 2011
+#Fri Mar 11 00:16:34 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/Association.scala=9f61d2689ae0a1855304233ee5d65fb0c58885d3
-src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=f7143a8e00bc1a853d65d37c533cf21b52a7aec8
+src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=5ab1a975c5b5662d81fc2c7e9ac339c1fc6486a3
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=6f9236d0b6a50180db0554e7ef4f52c5c729cdd8
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=17f56f1ea1f4244550d328db31fc48b57d901801
 src/main/scala/br/com/gfuture/mongodbhelper/Referenced.scala=23a3b715f8b7afa57fb8d09b733f58608cecc57e
