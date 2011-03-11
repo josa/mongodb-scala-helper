@@ -1,7 +1,10 @@
 #Source Hashes
-#Tue Mar 08 17:07:26 BRT 2011
-src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=acd6d36ae3cfeb6b32e5ab9b3608c5f8e373b68f
+#Fri Mar 11 00:13:13 BRT 2011
+src/main/scala/br/com/gfuture/mongodbhelper/Association.scala=9f61d2689ae0a1855304233ee5d65fb0c58885d3
+src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=f7143a8e00bc1a853d65d37c533cf21b52a7aec8
+src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=6f9236d0b6a50180db0554e7ef4f52c5c729cdd8
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=17f56f1ea1f4244550d328db31fc48b57d901801
+src/main/scala/br/com/gfuture/mongodbhelper/Referenced.scala=23a3b715f8b7afa57fb8d09b733f58608cecc57e
+src/main/scala/br/com/gfuture/mongodbhelper/PersistenceException.scala=23e3277b94ca5a8b893e7abd0e323d98fa3e28ea
 src/main/scala/br/com/gfuture/mongodbhelper/log/Logged.scala=d3819f7d08e166426f838c72399541fc5e0a243c
-src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala=f519908060f1b36ecd0d57bf442ff999462d36af
-src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=f5c9ca742e0c2ffba4ffe1edf69935669a73294e
+src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala=722a958c0c991c51d3fe997ae7b79e8ebaf847fa

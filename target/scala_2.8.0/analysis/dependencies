@@ -1,7 +1,10 @@
 #Source Dependencies
-#Tue Mar 08 17:07:26 BRT 2011
+#Fri Mar 11 00:13:13 BRT 2011
+src/main/scala/br/com/gfuture/mongodbhelper/Association.scala=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Referenced.scala
+src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=src/main/scala/br/com/gfuture/mongodbhelper/Association.scala\:src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Referenced.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala
-src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
-src/main/scala/br/com/gfuture/mongodbhelper/log/Logged.scala=src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
+src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
+src/main/scala/br/com/gfuture/mongodbhelper/Referenced.scala=
+src/main/scala/br/com/gfuture/mongodbhelper/PersistenceException.scala=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
+src/main/scala/br/com/gfuture/mongodbhelper/log/Logged.scala=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
 src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala=
-src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala

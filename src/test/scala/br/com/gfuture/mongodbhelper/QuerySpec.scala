@@ -6,7 +6,7 @@ import util._
 
 class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
-  var entity: EntityTest = null
+  var entity: DocumentTest = null
   var entityNivel1: SubClass1 = null
   var entityNivel2: SubClass1 = null
   var entityNivel3: SubClass1 = null
@@ -14,7 +14,7 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
   override def beforeEach() {
 
-    entity = new EntityTest
+    entity = new DocumentTest
     entity.title = "Entidade para pesquisa"
     entity.save
 
@@ -49,19 +49,19 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     describe("findById") {
 
       it("deveria buscar pelo id") {
-        val DocumentManager = new DocumentManager[EntityTest](classOf[EntityTest]);
+        val DocumentManager = new DocumentManager[DocumentTest](classOf[DocumentTest]);
         val entityFind = DocumentManager.findById(entity.getObjectId)
         entityFind should equal(entity)
       }
 
       it("deveria incluir o objectId no documento(entidade)") {
-        val DocumentManager = new DocumentManager[EntityTest](classOf[EntityTest]);
+        val DocumentManager = new DocumentManager[DocumentTest](classOf[DocumentTest]);
         val entityFind = DocumentManager.findById(entity.getObjectId)
         entityFind.getObjectId should not equal (null)
       }
 
       it("deveria retornar nulo para id inexistente") {
-        val query = new DocumentManager[EntityTest](classOf[EntityTest]);
+        val query = new DocumentManager[DocumentTest](classOf[DocumentTest]);
         val entityFind = query.findById(org.bson.types.ObjectId.get)
         entityFind should equal(null)
       }
@@ -99,10 +99,16 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     }
 
     describe("dinamic find") {
-      val documentManager = new DocumentManager[EntityTest](classOf[EntityTest]);
-      val uniqueResult = documentManager.createQuery.addClause("title", "Entidade para pesquisa").uniqueResult
-      uniqueResult.title should equal("Entidade para pesquisa")
-      uniqueResult.getObjectId should not equal (null)
+
+      it("should return objectList") {
+        val documentManager = new DocumentManager[DocumentTest](classOf[DocumentTest]);
+        val uniqueResult = documentManager.createQuery.addClause("title", "Entidade para pesquisa").uniqueResult
+        uniqueResult should not equal (null)
+        uniqueResult.title should equal("Entidade para pesquisa")
+        uniqueResult.getObjectId should not equal (null)
+      }
+
+
     }
 
   }

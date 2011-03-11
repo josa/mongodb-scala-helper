@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>Scaladoc for br.com.gfuture.mongodbhelper.Entity</title>
+          <title>Scaladoc for br.com.gfuture.mongodbhelper.Document</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		      <script type="text/javascript" src="../../../../lib/jquery.js"></script>
           
@@ -220,7 +220,7 @@ part of compilation it is not possible to check whether the contents of the list
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">create</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="params">(<span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="entityClass">entityClass: <span class="extype" name="java.lang.Class">Class</span>[T]</span>)</span><span class="result">: T</span>
+        <span class="name">create</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="entityClass">entityClass: <span class="extype" name="java.lang.Class">Class</span>[T]</span>)</span><span class="result">: T</span>
       </span>
       </h4>
       
@@ -257,7 +257,7 @@ part of compilation it is not possible to check whether the contents of the list
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">delete</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">delete</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       
@@ -543,7 +543,7 @@ possible to check whether the contents of the list are of the requested typed.
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">save</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="params">(<span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="collectionName">collectionName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>
+        <span class="name">save</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="collectionName">collectionName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>
       </span>
       </h4>
       
@@ -561,7 +561,7 @@ possible to check whether the contents of the list are of the requested typed.
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">save</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">save</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       
@@ -594,7 +594,7 @@ possible to check whether the contents of the list are of the requested typed.
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">toMongoObject</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>
+        <span class="name">toMongoObject</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>
       </span>
       </h4>
       
@@ -613,7 +613,7 @@ possible to check whether the contents of the list are of the requested typed.
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">toMongoObject</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="params">(<span name="objectId">objectId: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>)</span><span class="result">: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>
+        <span class="name">toMongoObject</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="objectId">objectId: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>)</span><span class="result">: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>
       </span>
       </h4>
       
@@ -651,7 +651,7 @@ possible to check whether the contents of the list are of the requested typed.
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">update</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="params">(<span name="uniqueDbObject">uniqueDbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="collectionName">collectionName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">update</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="uniqueDbObject">uniqueDbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="collectionName">collectionName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       
@@ -669,7 +669,7 @@ possible to check whether the contents of the list are of the requested typed.
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">validatePersistenteField</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Entity">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>, <span name="fieldName">fieldName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
+        <span class="name">validatePersistenteField</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>, <span name="fieldName">fieldName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
       </span>
       </h4>
       

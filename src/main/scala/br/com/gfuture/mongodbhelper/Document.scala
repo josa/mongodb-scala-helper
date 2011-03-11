@@ -1,28 +1,40 @@
 package br.com.gfuture.mongodbhelper
 
 import java.lang.reflect.Field
-import com.mongodb.{DBCollection, DBObject}
-
 import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
 import org.bson.types.ObjectId
 import java.lang.String
+import com.mongodb.{WriteResult, DBCollection, DBObject}
 
-trait Entity {
+trait Document extends log.Logged {
 
   protected var _id: ObjectId = null
 
   def save = {
 
-    prePersist
+    if (logger.isDebugEnabled)
+      logger.debug("saving " + getClass.getSimpleName)
 
-    Entity.save(this)
+    try {
 
-    posPersist
+      prePersist
 
+      Document.save(this)
+
+      posPersist
+
+      if (logger.isDebugEnabled)
+        logger.debug("sucess")
+
+    } catch {
+      case e: Exception =>
+        logger.error("erro ao salvar " + getClass.getSimpleName, e)
+        throw e
+    }
   }
 
-  def delete = Entity.delete(this)
+  def delete = Document.delete(this)
 
   def getTransientFields: Set[String]
 
@@ -41,12 +53,12 @@ trait Entity {
   }
 
   override def toString = {
-    getClass.getSimpleName + ", " + Entity.toMongoObject(this).toString
+    getClass.getSimpleName + ", " + Document.toMongoObject(this).toString
   }
 
 }
 
-object Entity {
+object Document {
 
   /**
    * Cria uma instancia de uma entidade
@@ -54,15 +66,20 @@ object Entity {
    * @param dbObject, o "json" do mongodb
    * @param entityClass, a tipo que será criado
    */
-  def create[T <: Entity](dbObject: DBObject, entityClass: Class[T]): T = dbObject match {
+  def create[T <: Document](dbObject: DBObject, entityClass: Class[T]): T = dbObject match {
     case dbObjectMatch: Any =>
       val entity: T = entityClass.newInstance
       loadFieldsRecursively(entityClass).foreach {
         field =>
-          Entity.validatePersistenteField(entity, field.getName) match {
+          Document.validatePersistenteField(entity, field.getName) match {
             case true =>
               field.setAccessible(true)
-              field.set(entity, dbObjectMatch.get(field.getName))
+              field.get(entity) match {
+                case e: Association =>
+
+                case _ =>
+                  field.set(entity, dbObjectMatch.get(field.getName))
+              }
             case false =>
           }
       }
@@ -75,13 +92,18 @@ object Entity {
    *
    * @param a entidade a ser salva
    */
-  def save[T <: Entity](entity: T) {
+  def save[T <: Document](entity: T) {
     val collectionName: String = MongoProvider.generateCollectionName(entity.getClass)
+    val mongoObject: DBObject = toMongoObject(entity)
+
+    if (entity.logger.isDebugEnabled)
+      entity.logger.debug(mongoObject.toString)
+
     entity._id match {
       case objectId: ObjectId =>
-        update(toMongoObject(entity.getObjectId), toMongoObject(entity), collectionName)
+        update(toMongoObject(entity.getObjectId), mongoObject, collectionName)
       case _ =>
-        entity._id = save(toMongoObject(entity), collectionName)
+        entity._id = save(mongoObject, collectionName)
     }
   }
 
@@ -89,9 +111,13 @@ object Entity {
    *
    * @param o dbObject
    */
-  def save[T <: Entity](dbObject: DBObject, collectionName: String): ObjectId = {
+  def save[T <: Document](dbObject: DBObject, collectionName: String): ObjectId = {
     val bCollection: DBCollection = MongoProvider.getCollection(collectionName)
-    bCollection.save(dbObject)
+    val writeResult: WriteResult = bCollection.save(dbObject)
+
+    if (writeResult.getError != null)
+      throw new PersistenceException(writeResult.getError)
+
     dbObject.get("_id").asInstanceOf[org.bson.types.ObjectId]
   }
 
@@ -100,9 +126,11 @@ object Entity {
    * @param o unique dbObject
    * @param o dbObject a ser salvo
    */
-  def update[T <: Entity](uniqueDbObject: DBObject, dbObject: DBObject, collectionName: String) {
+  def update[T <: Document](uniqueDbObject: DBObject, dbObject: DBObject, collectionName: String) {
     val collection: DBCollection = MongoProvider.getCollection(collectionName)
-    println(collection.update(uniqueDbObject, dbObject))
+    val writeResult: WriteResult = collection.update(uniqueDbObject, dbObject)
+    if (writeResult.getError != null)
+      throw new PersistenceException(writeResult.getError)
   }
 
   /**
@@ -111,7 +139,7 @@ object Entity {
    * @param a entidade
    * @return voids
    */
-  def delete[T <: Entity](entity: T) {
+  def delete[T <: Document](entity: T) {
     delete(entity._id, entity.getClass.getSimpleName.toLowerCase)
   }
 
@@ -122,7 +150,9 @@ object Entity {
    * @return void
    */
   def delete(objectId: org.bson.types.ObjectId, collectionName: String) {
-    MongoProvider.getCollection(collectionName).remove(toMongoObject(objectId))
+    val writeResult: WriteResult = MongoProvider.getCollection(collectionName).remove(toMongoObject(objectId))
+    if (writeResult.getError != null)
+      throw new PersistenceException(writeResult.getError)
   }
 
   /**
@@ -131,7 +161,7 @@ object Entity {
    * @param _id, instancia da classe org.bson.types.ObjectId
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toMongoObject[T <: Entity](objectId: org.bson.types.ObjectId): DBObject = {
+  def toMongoObject[T <: Document](objectId: org.bson.types.ObjectId): DBObject = {
     MongoDBObject("_id" -> objectId)
   }
 
@@ -140,7 +170,7 @@ object Entity {
    * @param entity, a entidade a ser convertida
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toMongoObject[T <: Entity](entity: T): DBObject = {
+  def toMongoObject[T <: Document](entity: T): DBObject = {
     val builder = MongoDBObject.newBuilder
     entity.getObjectId match {
       case obj: ObjectId =>
@@ -149,10 +179,20 @@ object Entity {
     }
     loadFieldsRecursively(entity.getClass).foreach {
       field =>
-        Entity.validatePersistenteField(entity, field.getName) match {
+        Document.validatePersistenteField(entity, field.getName) match {
           case true =>
             field.setAccessible(true)
-            builder += field.getName -> field.get(entity)
+            field.get(entity) match {
+              case e: Association =>
+                e.getDocument.getObjectId match {
+                  case objectId: ObjectId =>
+                  case _ =>
+                    e.getDocument.save
+                }
+                builder += field.getName -> e.getDocument.getObjectId
+              case _ =>
+                builder += field.getName -> field.get(entity)
+            }
           case false =>
         }
     }
@@ -211,12 +251,16 @@ object Entity {
    * @param o field a ser validado
    * @return true caso o field atenda os critérios para serem persistidos
    */
-  def validatePersistenteField[T <: Entity](entity: T, fieldName: String): Boolean = {
+  def validatePersistenteField[T <: Document](entity: T, fieldName: String): Boolean = {
     !entity.getTransientFields.contains(fieldName) && {
       fieldName match {
         case "transientFields" =>
           false
-        case "br$com$gfuture$mongodbhelper$Entity$$transientFields" =>
+        case "br$com$gfuture$mongodbhelper$Document$$transientFields" =>
+          false
+        case "bitmap$0" =>
+          false
+        case "logger" =>
           false
         case _ =>
           true

@@ -116,3 +116,10 @@ test
 clean
 release
 test
+release
+test
+release
+test
+test-only br.com.gfuture.mongodbhelper.QuerySpec 
+tes
+test

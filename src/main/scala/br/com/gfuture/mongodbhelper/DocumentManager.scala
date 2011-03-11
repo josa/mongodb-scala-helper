@@ -9,7 +9,7 @@ import org.bson.types.ObjectId
  * Date: 1/25/11
  * Time: 5:39 PM
  */
-class DocumentManager[T <: Entity](val entityType: Class[T]) {
+class DocumentManager[T <: Document](val entityType: Class[T]) {
 
   /**Cria a query apartir de uma query string
    *

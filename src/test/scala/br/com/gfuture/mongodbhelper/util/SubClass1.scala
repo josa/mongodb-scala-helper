@@ -1,5 +1,5 @@
 package br.com.gfuture.mongodbhelper.util
 
-class SubClass1 extends EntityTest {
+class SubClass1 extends DocumentTest {
 
 }

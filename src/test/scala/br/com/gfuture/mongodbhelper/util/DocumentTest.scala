@@ -1,8 +1,8 @@
 package br.com.gfuture.mongodbhelper.util
 
-import br.com.gfuture.mongodbhelper.Entity
+import br.com.gfuture.mongodbhelper.Document
 
-class EntityTest extends Entity {
+class DocumentTest extends Document {
 
   var title: String = null
   var description: String = null
@@ -13,7 +13,7 @@ class EntityTest extends Entity {
   }
 
   override def equals(that: Any) = that match {
-    case other: EntityTest => other.getClass == getClass && other.getObjectId.equals(getObjectId)
+    case other: DocumentTest => other.getClass == getClass && other.getObjectId.equals(getObjectId)
     case _ => false
   }
 

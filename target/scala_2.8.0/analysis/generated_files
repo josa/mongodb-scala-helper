@@ -1,7 +1,10 @@
 #Generated Classes
-#Tue Mar 08 17:07:26 BRT 2011
+#Fri Mar 11 00:13:13 BRT 2011
+src/main/scala/br/com/gfuture/mongodbhelper/Association.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Association.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/AssociationType.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/AssociationType$.class
+src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Document$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Document.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Document$class.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Document$$anonfun$create$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Document$$anonfun$toMongoObject$1.class
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Query.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Query$$anonfun$resultList$1.class
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.class
+src/main/scala/br/com/gfuture/mongodbhelper/Referenced.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Reference.class
+src/main/scala/br/com/gfuture/mongodbhelper/PersistenceException.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/PersistenceException.class
 src/main/scala/br/com/gfuture/mongodbhelper/log/Logged.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/log/Logged$class.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/log/Logged.class
 src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/DocumentManager.class
-src/main/scala/br/com/gfuture/mongodbhelper/Entity.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$class.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$create$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/Entity$$anonfun$toMongoObject$1.class
