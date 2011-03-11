@@ -36,8 +36,6 @@ trait Document extends log.Logged {
 
   def delete = Document.delete(this)
 
-  def getTransientFields: Set[String]
-
   def prePersist = {}
 
   def posPersist = {}
@@ -71,16 +69,12 @@ object Document {
       val document: T = documentClass.newInstance
       loadFieldsRecursively(documentClass).foreach {
         field =>
-          Document.validatePersistenteField(document, field.getName) match {
-            case true =>
-              field.setAccessible(true)
-              field.getType.getName match {
-                case "br.com.gfuture.mongodbhelper.Reference" =>
+          field.setAccessible(true)
+          field.getType.getName match {
+            case "br.com.gfuture.mongodbhelper.Reference" =>
 
-                case _ =>
-                  field.set(document, dbObjectMatch.get(field.getName))
-              }
-            case false =>
+            case _ =>
+              field.set(document, dbObjectMatch.get(field.getName))
           }
       }
       document
@@ -179,22 +173,18 @@ object Document {
     }
     loadFieldsRecursively(document.getClass).foreach {
       field =>
-        Document.validatePersistenteField(document, field.getName) match {
-          case true =>
-            field.setAccessible(true)
-            field.get(document) match {
-              case e: Association =>
-                e.getDocument.getObjectId match {
-                  case objectId: ObjectId =>
-                  case _ =>
-                    e.getDocument.save
-                }
-                builder += field.getName -> e.getDocument.getObjectId
-              case null =>
+        field.setAccessible(true)
+        field.get(document) match {
+          case e: Association =>
+            e.getDocument.getObjectId match {
+              case objectId: ObjectId =>
               case _ =>
-                builder += field.getName -> field.get(document)
+                e.getDocument.save
             }
-          case false =>
+            builder += field.getName -> e.getDocument.getObjectId
+          case null =>
+          case _ =>
+            builder += field.getName -> field.get(document)
         }
     }
     builder.result
@@ -242,30 +232,6 @@ object Document {
         loadFieldsRecursively(documentClass.getSuperclass, fieldList union c.getDeclaredFields.toList)
       case _ =>
         fieldList
-    }
-  }
-
-  /**
-   * Valida os fields persistentes
-   *
-   * @param document, a entidade em questão
-   * @param o field a ser validado
-   * @return true caso o field atenda os critérios para serem persistidos
-   */
-  def validatePersistenteField[T <: Document](entity: T, fieldName: String): Boolean = {
-    !entity.getTransientFields.contains(fieldName) && {
-      fieldName match {
-        case "transientFields" =>
-          false
-        case "br$com$gfuture$mongodbhelper$Document$$transientFields" =>
-          false
-        case "bitmap$0" =>
-          false
-        case "logger" =>
-          false
-        case _ =>
-          true
-      }
     }
   }
 
