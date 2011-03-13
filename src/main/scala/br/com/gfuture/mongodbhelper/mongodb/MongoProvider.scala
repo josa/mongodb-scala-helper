@@ -1,7 +1,9 @@
 package br.com.gfuture.mongodbhelper.mongodb
 
 import com.mongodb.DBCollection
-import com.mongodb.casbah.MongoConnection
+import br.com.gfuture.mongodbhelper.configuration.Configuration
+import com.mongodb.casbah.{MongoDB, MongoConnection}
+import org.slf4j.LoggerFactory
 
 /**
  *  Prover acesso ao mongodb
@@ -11,28 +13,36 @@ import com.mongodb.casbah.MongoConnection
  *  Time: 1:25:31 PM
  *
  */
-object MongoProvider {
+object MongoProvider extends MongoProvider
 
-  //TODO remover isso para um arquivo de property
-  lazy val connection = MongoConnection("localhost", 27017)
+trait MongoProvider {
 
-  /**Gera um nome para a coleção do mongo
-   *
-   * @param a tipo esperado
-   */
-  def generateCollectionName[T](classType: Class[T]) = classType.getSimpleName.toLowerCase
+  protected lazy val logger = LoggerFactory.getLogger(getClass)
+
+  lazy val connection = {
+    logger.info("connecting to the server MongoDB: %s:%s" format (Configuration.mongodbHost, Configuration.mongodbPort))
+    MongoConnection(Configuration.mongodbHost, Configuration.mongodbPort)
+  }
 
   /**Carrega a coleção do mongo para operaçoes diversas
    *
    * @param a entidade
    */
   def getCollection[T](classType: Class[T]): DBCollection =
-    connection.getDB("openclesia").getCollection(generateCollectionName(classType))
+    getCollection(generateCollectionName(classType))
 
   /**Carrega a coleção do mongo para operaçoes diversas
    *
    * @param o nome da coleção
    */
-  def getCollection(name: String): DBCollection = connection.getDB("openclesia").getCollection(name)
+  def getCollection(name: String): DBCollection =
+    connection.getDB(Configuration.mongodbDatabase).getCollection(name)
+
+  /**Gera um nome para a coleção do mongo
+   *
+   * @param a tipo esperado
+   */
+  private def generateCollectionName[T](classType: Class[T]) =
+    classType.getSimpleName.toLowerCase
 
 }

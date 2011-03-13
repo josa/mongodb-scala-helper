@@ -1,13 +1,17 @@
 package br.com.gfuture.mongodbhelper
 
+import annotations.DocElement
 import java.lang.reflect.Field
 import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
 import org.bson.types.ObjectId
 import java.lang.String
 import com.mongodb.{WriteResult, DBCollection, DBObject}
+import org.slf4j.LoggerFactory
 
-trait Document extends log.Logged {
+trait Document {
+
+  protected lazy val logger = LoggerFactory.getLogger(getClass)
 
   protected var _id: ObjectId = null
 
@@ -58,25 +62,57 @@ trait Document extends log.Logged {
 
 object Document {
 
+  lazy val elementAnnotation = classOf[DocElement]
+
+  /**Converte o objeto em um objeto de persistencia do mongo
+   *
+   * @param document, a entidade a ser convertida
+   * @return uma instancia da classe com.mongodb.DBObject
+   */
+  def toMongoObject[T <: Document](document: T): DBObject = {
+    val builder = MongoDBObject.newBuilder
+    loadFieldsRecursively(document.getClass).foreach {
+      field =>
+        field.isAnnotationPresent(elementAnnotation) match {
+          case true =>
+            field.setAccessible(true)
+            builder += field.getName -> field.get(document)
+          case false =>
+        }
+    }
+    builder += "_id" -> document.getObjectId
+    builder.result
+  }
+
+  /**
+    * Converte o _id em um objeto de persistencia do mongo
+    *
+    * @param _id, instancia da classe org.bson.types.ObjectId
+    * @return uma instancia da classe com.mongodb.DBObject
+    */
+   def toMongoObject[T <: Document](objectId: org.bson.types.ObjectId): DBObject = {
+     MongoDBObject("_id" -> objectId)
+   }
+
   /**
    * Cria uma instancia de uma entidade
    *
    * @param dbObject, o "json" do mongodb
    * @param documentClass, a tipo que será criado
    */
-  def create[T <: Document](dbObject: DBObject, documentClass: Class[T]): T = dbObject match {
+  def fromMongoObject[T <: Document](dbObject: DBObject, documentClass: Class[T]): T = dbObject match {
     case dbObjectMatch: Any =>
       val document: T = documentClass.newInstance
       loadFieldsRecursively(documentClass).foreach {
         field =>
-          field.setAccessible(true)
-          field.getType.getName match {
-            case "br.com.gfuture.mongodbhelper.Reference" =>
-
-            case _ =>
+          field.isAnnotationPresent(elementAnnotation) match {
+            case true =>
+              field.setAccessible(true)
               field.set(document, dbObjectMatch.get(field.getName))
+            case false =>
           }
       }
+      document.setObjectId(dbObject.get("_id").asInstanceOf[ObjectId])
       document
     case _ =>
       null.asInstanceOf[T]
@@ -87,7 +123,6 @@ object Document {
    * @param a entidade a ser salva
    */
   def save[T <: Document](document: T) {
-    val collectionName: String = MongoProvider.generateCollectionName(document.getClass)
     val mongoObject: DBObject = toMongoObject(document)
 
     if (document.logger.isDebugEnabled)
@@ -95,9 +130,9 @@ object Document {
 
     document._id match {
       case objectId: ObjectId =>
-        update(toMongoObject(document.getObjectId), mongoObject, collectionName)
+        update(toMongoObject(document.getObjectId), mongoObject, document.getClass.asInstanceOf[Class[T]])
       case _ =>
-        document._id = save(mongoObject, collectionName)
+        document._id = save(mongoObject, document.getClass.asInstanceOf[Class[T]])
     }
   }
 
@@ -105,8 +140,8 @@ object Document {
    *
    * @param o dbObject
    */
-  def save[T <: Document](dbObject: DBObject, collectionName: String): ObjectId = {
-    val bCollection: DBCollection = MongoProvider.getCollection(collectionName)
+  def save[T <: Document](dbObject: DBObject, documentClass: Class[T]): ObjectId = {
+    val bCollection: DBCollection = MongoProvider.getCollection(documentClass)
     val writeResult: WriteResult = bCollection.save(dbObject)
 
     if (writeResult.getError != null)
@@ -120,8 +155,8 @@ object Document {
    * @param o unique dbObject
    * @param o dbObject a ser salvo
    */
-  def update[T <: Document](uniqueDbObject: DBObject, dbObject: DBObject, collectionName: String) {
-    val collection: DBCollection = MongoProvider.getCollection(collectionName)
+  private def update[T <: Document](uniqueDbObject: DBObject, dbObject: DBObject, documentClass: Class[T]) {
+    val collection: DBCollection = MongoProvider.getCollection(documentClass)
     val writeResult: WriteResult = collection.update(uniqueDbObject, dbObject)
     if (writeResult.getError != null)
       throw new PersistenceException(writeResult.getError)
@@ -134,7 +169,7 @@ object Document {
    * @return voids
    */
   def delete[T <: Document](document: T) {
-    delete(document._id, document.getClass.getSimpleName.toLowerCase)
+    delete(document._id, document.getClass.asInstanceOf[Class[T]])
   }
 
   /**
@@ -143,51 +178,10 @@ object Document {
    * @param o objectId, identificador único do documento
    * @return void
    */
-  def delete(objectId: org.bson.types.ObjectId, collectionName: String) {
-    val writeResult: WriteResult = MongoProvider.getCollection(collectionName).remove(toMongoObject(objectId))
+  def delete[T <: Document](objectId: org.bson.types.ObjectId, documentClass: Class[T]) {
+    val writeResult: WriteResult = MongoProvider.getCollection(documentClass).remove(toMongoObject(objectId))
     if (writeResult.getError != null)
       throw new PersistenceException(writeResult.getError)
-  }
-
-  /**
-   * Converte o _id em um objeto de persistencia do mongo
-   *
-   * @param _id, instancia da classe org.bson.types.ObjectId
-   * @return uma instancia da classe com.mongodb.DBObject
-   */
-  def toMongoObject[T <: Document](objectId: org.bson.types.ObjectId): DBObject = {
-    MongoDBObject("_id" -> objectId)
-  }
-
-  /**Converte o objeto em um objeto de persistencia do mongo
-   *
-   * @param document, a entidade a ser convertida
-   * @return uma instancia da classe com.mongodb.DBObject
-   */
-  def toMongoObject[T <: Document](document: T): DBObject = {
-    val builder = MongoDBObject.newBuilder
-    document.getObjectId match {
-      case obj: ObjectId =>
-        builder += "_id" -> document.getObjectId
-      case _ =>
-    }
-    loadFieldsRecursively(document.getClass).foreach {
-      field =>
-        field.setAccessible(true)
-        field.get(document) match {
-          case e: Association =>
-            e.getDocument.getObjectId match {
-              case objectId: ObjectId =>
-              case _ =>
-                e.getDocument.save
-            }
-            builder += field.getName -> e.getDocument.getObjectId
-          case null =>
-          case _ =>
-            builder += field.getName -> field.get(document)
-        }
-    }
-    builder.result
   }
 
   /**Pesquisa um field da classe e superclasses reculsirvamente

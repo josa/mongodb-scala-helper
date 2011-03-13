@@ -1,128 +1,128 @@
 package br.com.gfuture.mongodbhelper
 
+import annotations.DocElement
 import mongodb.MongoProvider
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
+import com.mongodb.DBObject
 import com.mongodb.casbah.commons.MongoDBObject
 import org.bson.types.ObjectId
-import com.mongodb.DBObject
-import java.lang.reflect.Field
-import util._
-import java.lang.String
 
-class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
+class DocumentExample extends Document {
 
+  @DocElement
+  var valueOne: String = null
+
+  var valueTransient: String = null
+
+  override def equals(that: Any) = that match {
+    case other: DocumentExample => other.getClass == getClass && other.getObjectId.equals(getObjectId)
+    case _ => false
+  }
+
+}
+
+class EspecializedDocumentExample extends DocumentExample {
+
+}
+
+class ObjectDocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
+
+  var document: DocumentExample = null
   var dbObject: DBObject = null
 
-  val collectionName: String = "entitspec_test"
-
   override def beforeEach {
-    dbObject = MongoDBObject("title" -> "Título")
+    document = new DocumentExample
+    document.valueOne = "value one"
+    document.valueTransient = "not included"
+
+    dbObject = MongoDBObject("valueOne" -> "value one")
   }
 
   override def afterEach {
-    MongoProvider.getCollection(collectionName).drop
+    document.delete
   }
 
-  describe("Document") {
+  describe("marshall") {
 
-    describe("Persistencia") {
-
-      it("deveria salvar um dbObject no mongo") {
-        val mongoId: ObjectId = Document.save(dbObject, collectionName)
-        mongoId should not equal (null)
-      }
-
-      it("deveria atualizar um dbObject no mongo") {
-        val novoTitulo: String = "Novo Titulo"
-        val mongoId: ObjectId = Document.save(dbObject, collectionName)
-
-        dbObject.put("title", novoTitulo)
-        Document.save(dbObject, collectionName)
-
-        val one: DBObject = MongoProvider.getCollection(collectionName).findOne(mongoId)
-        one.get("title") should equal(novoTitulo)
-      }
-
-      it("deveria excluir um dbObject no mongo") {
-        val mongoId: ObjectId = Document.save(dbObject, collectionName)
-        Document.delete(mongoId, collectionName)
-        MongoProvider.getCollection(collectionName).findOne(mongoId) should equal(null)
-      }
-
+    it("the _id should be null before persisting") {
+      Document.toMongoObject(document).get("_id") should equal(null)
     }
 
-    describe("Fields") {
-
-      it("deveria retornar o field _id da classe SubClass1") {
-        val subClass = new SubClass1()
-        val field: Field = Document.findField("_id", subClass.getClass)
-        field should not equal (null)
-      }
-
-      it("deveria retornar o field _id da classe SubClass2") {
-        val subClass = new SubClass2()
-        val field: Field = Document.findField("_id", subClass.getClass)
-        field should not equal (null)
-      }
-
-      it("deveria retornar o field _id da classe SubClass3") {
-        val subClass = new SubClass3()
-        val field: Field = Document.findField("_id", subClass.getClass)
-        field should not equal (null)
-      }
-
-      it("deveria retornar o field _id da classe SubClass4") {
-        val subClass = new SubClass4()
-        val field: Field = Document.findField("_id", subClass.getClass)
-        field should not equal (null)
-      }
-
-      it("deveria lançar exceção caso pesquise por um field que não exista") {
-        val subClass1 = new SubClass1()
-        evaluating {
-          Document.findField("abacateazul", subClass1.getClass)
-        } should produce[RuntimeException]
-      }
-
+    it("should generate mongodbObject") {
+      Document.toMongoObject(document).get("valueOne") should equal("value one")
     }
 
-    describe("equals") {
-
-      it("deveria comparar dois objetos") {
-        val object1 = new DocumentTest()
-        object1.setObjectId(org.bson.types.ObjectId.get)
-        val object2 = new DocumentTest()
-        object2.setObjectId(object1.getObjectId)
-        object1.equals(object2) should equal(true)
-      }
-
+    it("should generate a mongodbObject with only two element") {
+      Document.toMongoObject(document).keySet.size should equal(2)
     }
 
-    describe("references") {
+    it("should not include valueTransient") {
+      Document.toMongoObject(document).get("valueTransient") should equal(null)
+    }
 
-      it("deveria criar um mongoObject com referência ao objeto referenciado") {
-        val baseObject = new Category
-        val referenceObject = new Category
-        baseObject.parent = new Reference(referenceObject)
-        val mongoObject: DBObject = Document.toMongoObject(baseObject)
-        mongoObject.get("parent") should not equal(null)
-        mongoObject.get("parent") should equal(referenceObject.getObjectId)
-      }
+    it("should generate mongodbObject in specialized document") {
+      val especDocument = new EspecializedDocumentExample
+      especDocument.valueOne = "value especialized"
+      Document.toMongoObject(especDocument).get("valueOne") should equal("value especialized")
+    }
 
-      it("deveria salvar e recupearar a referência ao objeto"){
-        pending
-        val baseObject = new Category
-        val referenceObject = new Category
-        baseObject.parent = new Reference(referenceObject)
-        baseObject.save
-        val byId = new DocumentManager[Category](classOf[Category]).findById(baseObject.getObjectId)
-        byId should not equal(null)
-        byId.parent should not equal(null)
-        byId.parent.getDocument should not equal(null)
-        byId.parent.getDocument.equals(referenceObject)
-      }
+  }
 
+  describe("unmarshall") {
+
+    it("should generate object from mongodbObject") {
+      val objectFrom = Document.fromMongoObject(dbObject, classOf[DocumentExample])
+      objectFrom.valueOne should equal("value one")
+    }
+
+    it("should not load transientValue") {
+      val objectFrom = Document.fromMongoObject(dbObject, classOf[DocumentExample])
+      objectFrom.valueTransient should equal(null)
+    }
+
+    it("should throw exception if field not found") {
+      evaluating {
+        Document.findField("fieldNotFound", document.getClass)
+      } should produce[RuntimeException]
+    }
+
+  }
+
+  describe("persistence") {
+
+    def findInMongo(id: ObjectId): DBObject = {
+      MongoProvider.getCollection(document.getClass).findOne(MongoDBObject("_id" -> id))
+    }
+
+    it("should save object") {
+      document.save
+      findInMongo(document.getObjectId) should not equal (null)
+    }
+
+    it("should update object") {
+      document.save
+      document.valueOne = "value updated"
+      document.save
+      findInMongo(document.getObjectId).get("valueOne") should equal("value updated")
+    }
+
+    it("should delete object") {
+      document.save
+      document.delete
+      findInMongo(document.getObjectId) should equal(null)
+    }
+
+  }
+
+  describe("equals") {
+
+    it("deveria comparar dois objetos") {
+      val object1 = new DocumentExample()
+      object1.setObjectId(org.bson.types.ObjectId.get)
+      val object2 = new DocumentExample()
+      object2.setObjectId(object1.getObjectId)
+      object1.equals(object2) should equal(true)
     }
 
   }

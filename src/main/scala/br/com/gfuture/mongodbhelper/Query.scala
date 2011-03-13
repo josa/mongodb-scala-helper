@@ -4,13 +4,15 @@ import mongodb.MongoProvider
 import com.mongodb.{DBCursor, DBCollection}
 import collection.mutable.Builder
 import com.mongodb.casbah.commons.{Imports, MongoDBObject}
+import org.slf4j.LoggerFactory
 
-/**
- * Interface de consulta no solr
-
+/**Interface de consulta no solr
+ *
  * by Jeosadache Galvão, josa.galvao@gmail.com
  */
-class Query[T <: Document](val documentClass: Class[T]) extends log.Logged {
+class Query[T <: Document](val documentClass: Class[T]){
+
+  private lazy val logger = LoggerFactory.getLogger(getClass)
 
   val queryBuilder = MongoDBObject.newBuilder
 
@@ -19,7 +21,7 @@ class Query[T <: Document](val documentClass: Class[T]) extends log.Logged {
   def resultList: List[T] = {
     val listBuilder: Builder[T, List[T]] = List.newBuilder[T]
     val cursor: DBCursor = collection.find(queryBuilder.result)
-    while (cursor.hasNext) listBuilder += Document.create(cursor.next, documentClass)
+    while (cursor.hasNext) listBuilder += Document.fromMongoObject(cursor.next, documentClass)
     val list: List[T] = listBuilder.result
     logger.isDebugEnabled() match {
       case true =>
@@ -41,7 +43,7 @@ class Query[T <: Document](val documentClass: Class[T]) extends log.Logged {
    */
   def uniqueResult: T = {
     val dbObject: Imports.DBObject = queryBuilder.result
-    val entity: T = Document.create(collection.findOne(dbObject), documentClass)
+    val entity: T = Document.fromMongoObject(collection.findOne(dbObject), documentClass)
 
     logger.isDebugEnabled() match {
       case true =>

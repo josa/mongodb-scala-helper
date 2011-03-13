@@ -24,4 +24,9 @@
         <appender-ref ref="mongodb"/>
     </logger>
 
+    <logger name="com.mongodb.casbah.commons.conversions.scala.RegisterConversionHelpers">
+        <level value="info"/>
+        <appender-ref ref="mongodb"/>
+    </logger>
+
 </log4j:configuration>

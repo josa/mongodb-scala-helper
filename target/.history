@@ -123,3 +123,9 @@ test
 test-only br.com.gfuture.mongodbhelper.QuerySpec 
 tes
 test
+test-only br.com.gfuture.mongodbhelper.DocumentSpec 
+compile
+test-compile
+test br.com.gfuture.mongodbhelper.ObjectDocumentSpec
+test-only br.com.gfuture.mongodbhelper.ObjectDocumentSpec
+test
