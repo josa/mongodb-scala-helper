@@ -1,11 +1,13 @@
 #Source Hashes
-#Sat Mar 12 22:56:00 BRT 2011
+#Sun Mar 13 12:44:08 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=e18de4943a5a4843922ce0340485959718230435
-src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=c900ff468b584149a516b824def81ddda322147a
+src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=1e2d8a09396cab57eefc2000d25437ee7bdb4abd
 src/main/scala/br/com/gfuture/mongodbhelper/configuration/Configuration.scala=cc0806953c844a50519031858e4645cc5f181825
 src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala=722a958c0c991c51d3fe997ae7b79e8ebaf847fa
 src/main/scala/br/com/gfuture/mongodbhelper/Association.scala=9f61d2689ae0a1855304233ee5d65fb0c58885d3
 src/main/scala/br/com/gfuture/mongodbhelper/Reference.scala=42a1187e9a4abbcc879d7478cd4ec19d5b6bdc3f
+src/main/scala/br/com/gfuture/mongodbhelper/annotations/PrePersist.java=104065b939be69d1ed8290694a17d6a6c08fa144
 src/main/scala/br/com/gfuture/mongodbhelper/PersistenceException.scala=23e3277b94ca5a8b893e7abd0e323d98fa3e28ea
+src/main/scala/br/com/gfuture/mongodbhelper/annotations/PosPersist.java=eb2bb542334ca2ea330efc5958ebe141c2d6951d
 src/main/scala/br/com/gfuture/mongodbhelper/annotations/DocElement.java=2b819fe89d6e65c5ae04bf44a0244b78c071436a
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=f5c7061bbd5596d592aca8c140a058c52f61fb95

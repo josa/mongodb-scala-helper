@@ -1,6 +1,6 @@
 package br.com.gfuture.mongodbhelper
 
-import annotations.DocElement
+import annotations.{PosPersist, DocElement, PrePersist}
 import java.lang.reflect.Field
 import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
@@ -8,6 +8,7 @@ import org.bson.types.ObjectId
 import java.lang.String
 import com.mongodb.{WriteResult, DBCollection, DBObject}
 import org.slf4j.LoggerFactory
+import java.lang.annotation.Annotation
 
 trait Document {
 
@@ -22,11 +23,9 @@ trait Document {
 
     try {
 
-      prePersist
+      Document.callPrePersist(this)
 
       Document.save(this)
-
-      posPersist
 
       if (logger.isDebugEnabled)
         logger.debug("sucess")
@@ -40,9 +39,9 @@ trait Document {
 
   def delete = Document.delete(this)
 
-  def prePersist = {}
-
-  def posPersist = {}
+  override def toString = {
+    getClass.getSimpleName + ", " + Document.toMongoObject(this).toString
+  }
 
   def getObjectId: ObjectId = this._id
 
@@ -52,10 +51,6 @@ trait Document {
 
   def setObjectId(_id: String) {
     this._id = new ObjectId(_id)
-  }
-
-  override def toString = {
-    getClass.getSimpleName + ", " + Document.toMongoObject(this).toString
   }
 
 }
@@ -85,14 +80,14 @@ object Document {
   }
 
   /**
-    * Converte o _id em um objeto de persistencia do mongo
-    *
-    * @param _id, instancia da classe org.bson.types.ObjectId
-    * @return uma instancia da classe com.mongodb.DBObject
-    */
-   def toMongoObject[T <: Document](objectId: org.bson.types.ObjectId): DBObject = {
-     MongoDBObject("_id" -> objectId)
-   }
+   * Converte o _id em um objeto de persistencia do mongo
+   *
+   * @param _id, instancia da classe org.bson.types.ObjectId
+   * @return uma instancia da classe com.mongodb.DBObject
+   */
+  def toMongoObject[T <: Document](objectId: org.bson.types.ObjectId): DBObject = {
+    MongoDBObject("_id" -> objectId)
+  }
 
   /**
    * Cria uma instancia de uma entidade
@@ -227,6 +222,23 @@ object Document {
       case _ =>
         fieldList
     }
+  }
+
+  def callPrePersist[T <: Document](document: T) {
+    callAnnotadedMethod(document, classOf[PrePersist])
+  }
+
+   def callPosPersist[T <: Document](document: T) {
+    callAnnotadedMethod(document, classOf[PosPersist])
+  }
+
+  def callAnnotadedMethod[T <: Document](document: T, annotation: Class[_ <: java.lang.annotation.Annotation]){
+      document.getClass.getMethods.foreach({
+      m =>
+        if (m.isAnnotationPresent(annotation)) {
+          m.invoke(document)
+        }
+    })
   }
 
 }

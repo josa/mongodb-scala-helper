@@ -13,6 +13,8 @@ class MongodbScalaHelper(info: ProjectInfo) extends DefaultProject(info) with Sc
   val scalatest = "org.scalatest" % "scalatest" %
     "1.2.1-SNAPSHOT"
 
+  val mockito = "org.mockito" % "mockito-core" % "1.7"
+
   val slf4j = "org.slf4j" % "slf4j-api" % "1.6.1"
   val l4jbind = "org.slf4j" % "slf4j-log4j12" % "1.6.1" % "runtime"
 

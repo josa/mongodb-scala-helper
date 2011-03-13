@@ -1,12 +1,14 @@
 package br.com.gfuture.mongodbhelper
 
-import annotations.DocElement
+import annotations.{PrePersist, DocElement}
 import mongodb.MongoProvider
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
 import com.mongodb.DBObject
 import com.mongodb.casbah.commons.MongoDBObject
 import org.bson.types.ObjectId
+
+
 
 class DocumentExample extends Document {
 

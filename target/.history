@@ -129,3 +129,5 @@ test-compile
 test br.com.gfuture.mongodbhelper.ObjectDocumentSpec
 test-only br.com.gfuture.mongodbhelper.ObjectDocumentSpec
 test
+update
+test

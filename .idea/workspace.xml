@@ -64,10 +64,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Document.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Document.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="857" selection-end="901" vertical-scroll-proportion="1.1580882">
+            <state line="230" column="21" selection-start="6521" selection-end="6535" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DocElement.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/DocElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="51" selection-end="200" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PreAndPosPersistSpec.scala" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="47" selection-start="624" selection-end="624" vertical-scroll-proportion="0.7169118">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mockito.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib_managed/scala_2.8.0/compile/mockito-core-1.7.jar!/org/mockito/Mockito.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="24" selection-start="1537" selection-end="1537" vertical-scroll-proportion="-8.08">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MongodbScalaHelper.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/build/MongodbScalaHelper.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="54" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -87,12 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/TransientSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/log/Logged.scala" />
-        <option value="$PROJECT_DIR$/src/main/resources/mongodb-scala-helper.properties" />
-        <option value="$PROJECT_DIR$/src/test/resources/mongodb-scala-helper.properties" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Query.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/Element.java" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/DocElement.java" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/configuration/Configuration.scala" />
@@ -101,8 +131,14 @@
         <option value="$PROJECT_DIR$/src/test/resources/log4j.xml" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentOldSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala" />
+        <option value="$PROJECT_DIR$/project/build/MongodbScalaHelper.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/PrePersist.java" />
+        <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PrePersistSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/PosPersist.java" />
+        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala" />
       </list>
     </option>
   </component>
@@ -265,8 +301,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="DocumentSpec.scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -460,6 +496,56 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb-scala-helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb-scala-helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb-scala-helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb-scala-helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb-scala-helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mongodb-scala-helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -725,7 +811,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="720" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -739,7 +825,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927758" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32775664" sideWeight="0.67132866" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32775664" sideWeight="0.67132866" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867134" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -787,51 +873,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/lib_managed/scala_2.8.0/compile/casbah-core_2.8.0-2.0.1.jar!/com/mongodb/casbah/MongoConnection.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="6" selection-start="3557" selection-end="3557" vertical-scroll-proportion="0.7368421">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Query.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="272" selection-end="272" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="42" selection-start="824" selection-end="832" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib_managed/scala_2.8.0/compile/casbah-commons_2.8.0-2.0.1.jar!/com/mongodb/casbah/commons/conversions/scala/RegisterConversionHelpers.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="7" selection-start="60" selection-end="60" vertical-scroll-proportion="0.02819549">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../tools/jdk1.6.0_17/src.zip!/java/lang/reflect/AccessibleObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="19" selection-start="6464" selection-end="6464" vertical-scroll-proportion="0.33211008">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mongodb-scala-helper.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="18" selection-start="36" selection-end="41" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/DocElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="1" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -864,13 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="360" selection-end="368" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="0" selection-start="1769" selection-end="1770" vertical-scroll-proportion="0.83455884">
@@ -885,9 +922,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/project/plugins/Plugins.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="74" selection-start="229" selection-end="229" vertical-scroll-proportion="0.11029412">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/build/MongodbScalaHelper.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="54" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/DocElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="51" selection-end="200" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib_managed/scala_2.8.0/compile/mockito-core-1.7.jar!/org/mockito/Mockito.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="24" selection-start="1537" selection-end="1537" vertical-scroll-proportion="-8.08">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/PosPersist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="71" selection-start="200" selection-end="200" vertical-scroll-proportion="0.08571429">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/PrePersist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="51" selection-end="200" vertical-scroll-proportion="0.057142857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="437" selection-end="437" vertical-scroll-proportion="-1.2095238">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="857" selection-end="901" vertical-scroll-proportion="1.1580882">
+        <state line="230" column="21" selection-start="6521" selection-end="6535" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="47" selection-start="624" selection-end="624" vertical-scroll-proportion="0.7169118">
           <folding />
         </state>
       </provider>
