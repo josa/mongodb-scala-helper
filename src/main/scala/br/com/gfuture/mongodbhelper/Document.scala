@@ -8,7 +8,6 @@ import org.bson.types.ObjectId
 import java.lang.String
 import com.mongodb.{WriteResult, DBCollection, DBObject}
 import org.slf4j.LoggerFactory
-import java.lang.annotation.Annotation
 
 trait Document {
 
@@ -26,6 +25,8 @@ trait Document {
       Document.callPrePersist(this)
 
       Document.save(this)
+
+      Document.callPosPersist(this)
 
       if (logger.isDebugEnabled)
         logger.debug("sucess")
@@ -224,15 +225,21 @@ object Document {
     }
   }
 
+  /**Chama o método anotado como @PrePersist
+   */
   def callPrePersist[T <: Document](document: T) {
-    callAnnotadedMethod(document, classOf[PrePersist])
+    callAnnotatedMethod(document, classOf[PrePersist])
   }
 
+  /**Chama o método anotado como @PosPersist
+   */
    def callPosPersist[T <: Document](document: T) {
-    callAnnotadedMethod(document, classOf[PosPersist])
+    callAnnotatedMethod(document, classOf[PosPersist])
   }
 
-  def callAnnotadedMethod[T <: Document](document: T, annotation: Class[_ <: java.lang.annotation.Annotation]){
+  /**Chama um método anotado pela anotação passada como parametro
+   */
+  def callAnnotatedMethod[T <: Document](document: T, annotation: Class[_ <: java.lang.annotation.Annotation]){
       document.getClass.getMethods.foreach({
       m =>
         if (m.isAnnotationPresent(annotation)) {

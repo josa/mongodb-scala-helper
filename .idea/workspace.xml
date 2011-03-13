@@ -64,10 +64,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Document.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Document.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="230" column="21" selection-start="6521" selection-end="6535" vertical-scroll-proportion="0.0">
+            <state line="239" column="65" selection-start="6791" selection-end="6791" vertical-scroll-proportion="4.7959557">
               <folding />
             </state>
           </provider>
@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PreAndPosPersistSpec.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PreAndPosPersistSpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="47" selection-start="624" selection-end="624" vertical-scroll-proportion="0.7169118">
+            <state line="26" column="47" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -137,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PrePersistSpec.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/PosPersist.java" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala" />
       </list>
     </option>
   </component>
@@ -971,16 +971,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="21" selection-start="6521" selection-end="6535" vertical-scroll-proportion="0.0">
+        <state line="26" column="47" selection-start="624" selection-end="624" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="47" selection-start="624" selection-end="624" vertical-scroll-proportion="0.7169118">
+        <state line="239" column="65" selection-start="6791" selection-end="6791" vertical-scroll-proportion="4.7959557">
           <folding />
         </state>
       </provider>
