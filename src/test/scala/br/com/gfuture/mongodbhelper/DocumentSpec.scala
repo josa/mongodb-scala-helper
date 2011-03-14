@@ -28,7 +28,7 @@ class EspecializedDocumentExample extends DocumentExample {
 
 }
 
-class ObjectDocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
+class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
   var document: DocumentExample = null
   var dbObject: DBObject = null
@@ -48,25 +48,25 @@ class ObjectDocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEac
   describe("marshall") {
 
     it("the _id should be null before persisting") {
-      Document.toMongoObject(document).get("_id") should equal(null)
+      Document.toDBObject(document).get("_id") should equal(null)
     }
 
     it("should generate mongodbObject") {
-      Document.toMongoObject(document).get("valueOne") should equal("value one")
+      Document.toDBObject(document).get("valueOne") should equal("value one")
     }
 
     it("should generate a mongodbObject with only two element") {
-      Document.toMongoObject(document).keySet.size should equal(2)
+      Document.toDBObject(document).keySet.size should equal(2)
     }
 
     it("should not include valueTransient") {
-      Document.toMongoObject(document).get("valueTransient") should equal(null)
+      Document.toDBObject(document).get("valueTransient") should equal(null)
     }
 
     it("should generate mongodbObject in specialized document") {
       val especDocument = new EspecializedDocumentExample
       especDocument.valueOne = "value especialized"
-      Document.toMongoObject(especDocument).get("valueOne") should equal("value especialized")
+      Document.toDBObject(especDocument).get("valueOne") should equal("value especialized")
     }
 
   }

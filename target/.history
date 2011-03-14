@@ -131,3 +131,4 @@ test-only br.com.gfuture.mongodbhelper.ObjectDocumentSpec
 test
 update
 test
+test-only br.com.gfuture.mongodbhelper.DocumentReferenceSpec 

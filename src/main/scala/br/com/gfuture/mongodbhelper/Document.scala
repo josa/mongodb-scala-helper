@@ -1,13 +1,13 @@
 package br.com.gfuture.mongodbhelper
 
-import annotations.{PosPersist, DocElement, PrePersist}
+import annotations._
 import java.lang.reflect.Field
 import com.mongodb.casbah.commons.MongoDBObject
 import mongodb.MongoProvider
 import org.bson.types.ObjectId
 import java.lang.String
-import com.mongodb.{WriteResult, DBCollection, DBObject}
 import org.slf4j.LoggerFactory
+import com.mongodb.{WriteResult, DBCollection, DBObject}
 
 trait Document {
 
@@ -41,7 +41,7 @@ trait Document {
   def delete = Document.delete(this)
 
   override def toString = {
-    getClass.getSimpleName + ", " + Document.toMongoObject(this).toString
+    getClass.getSimpleName + ", " + Document.toDBObject(this).toString
   }
 
   def getObjectId: ObjectId = this._id
@@ -58,24 +58,38 @@ trait Document {
 
 object Document {
 
-  lazy val elementAnnotation = classOf[DocElement]
-
   /**Converte o objeto em um objeto de persistencia do mongo
    *
    * @param document, a entidade a ser convertida
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toMongoObject[T <: Document](document: T): DBObject = {
+  def toDBObject[T <: Document](document: T): DBObject = {
+
     val builder = MongoDBObject.newBuilder
+
+    def processAnnotationAndGenerateElement(field: Field): (String, AnyRef) = {
+      field.getAnnotation(classOf[Reference]) match {
+        case refAnnotation: Reference =>
+          val documentReference = field.get(document).asInstanceOf[Document]
+          if (!refAnnotation.cascade.equals(CascadeType.SAVE) && documentReference.getObjectId == null)
+            throw new MappingException(field.getName + ": objectId not exists")
+
+          if (refAnnotation.cascade.equals(CascadeType.SAVE))
+            documentReference.save
+
+          field.getName -> documentReference.getObjectId
+        case null =>
+          field.getName -> field.get(document)
+      }
+    }
+
     loadFieldsRecursively(document.getClass).foreach {
       field =>
-        field.isAnnotationPresent(elementAnnotation) match {
-          case true =>
-            field.setAccessible(true)
-            builder += field.getName -> field.get(document)
-          case false =>
-        }
+        field.setAccessible(true)
+        if (field.isAnnotationPresent(classOf[DocElement]) && field.get(document) != null)
+          builder += processAnnotationAndGenerateElement(field)
     }
+
     builder += "_id" -> document.getObjectId
     builder.result
   }
@@ -86,7 +100,7 @@ object Document {
    * @param _id, instancia da classe org.bson.types.ObjectId
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toMongoObject[T <: Document](objectId: org.bson.types.ObjectId): DBObject = {
+  def toOBObject[T <: Document](objectId: org.bson.types.ObjectId): DBObject = {
     MongoDBObject("_id" -> objectId)
   }
 
@@ -101,7 +115,7 @@ object Document {
       val document: T = documentClass.newInstance
       loadFieldsRecursively(documentClass).foreach {
         field =>
-          field.isAnnotationPresent(elementAnnotation) match {
+          field.isAnnotationPresent(classOf[DocElement]) match {
             case true =>
               field.setAccessible(true)
               field.set(document, dbObjectMatch.get(field.getName))
@@ -119,14 +133,14 @@ object Document {
    * @param a entidade a ser salva
    */
   def save[T <: Document](document: T) {
-    val mongoObject: DBObject = toMongoObject(document)
+    val mongoObject: DBObject = toDBObject(document)
 
     if (document.logger.isDebugEnabled)
       document.logger.debug(mongoObject.toString)
 
     document._id match {
       case objectId: ObjectId =>
-        update(toMongoObject(document.getObjectId), mongoObject, document.getClass.asInstanceOf[Class[T]])
+        update(toOBObject(document.getObjectId), mongoObject, document.getClass.asInstanceOf[Class[T]])
       case _ =>
         document._id = save(mongoObject, document.getClass.asInstanceOf[Class[T]])
     }
@@ -175,7 +189,7 @@ object Document {
    * @return void
    */
   def delete[T <: Document](objectId: org.bson.types.ObjectId, documentClass: Class[T]) {
-    val writeResult: WriteResult = MongoProvider.getCollection(documentClass).remove(toMongoObject(objectId))
+    val writeResult: WriteResult = MongoProvider.getCollection(documentClass).remove(toOBObject(objectId))
     if (writeResult.getError != null)
       throw new PersistenceException(writeResult.getError)
   }
@@ -233,14 +247,14 @@ object Document {
 
   /**Chama o método anotado como @PosPersist
    */
-   def callPosPersist[T <: Document](document: T) {
+  def callPosPersist[T <: Document](document: T) {
     callAnnotatedMethod(document, classOf[PosPersist])
   }
 
   /**Chama um método anotado pela anotação passada como parametro
    */
-  def callAnnotatedMethod[T <: Document](document: T, annotation: Class[_ <: java.lang.annotation.Annotation]){
-      document.getClass.getMethods.foreach({
+  def callAnnotatedMethod[T <: Document](document: T, annotation: Class[_ <: java.lang.annotation.Annotation]) {
+    document.getClass.getMethods.foreach({
       m =>
         if (m.isAnnotationPresent(annotation)) {
           m.invoke(document)

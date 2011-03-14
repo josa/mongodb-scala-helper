@@ -1,6 +1,7 @@
 #Tests
-#Sun Mar 13 12:44:09 BRT 2011
+#Sun Mar 13 23:57:31 BRT 2011
+src/test/scala/br/com/gfuture/mongodbhelper/DocumentReferenceSpec.scala=br.com.gfuture.mongodbhelper.DocumentReferenceSpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=br.com.gfuture.mongodbhelper.QuerySpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala=br.com.gfuture.mongodbhelper.PreAndPosPersistSpec<<org.scalatest.Suite
-src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala=br.com.gfuture.mongodbhelper.ObjectDocumentSpec<<org.scalatest.Suite
+src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala=br.com.gfuture.mongodbhelper.DocumentSpec<<org.scalatest.Suite
 src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=br.com.gfuture.mongodbhelper.mongodb.MongoProviderSpec<<org.scalatest.Suite
