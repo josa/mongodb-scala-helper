@@ -1,16 +1,16 @@
 package br.com.gfuture.mongodbhelper
 
 import mongodb.MongoProvider
-import com.mongodb.{DBCursor, DBCollection}
 import collection.mutable.Builder
 import com.mongodb.casbah.commons.{Imports, MongoDBObject}
 import org.slf4j.LoggerFactory
+import com.mongodb.{DBCursor, DBCollection}
 
 /**Interface de consulta no solr
  *
  * by Jeosadache Galvão, josa.galvao@gmail.com
  */
-class Query[T <: Document[T]](val documentClass: Class[T]){
+class Query(val documentClass: Class[_ <: Document]) {
 
   private lazy val logger = LoggerFactory.getLogger(getClass)
 
@@ -18,11 +18,11 @@ class Query[T <: Document[T]](val documentClass: Class[T]){
 
   /**Retorna a lista de resultados
    */
-  def resultList: List[T] = {
-    val listBuilder: Builder[T, List[T]] = List.newBuilder[T]
+  def resultList: List[Document] = {
+    val listBuilder: Builder[Document, List[Document]] = List.newBuilder[Document]
     val cursor: DBCursor = collection.find(queryBuilder.result)
-    while (cursor.hasNext) listBuilder += MongoDocumentHelper.fromMongoObject(cursor.next, documentClass)
-    val list: List[T] = listBuilder.result
+    while (cursor.hasNext) listBuilder += DocumentTools.fromMongoObject(cursor.next, documentClass)
+    val list: List[Document] = listBuilder.result
     logger.isDebugEnabled() match {
       case true =>
         logger.debug("find %s query[%s], %s itens encontrados".format(documentClass.getSimpleName, cursor.getQuery.toString, cursor.size))
@@ -41,15 +41,14 @@ class Query[T <: Document[T]](val documentClass: Class[T]){
 
   /**Retorna um resultado para a busca
    */
-  def uniqueResult: T = {
+  def uniqueResult: Document = {
     val dbObject: Imports.DBObject = queryBuilder.result
-    val entity: T = MongoDocumentHelper.fromMongoObject(collection.findOne(dbObject), documentClass)
-
+    val entity = DocumentTools.fromMongoObject(collection.findOne(dbObject), documentClass)
     logger.isDebugEnabled() match {
       case true =>
         logger.debug("find unique query[%s]" format (dbObject.toString))
         entity match {
-          case e: T =>
+          case e: Document =>
             logger.debug("document found: %s" format (entity.toString))
           case _ =>
             logger.debug("document not found")
@@ -63,7 +62,7 @@ class Query[T <: Document[T]](val documentClass: Class[T]){
    * @param o field
    * @param o valor do field
    */
-  def addClause(field: String, value: Any): Query[T] = {
+  def addClause(field: String, value: Any): Query = {
     queryBuilder += field -> value
     this
   }

@@ -1,7 +1,6 @@
 #Source Dependencies
-#Mon Mar 14 22:12:35 BRT 2011
-src/test/scala/br/com/gfuture/mongodbhelper/DocumentReferenceSpec.scala=
+#Tue Mar 15 11:49:56 BRT 2011
+src/test/scala/br/com/gfuture/mongodbhelper/reflect/ReflectUtilSpec.scala=
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=
-src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala=
-src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala\:src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala
-src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=
+src/test/scala/br/com/gfuture/mongodbhelper/DocumentManagerSpec.scala=
+src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala=src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala

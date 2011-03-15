@@ -1,31 +1,19 @@
 package br.com.gfuture.mongodbhelper
 
-import annotations._
-import java.lang.reflect.Field
+import annotations.{AssociationType, DocElement, CascadeType, Reference}
 import com.mongodb.casbah.commons.MongoDBObject
+import java.lang.reflect.Field
 import mongodb.MongoProvider
 import org.bson.types.ObjectId
-import java.lang.String
+import br.com.gfuture.mongodbhelper.reflect.ReflectUtil
 import org.slf4j.LoggerFactory
 import com.mongodb.{WriteResult, DBCollection, DBObject}
 
-class Document[T](val typeDocument: Class[T]) {
+abstract class Document(val documentClass: Class[_ <: Document]) {
 
   protected lazy val logger = LoggerFactory.getLogger(getClass)
 
-  private var _id: ObjectId = null
-
-  def getObjectId: ObjectId = this._id
-
-  def setObjectId(_id: ObjectId) {
-    this._id = _id
-  }
-
-  def setObjectId(_id: String) {
-    this._id = new ObjectId(_id)
-  }
-
-  def getTypeDocument = typeDocument
+  private var objectId: ObjectId = null
 
   def save {
 
@@ -34,22 +22,23 @@ class Document[T](val typeDocument: Class[T]) {
 
     try {
 
-      MongoDocumentHelper.callPrePersist(asInstanceOf[Document[T]])
+      //MongoDocumentHelper.callPrePersist(asInstanceOf[Document[T]])
 
-      val mongoObject: DBObject = MongoDocumentHelper.toDBObject(this)
+      val mongoObject: DBObject = DocumentTools.toDBObject(this)
 
       if (logger.isDebugEnabled)
         logger.debug(mongoObject.toString)
 
       getObjectId match {
         case objectId: ObjectId =>
-          update(MongoDocumentHelper.toOBObject(this.getObjectId), mongoObject, this.getClass.asInstanceOf[Class[T]])
+          val uniqueMongoObject = DocumentTools.toOBObject(this.getObjectId)
+          update(uniqueMongoObject, mongoObject, getClass)
         case _ =>
-          save(mongoObject, typeDocument)
+          save(mongoObject, getClass)
           setObjectId(mongoObject.get("_id").asInstanceOf[org.bson.types.ObjectId])
       }
 
-      MongoDocumentHelper.callPosPersist(this)
+      //MongoDocumentHelper.callPosPersist(this)
 
       if (logger.isDebugEnabled)
         logger.debug("sucess")
@@ -62,38 +51,6 @@ class Document[T](val typeDocument: Class[T]) {
   }
 
 
-  /**Salva o dbObject no mongodb
-   *
-   * @param o dbObject
-   */
-  def save(dbObject: DBObject, documentClass: Class[T]) {
-    val bCollection: DBCollection = MongoProvider.getCollection(documentClass)
-    val writeResult: WriteResult = bCollection.save(dbObject)
-
-    if (writeResult.getError != null)
-      throw new PersistenceException(writeResult.getError)
-
-  }
-
-
-
-  override def toString = {
-    getClass.getSimpleName + ", " + MongoDocumentHelper.toDBObject(this).toString
-  }
-
-
-  /**Atualiza o dbObject no mongodb
-   *
-   * @param o unique dbObject
-   * @param o dbObject a ser salvo
-   */
-  private def update(uniqueDbObject: DBObject, dbObject: DBObject, documentClass: Class[T]) {
-    val collection: DBCollection = MongoProvider.getCollection(documentClass)
-    val writeResult: WriteResult = collection.update(uniqueDbObject, dbObject)
-    if (writeResult.getError != null)
-      throw new PersistenceException(writeResult.getError)
-  }
-
   /**
    * Exclui a entidade do mongodb
    *
@@ -101,47 +58,95 @@ class Document[T](val typeDocument: Class[T]) {
    * @return voids
    */
   def delete {
-    val writeResult: WriteResult = MongoProvider.getCollection(typeDocument).remove(MongoDocumentHelper.toOBObject(getObjectId))
+    val writeResult: WriteResult = MongoProvider.getCollection(documentClass).remove(DocumentTools.toOBObject(getObjectId))
     if (writeResult.getError != null)
       throw new PersistenceException(writeResult.getError)
   }
 
+  /**Salva o dbObject no mongodb
+   */
+  private def save(dbObject: DBObject, documentClass: Class[_]) {
+    val bCollection: DBCollection = MongoProvider.getCollection(documentClass)
+    val writeResult: WriteResult = bCollection.save(dbObject)
+    if (writeResult.getError != null)
+      throw new PersistenceException(writeResult.getError)
+  }
+
+  /**Atualiza o dbObject no mongodb
+   *
+   * @param o unique dbObject
+   * @param o dbObject a ser salvo
+   */
+  private def update(uniqueDbObject: DBObject, dbObject: DBObject, documentClass: Class[_]) {
+    val collection: DBCollection = MongoProvider.getCollection(documentClass)
+    val writeResult: WriteResult = collection.update(uniqueDbObject, dbObject)
+    if (writeResult.getError != null)
+      throw new PersistenceException(writeResult.getError)
+  }
+
+  override def equals(that: Any) = that match {
+    case other: Document => other.getClass == getClass && other.getObjectId.equals(getObjectId)
+    case _ => false
+  }
+
+  override def toString = {
+    getClass.getSimpleName + ", " + DocumentTools.toDBObject(this).toString
+  }
+
+  def getObjectId = this.objectId
+
+  def setObjectId(objectId: ObjectId) {
+    this.objectId = objectId
+  }
+
 }
 
-object MongoDocumentHelper {
+object DocumentTools {
+
+  protected lazy val logger = LoggerFactory.getLogger(DocumentTools.getClass)
 
   /**Converte o objeto em um objeto de persistencia do mongo
    *
    * @param document, a entidade a ser convertida
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toDBObject[T](document: Document[T]): DBObject = {
+  def toDBObject(document: Document): DBObject = {
 
     val builder = MongoDBObject.newBuilder
 
-    def processAnnotationAndGenerateElement(field: Field): (String, AnyRef) = {
+    def processAnnotationsAndGenerateElement(field: Field): (String, AnyRef) = {
       field.getAnnotation(classOf[Reference]) match {
         case refAnnotation: Reference =>
-          val documentReference = field.get(document).asInstanceOf[Document[T]]
+
+          val documentReference = field.get(document).asInstanceOf[Document]
           if (!refAnnotation.cascade.equals(CascadeType.SAVE) && documentReference.getObjectId == null)
             throw new MappingException(field.getName + ": objectId not exists")
 
-          if (refAnnotation.cascade.equals(CascadeType.SAVE))
-            documentReference.save
+          //TODO - FIXEME
+          //if (refAnnotation.cascade.equals(CascadeType.SAVE))
+          //documentReference.save
 
           field.getName -> documentReference.getObjectId
+
         case null =>
           field.getName -> field.get(document)
       }
     }
 
-    loadFieldsRecursively(document.getClass).foreach {
+    ReflectUtil.loadFieldsRecursively(document.documentClass).foreach {
       field =>
         field.setAccessible(true)
         if (field.isAnnotationPresent(classOf[DocElement]) && field.get(document) != null)
-          builder += processAnnotationAndGenerateElement(field)
+          builder += processAnnotationsAndGenerateElement(field)
+        else {
+          if (logger.isDebugEnabled) {
+            if (!field.isAnnotationPresent(classOf[DocElement]))
+              logger.debug("toObject[field excluded(%s), @DocElement not found]" format (field.getName))
+            if (field.get(document) != null)
+              logger.debug("toObject[field excluded(%s), is null]" format (field.getName))
+          }
+        }
     }
-
 
     builder += "_id" -> document.getObjectId
     builder.result
@@ -153,27 +158,16 @@ object MongoDocumentHelper {
    * @param _id, instancia da classe org.bson.types.ObjectId
    * @return uma instancia da classe com.mongodb.DBObject
    */
-  def toOBObject[T](objectId: org.bson.types.ObjectId): DBObject = {
+  def toOBObject(objectId: org.bson.types.ObjectId): DBObject = {
     MongoDBObject("_id" -> objectId)
   }
 
-  /**
-   * Cria uma instancia de uma entidade
-   *
-   * @param dbObject, o "json" do mongodb
-   * @param documentClass, a tipo que será criado   [T](document: Document[T])
-   */
-  def fromMongoObject[T](dbObject: DBObject, documentClass: Class[T]): T = dbObject match {
+  def fromMongoObject(dbObject: DBObject, documentClass: Class[_ <: Document]): Document = dbObject match {
     case dbObjectMatch: Any =>
-
       def processAnnotationsAndGetProperty(field: Field): AnyRef = {
         field.getAnnotation(classOf[Reference]) match {
           case refAnnotation: Reference =>
             if (refAnnotation.association.equals(AssociationType.ONE_TO_ONE)) {
-              val clazz = field.getType
-              println(clazz)
-              //val documentManager = new DocumentManager[T](document.getTypeDocument)
-              //documentManager.findById(dbObjectMatch.get(field.getName).asInstanceOf[ObjectId])
               null.asInstanceOf[AnyRef]
             } else {
               null.asInstanceOf[AnyRef]
@@ -182,86 +176,19 @@ object MongoDocumentHelper {
             dbObjectMatch.get(field.getName)
         }
       }
-
-      val document = documentClass.newInstance.asInstanceOf[T]
-      loadFieldsRecursively(documentClass).foreach {
+      val document = documentClass.newInstance
+      ReflectUtil.loadFieldsRecursively(documentClass).foreach {
         field =>
           field.setAccessible(true)
           if (field.isAnnotationPresent(classOf[DocElement])) {
             field.set(document, processAnnotationsAndGetProperty(field))
           }
       }
-      documentClass.getField("_id").set(document, dbObject.get("_id").asInstanceOf[ObjectId])
+      document.setObjectId(dbObject.get("_id").asInstanceOf[ObjectId])
       document
     case _ =>
-      null.asInstanceOf[T]
+      null.asInstanceOf[Document]
   }
 
-  /**Pesquisa um field da classe e superclasses reculsirvamente
-   *
-   * @param o nome do field
-   * @param a classe da entidade
-   *
-   */
-  def findField[T](name: String, documentClass: Class[T]): Field = {
-    try {
-      documentClass.getDeclaredField(name)
-    } catch {
-      case e: java.lang.NoSuchFieldException =>
-        documentClass.getSuperclass match {
-          case x: Class[T] =>
-            findField(name, documentClass.getSuperclass)
-          case _ =>
-            throw new RuntimeException("field not found: " + documentClass.getName + "[" + name + "]")
-        }
-
-    }
-  }
-
-  /**Carrega os fields da classe e superclasses recusivamente
-   *
-   * @param a classe
-   *
-   */
-  def loadFieldsRecursively[T](documentClass: Class[T]): List[Field] = {
-    loadFieldsRecursively(documentClass, List.empty[Field])
-  }
-
-  /**Carrega os fields da classe e superclasses recusivamente
-   *
-   * @param a classe
-   * @param a lista de fields
-   *
-   */
-  def loadFieldsRecursively[T](documentClass: Class[T], fieldList: List[Field]): List[Field] = {
-    documentClass match {
-      case c: Class[T] =>
-        loadFieldsRecursively(documentClass.getSuperclass, fieldList union c.getDeclaredFields.toList)
-      case _ =>
-        fieldList
-    }
-  }
-
-  /**Chama o método anotado como @PrePersist
-   */
-  def callPrePersist[T](document:Document[T]) {
-    callAnnotatedMethod(document, classOf[PrePersist])
-  }
-
-  /**Chama o método anotado como @PosPersist
-   */
-  def callPosPersist[T](document:Document[T]) {
-    callAnnotatedMethod(document, classOf[PosPersist])
-  }
-    /**Chama um método anotado pela anotação passada como parametro
-   */
-  def callAnnotatedMethod[T](document:Document[T], annotation: Class[_ <: java.lang.annotation.Annotation]) {
-    getClass.getMethods.foreach({
-      m =>
-        if (m.isAnnotationPresent(annotation)) {
-          m.invoke(document)
-        }
-    })
-  }
 
 }

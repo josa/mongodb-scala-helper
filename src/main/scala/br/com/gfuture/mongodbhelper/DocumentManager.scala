@@ -9,19 +9,19 @@ import org.bson.types.ObjectId
  * Date: 1/25/11
  * Time: 5:39 PM
  */
-class DocumentManager[T <: Document[T]](val entityType: Class[T]) {
+class DocumentManager(val entityType: Class[_<:Document]) {
 
   /**Cria a query apartir de uma query string
    *
    * @param query
    */
-  def createQuery: Query[T] = new Query[T](entityType)
+  def createQuery: Query = new Query(entityType)
 
   /**Busca o documento pela string que representa o id
    *
    * @param a string que representa o objectId
    */
-  def findById(_id: String): T = {
+  def findById(_id: String): Document = {
     findById(new ObjectId(_id))
   }
 
@@ -29,7 +29,7 @@ class DocumentManager[T <: Document[T]](val entityType: Class[T]) {
    *
    * @param o objectId
    */
-  def findById(_id: ObjectId): T = {
+  def findById(_id: ObjectId): Document = {
     createQuery.addClause("_id", _id).uniqueResult
   }
 
