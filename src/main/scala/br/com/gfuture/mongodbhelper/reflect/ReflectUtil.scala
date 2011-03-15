@@ -30,7 +30,7 @@ object ReflectUtil {
     }
   }
 
-    /**Pesquisa um field da classe e superclasses reculsirvamente
+  /**Pesquisa um field da classe e superclasses reculsirvamente
    *
    * @param o nome do field
    * @param a classe da entidade
@@ -49,6 +49,31 @@ object ReflectUtil {
         }
 
     }
+  }
+
+
+  /**Chama um método anotado pela anotação passada como parametro
+   */
+  def callAnnotatedMethod[T](obj: AnyRef, annotation: Class[_ <: java.lang.annotation.Annotation]) {
+    callAnnotatedMethodRecursively(obj, obj.getClass, annotation)
+  }
+
+  /**Chama um método anotado recusivamente
+   */
+  private def callAnnotatedMethodRecursively[T](obj: AnyRef, clazz: Class[_], annotation: Class[_ <: java.lang.annotation.Annotation]) {
+    clazz match {
+      case c: Class[_] =>
+        clazz.getMethods.foreach({
+          m =>
+            if (m.isAnnotationPresent(annotation)) {
+              m.invoke(obj)
+              return
+            }
+        })
+      case _ =>
+        return
+    }
+    callAnnotatedMethodRecursively(obj, clazz.getSuperclass, annotation)
   }
 
 }
