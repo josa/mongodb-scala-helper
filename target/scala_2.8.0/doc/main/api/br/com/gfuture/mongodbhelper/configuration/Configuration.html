@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>Scaladoc for br.com.gfuture.mongodbhelper.log.Logged</title>
+          <title>Scaladoc for br.com.gfuture.mongodbhelper.configuration.Configuration</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		      <script type="text/javascript" src="../../../../../lib/jquery.js"></script>
           
@@ -13,28 +13,24 @@
         </head>
         <body class="type">
 
-      <p id="owner"><a href="../../../../package.html" class="extype" name="br">br</a>.<a href="../../../package.html" class="extype" name="br.com">com</a>.<a href="../../package.html" class="extype" name="br.com.gfuture">gfuture</a>.<a href="../package.html" class="extype" name="br.com.gfuture.mongodbhelper">mongodbhelper</a>.<a href="package.html" class="extype" name="br.com.gfuture.mongodbhelper.log">log</a></p>
+      <p id="owner"><a href="../../../../package.html" class="extype" name="br">br</a>.<a href="../../../package.html" class="extype" name="br.com">com</a>.<a href="../../package.html" class="extype" name="br.com.gfuture">gfuture</a>.<a href="../package.html" class="extype" name="br.com.gfuture.mongodbhelper">mongodbhelper</a>.<a href="package.html" class="extype" name="br.com.gfuture.mongodbhelper.configuration">configuration</a></p>
 
       <div id="definition">
         <img src="../../../../../lib/trait_big.png" />
-        <h1>Logged</h1>
+        <h1>Configuration</h1>
       </div>
 
       <h4 class="signature" id="signature">
       <span class="kind">trait</span>
       <span class="symbol">
-        <span class="name">Logged</span><span class="result"> extends AnyRef</span>
+        <span class="name">Configuration</span><span class="result"> extends AnyRef</span>
       </span>
       </h4>
-      <div class="fullcomment" id="comment"><div class="comment cmt"><p>Abstrai o log da aplicação</p><p>User: Jeosadache Galvão
-</p></div><div class="block">
-            known subclasses: <a href="../Query.html" class="extype" name="br.com.gfuture.mongodbhelper.Query">Query</a>
-          </div>
-            
-            
-            
-            
-          </div>
+      <div class="fullcomment" id="comment"><div class="block">
+            go to: <a href="Configuration$.html">companion</a>
+          </div><div class="block">
+            known subclasses: <a href="Configuration$.html" class="extype" name="br.com.gfuture.mongodbhelper.configuration.Configuration">Configuration</a>
+          </div></div>
       
       <div id="template">
 
@@ -374,11 +370,11 @@ possible to check whether the contents of the list are of the requested typed.
             
           </div>
           
-    </li><li visbl="prt" name="br.com.gfuture.mongodbhelper.log.Logged#logger">
+    </li><li visbl="prt" name="br.com.gfuture.mongodbhelper.configuration.Configuration#loadProperties">
       <h4 class="signature">
-      <span class="kind">lazy val</span>
+      <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">logger</span><span class="result">: <span class="extype" name="org.slf4j.Logger">Logger</span></span>
+        <span class="name">loadProperties</span><span class="result">: <span class="extype" name="java.util.Properties">Properties</span></span>
       </span>
       </h4>
       
@@ -387,6 +383,30 @@ possible to check whether the contents of the list are of the requested typed.
           attributes: protected 
         </div></div>
           
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.configuration.Configuration#mongodbDatabase">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">mongodbDatabase</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.configuration.Configuration#mongodbHost">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">mongodbHost</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.configuration.Configuration#mongodbPort">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">mongodbPort</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
+      </span>
+      </h4>
+      
     </li><li visbl="pub" name="scala.AnyRef#ne">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -447,6 +467,53 @@ possible to check whether the contents of the list are of the requested typed.
             
             
           </div>
+          
+    </li><li visbl="prt" name="br.com.gfuture.mongodbhelper.configuration.Configuration#pickJarBasedOn">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">pickJarBasedOn</span><span class="result">: java.lang.Class[_]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected abstract 
+        </div></div>
+          
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.configuration.Configuration#properties">
+      <h4 class="signature">
+      <span class="kind">lazy val</span>
+      <span class="symbol">
+        <span class="name">properties</span><span class="result">: <span class="extype" name="java.util.Properties">Properties</span></span>
+      </span>
+      </h4>
+      
+    </li><li visbl="prt" name="br.com.gfuture.mongodbhelper.configuration.Configuration#propertyFile">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">propertyFile</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected abstract 
+        </div></div>
+          
+    </li><li visbl="prt" name="br.com.gfuture.mongodbhelper.configuration.Configuration#quietlyDispose">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">quietlyDispose</span><span class="params">(<span name="action">action: ⇒ <span class="extype" name="scala.Unit">Unit</span></span>, <span name="disposal">disposal: ⇒ <span class="extype" name="scala.Unit">Unit</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          attributes: protected 
+        </div></div>
           
     </li><li visbl="pub" name="scala.AnyRef#synchronized">
       <h4 class="signature">

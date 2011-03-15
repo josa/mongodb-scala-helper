@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
         <head>
-          <title>Scaladoc for br.com.gfuture.mongodbhelper.Document</title>
+          <title>Scaladoc for br.com.gfuture.mongodbhelper.PersistenceException</title>
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		      <script type="text/javascript" src="../../../../lib/jquery.js"></script>
           
@@ -11,24 +11,22 @@
       <script type="text/javascript" src="../../../../lib/tools.tooltip.js"></script>
     
         </head>
-        <body class="value">
+        <body class="type">
 
       <p id="owner"><a href="../../../package.html" class="extype" name="br">br</a>.<a href="../../package.html" class="extype" name="br.com">com</a>.<a href="../package.html" class="extype" name="br.com.gfuture">gfuture</a>.<a href="package.html" class="extype" name="br.com.gfuture.mongodbhelper">mongodbhelper</a></p>
 
       <div id="definition">
-        <img src="../../../../lib/object_big.png" />
-        <h1>Entity</h1>
+        <img src="../../../../lib/class_big.png" />
+        <h1>PersistenceException</h1>
       </div>
 
       <h4 class="signature" id="signature">
-      <span class="kind">object</span>
+      <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">Entity</span><span class="result"> extends AnyRef</span>
+        <span class="name">PersistenceException</span><span class="result"> extends <span class="extype" name="java.lang.Exception">Exception</span></span>
       </span>
       </h4>
-      <div class="fullcomment" id="comment"><div class="block">
-            go to: <a href="Entity.html">companion</a>
-          </div></div>
+      <div class="fullcomment" id="comment"></div>
       
       <div id="template">
 
@@ -36,7 +34,7 @@
           <div id="ancestors">
                 <span class="filtertype">Inherited</span>
                 <ol><li class="hideall">Hide All</li><li class="showall">Show all</li></ol>
-                <ol id="linearization"><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
+                <ol id="linearization"><li class="in" name="java.lang.Exception">Exception</li><li class="in" name="java.lang.Throwable">Throwable</li><li class="in" name="java.io.Serializable">Serializable</li><li class="in" name="scala.AnyRef">AnyRef</li><li class="in" name="scala.Any">Any</li></ol>
               </div>
           <div id="visbl">
             <span class="filtertype">Visibility</span>
@@ -44,7 +42,18 @@
           </div>
         </div>
         
-                
+        <div class="members" id="constructors">
+              <h3>Instance constructors</h3>
+              <ol><li visbl="pub" name="br.com.gfuture.mongodbhelper.PersistenceException#this">
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol">
+        <span class="name">PersistenceException</span><span class="params">(<span name="message">message: <span class="extype" name="java.lang.String">String</span></span>)</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>        
         
         
         
@@ -216,62 +225,6 @@ part of compilation it is not possible to check whether the contents of the list
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#create">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">create</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="entityClass">entityClass: <span class="extype" name="java.lang.Class">Class</span>[T]</span>)</span><span class="result">: T</span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Cria uma instancia de uma entidade
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Cria uma instancia de uma entidade
-</p></div>
-            
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#delete">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">delete</span><span class="params">(<span name="objectId">objectId: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>, <span name="collectionName">collectionName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Exclui a entidade pelo objectId
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Exclui a entidade pelo objectId
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>void
-</p></dd></dl>
-            
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#delete">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">delete</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Exclui a entidade do mongodb
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Exclui a entidade do mongodb
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>voids
-</p></dd></dl>
-            
-            
-            
-            
-          </div>
-          
     </li><li visbl="pub" name="scala.AnyRef#eq">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -335,6 +288,19 @@ scala.Int
             
           </div>
           
+    </li><li visbl="pub" name="java.lang.Throwable#fillInStackTrace">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">fillInStackTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Throwable">Throwable</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
+          
     </li><li visbl="prt" name="scala.AnyRef#finalize">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -357,23 +323,18 @@ there are no more references to the object.</p><p>The details of when and if the
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#findField">
+    </li><li visbl="pub" name="java.lang.Throwable#getCause">
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">findField</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="name">name: <span class="extype" name="java.lang.String">String</span></span>, <span name="entityClass">entityClass: <span class="extype" name="java.lang.Class">Class</span>[T]</span>)</span><span class="result">: <span class="extype" name="java.lang.reflect.Field">Field</span></span>
+        <span class="name">getCause</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.Throwable">Throwable</span></span>
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Pesquisa um field da classe e superclasses reculsirvamente
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Pesquisa um field da classe e superclasses reculsirvamente
-</p></div>
             
-            
-            
-            
-          </div>
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
           
     </li><li visbl="pub" name="scala.AnyRef#getClass">
       <h4 class="signature">
@@ -395,6 +356,45 @@ there are no more references to the object.</p><p>The details of when and if the
             
             
           </div>
+          
+    </li><li visbl="pub" name="java.lang.Throwable#getLocalizedMessage">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getLocalizedMessage</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
+          
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.PersistenceException#getMessage">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getMessage</span><span class="params">()</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: <a href="" class="extype" name="br.com.gfuture.mongodbhelper.PersistenceException">PersistenceException</a> → Throwable
+        </div></div>
+          
+    </li><li visbl="pub" name="java.lang.Throwable#getStackTrace">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">getStackTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="java.lang.StackTraceElement">StackTraceElement</span>]</span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
           
     </li><li visbl="pub" name="scala.AnyRef#hashCode">
       <h4 class="signature">
@@ -419,6 +419,19 @@ to verify that the behavior is consistent with the <code>equals</code> method.
             
           </div>
           
+    </li><li visbl="pub" name="java.lang.Throwable#initCause">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">initCause</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.lang.Throwable">Throwable</span></span>)</span><span class="result">: <span class="extype" name="java.lang.Throwable">Throwable</span></span>
+      </span>
+      </h4>
+      
+            
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
+          
     </li><li visbl="pub" name="scala.Any#isInstanceOf">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -442,42 +455,14 @@ possible to check whether the contents of the list are of the requested typed.
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#loadFieldsRecursively">
+    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.PersistenceException#message">
       <h4 class="signature">
-      <span class="kind">def</span>
+      <span class="kind">val</span>
       <span class="symbol">
-        <span class="name">loadFieldsRecursively</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="entityClass">entityClass: <span class="extype" name="java.lang.Class">Class</span>[T]</span>, <span name="fieldList">fieldList: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="java.lang.reflect.Field">Field</span>]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="java.lang.reflect.Field">Field</span>]</span>
+        <span class="name">message</span><span class="result">: <span class="extype" name="java.lang.String">String</span></span>
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Carrega os fields da classe e superclasses recusivamente
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Carrega os fields da classe e superclasses recusivamente
-</p></div>
-            
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#loadFieldsRecursively">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">loadFieldsRecursively</span><span class="tparams">[<span name="T">T</span>]</span><span class="params">(<span name="entityClass">entityClass: <span class="extype" name="java.lang.Class">Class</span>[T]</span>)</span><span class="result">: <span class="extype" name="scala.collection.immutable.List">List</span>[<span class="extype" name="java.lang.reflect.Field">Field</span>]</span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Carrega os fields da classe e superclasses recusivamente
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Carrega os fields da classe e superclasses recusivamente
-</p></div>
-            
-            
-            
-            
-          </div>
-          
     </li><li visbl="pub" name="scala.AnyRef#ne">
       <h4 class="signature">
       <span class="kind">def</span>
@@ -539,41 +524,57 @@ possible to check whether the contents of the list are of the requested typed.
             
           </div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#save">
+    </li><li visbl="pub" name="java.lang.Throwable#printStackTrace">
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">save</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="collectionName">collectionName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>
+        <span class="name">printStackTrace</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.io.PrintWriter">PrintWriter</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Salva o dbObject no mongodb
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Salva o dbObject no mongodb
-</p></div>
             
-            
-            
-            
-          </div>
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#save">
+    </li><li visbl="pub" name="java.lang.Throwable#printStackTrace">
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">save</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">printStackTrace</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="java.io.PrintStream">PrintStream</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
       </span>
       </h4>
       
-            <p class="shortcomment cmt">Salva a entidade no mongodb
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Salva a entidade no mongodb
-</p></div>
             
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
+          
+    </li><li visbl="pub" name="java.lang.Throwable#printStackTrace">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">printStackTrace</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
             
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
+          
+    </li><li visbl="pub" name="java.lang.Throwable#setStackTrace">
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol">
+        <span class="name">setStackTrace</span><span class="params">(<span name="arg0">arg0: <span class="extype" name="scala.Array">Array</span>[<span class="extype" name="java.lang.StackTraceElement">StackTraceElement</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4>
+      
             
-            
-          </div>
+            <div class="fullcomment"><div class="block">
+          definition classes: Throwable
+        </div></div>
           
     </li><li visbl="pub" name="scala.AnyRef#synchronized">
       <h4 class="signature">
@@ -590,45 +591,7 @@ possible to check whether the contents of the list are of the requested typed.
           definition classes: AnyRef
         </div></div>
           
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#toMongoObject">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">toMongoObject</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>)</span><span class="result">: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Converte o objeto em um objeto de persistencia do mongo
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Converte o objeto em um objeto de persistencia do mongo
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>uma instancia da classe com.mongodb.DBObject
-</p></dd></dl>
-            
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#toMongoObject">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">toMongoObject</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="objectId">objectId: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>)</span><span class="result">: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Converte o _id em um objeto de persistencia do mongo
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Converte o _id em um objeto de persistencia do mongo
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>uma instancia da classe com.mongodb.DBObject
-</p></dd></dl>
-            
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" name="scala.AnyRef#toString">
+    </li><li visbl="pub" name="java.lang.Throwable#toString">
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
@@ -639,45 +602,8 @@ possible to check whether the contents of the list are of the requested typed.
             <p class="shortcomment cmt">Returns a string representation of the object.</p>
             <div class="fullcomment"><div class="comment cmt"><p>Returns a string representation of the object.</p><p>The default representation is platform dependent.
 </p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>a string representation of the object.</p></dd></dl><div class="block">
-          definition classes: AnyRef → Any
+          definition classes: Throwable → AnyRef → Any
         </div>
-            
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#update">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">update</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="uniqueDbObject">uniqueDbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="dbObject">dbObject: <span class="extype" name="com.mongodb.DBObject">DBObject</span></span>, <span name="collectionName">collectionName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Atualiza o dbObject no mongodb
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Atualiza o dbObject no mongodb
-</p></div>
-            
-            
-            
-            
-          </div>
-          
-    </li><li visbl="pub" name="br.com.gfuture.mongodbhelper.Entity#validatePersistenteField">
-      <h4 class="signature">
-      <span class="kind">def</span>
-      <span class="symbol">
-        <span class="name">validatePersistenteField</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="params">(<span name="entity">entity: T</span>, <span name="fieldName">fieldName: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Boolean">Boolean</span></span>
-      </span>
-      </h4>
-      
-            <p class="shortcomment cmt">Valida os fields persistentes
-</p>
-            <div class="fullcomment"><div class="comment cmt"><p>Valida os fields persistentes
-</p></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>true caso o field atenda os critérios para serem persistidos
-</p></dd></dl>
             
             
             

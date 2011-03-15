@@ -23,7 +23,7 @@
       <h4 class="signature" id="signature">
       <span class="kind">class</span>
       <span class="symbol">
-        <span class="name">DocumentManager</span><span class="tparams">[<span name="T">T &lt;: <a href="Entity.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Entity</a></span>]</span><span class="result"> extends AnyRef</span>
+        <span class="name">DocumentManager</span><span class="result"> extends AnyRef</span>
       </span>
       </h4>
       <div class="fullcomment" id="comment"><div class="comment cmt"><p>Implementa uma interface de consultas ao mongo mais amigável</p><p>User: Jeosadache Galvão, josa.galvao@gmail.com
@@ -56,7 +56,7 @@ Time: 5:39 PM
       <h4 class="signature">
       <span class="kind">new</span>
       <span class="symbol">
-        <span class="name">DocumentManager</span><span class="params">(<span name="entityType">entityType: <span class="extype" name="java.lang.Class">Class</span>[T]</span>)</span>
+        <span class="name">DocumentManager</span><span class="params">(<span name="entityType">entityType: java.lang.Class[_ &lt;: br.com.gfuture.mongodbhelper.Document]</span>)</span>
       </span>
       </h4>
       
@@ -237,7 +237,7 @@ part of compilation it is not possible to check whether the contents of the list
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">createQuery</span><span class="result">: <a href="Query.html" class="extype" name="br.com.gfuture.mongodbhelper.Query">Query</a>[T]</span>
+        <span class="name">createQuery</span><span class="result">: <a href="Query.html" class="extype" name="br.com.gfuture.mongodbhelper.Query">Query</a></span>
       </span>
       </h4>
       
@@ -255,7 +255,7 @@ part of compilation it is not possible to check whether the contents of the list
       <h4 class="signature">
       <span class="kind">val</span>
       <span class="symbol">
-        <span class="name">entityType</span><span class="result">: <span class="extype" name="java.lang.Class">Class</span>[T]</span>
+        <span class="name">entityType</span><span class="result">: java.lang.Class[_ &lt;: br.com.gfuture.mongodbhelper.Document]</span>
       </span>
       </h4>
       
@@ -348,7 +348,7 @@ there are no more references to the object.</p><p>The details of when and if the
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">findById</span><span class="params">(<span name="_id">_id: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>)</span><span class="result">: T</span>
+        <span class="name">findById</span><span class="params">(<span name="_id">_id: <span class="extype" name="org.bson.types.ObjectId">ObjectId</span></span>)</span><span class="result">: <a href="Document.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Document</a></span>
       </span>
       </h4>
       
@@ -366,7 +366,7 @@ there are no more references to the object.</p><p>The details of when and if the
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol">
-        <span class="name">findById</span><span class="params">(<span name="_id">_id: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: T</span>
+        <span class="name">findById</span><span class="params">(<span name="_id">_id: <span class="extype" name="java.lang.String">String</span></span>)</span><span class="result">: <a href="Document.html" class="extype" name="br.com.gfuture.mongodbhelper.Document">Document</a></span>
       </span>
       </h4>
       

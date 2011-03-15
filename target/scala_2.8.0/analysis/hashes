@@ -1,9 +1,9 @@
 #Source Hashes
-#Tue Mar 15 18:20:23 BRT 2011
+#Tue Mar 15 18:36:00 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=e18de4943a5a4843922ce0340485959718230435
 src/main/scala/br/com/gfuture/mongodbhelper/annotations/CascadeType.java=b6536436b1ef9788e66ffe61a11df9eb2e8bd2f9
 src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala=1320be771332826a4c9b68f460ae18600916fd1e
-src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=fe57400040ee2dcba18d23c35fdec469a1f9a47f
+src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=76d998322c23a166bac06b451dc94ecdfebecbcf
 src/main/scala/br/com/gfuture/mongodbhelper/configuration/Configuration.scala=cc0806953c844a50519031858e4645cc5f181825
 src/main/scala/br/com/gfuture/mongodbhelper/annotations/Document.java=afdd40a08aa91c2be4c0ea8b0771e563ff772c4d
 src/main/scala/br/com/gfuture/mongodbhelper/MappingException.scala=a43a2f20456582a1b4a73f737decfd67e833d8ac

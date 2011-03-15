@@ -1,18 +1,18 @@
 #Source Dependencies
-#Tue Mar 15 18:20:23 BRT 2011
+#Tue Mar 15 18:36:00 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
-src/main/scala/br/com/gfuture/mongodbhelper/annotations/CascadeType.java=src/main/scala/br/com/gfuture/mongodbhelper/annotations/Reference.java\:src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
+src/main/scala/br/com/gfuture/mongodbhelper/annotations/CascadeType.java=src/main/scala/br/com/gfuture/mongodbhelper/annotations/Reference.java\:src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala
 src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
 src/main/scala/br/com/gfuture/mongodbhelper/Document.scala=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala\:src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Query.scala
 src/main/scala/br/com/gfuture/mongodbhelper/configuration/Configuration.scala=src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala
 src/main/scala/br/com/gfuture/mongodbhelper/annotations/Document.java=
-src/main/scala/br/com/gfuture/mongodbhelper/MappingException.scala=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
-src/main/scala/br/com/gfuture/mongodbhelper/annotations/Reference.java=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
+src/main/scala/br/com/gfuture/mongodbhelper/MappingException.scala=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala
+src/main/scala/br/com/gfuture/mongodbhelper/annotations/Reference.java=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala
 src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala
 src/main/scala/br/com/gfuture/mongodbhelper/reflect/ReflectUtil.scala=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
 src/main/scala/br/com/gfuture/mongodbhelper/annotations/PrePersist.java=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
 src/main/scala/br/com/gfuture/mongodbhelper/PersistenceException.scala=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
 src/main/scala/br/com/gfuture/mongodbhelper/annotations/PosPersist.java=src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
-src/main/scala/br/com/gfuture/mongodbhelper/annotations/DocElement.java=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
-src/main/scala/br/com/gfuture/mongodbhelper/annotations/AssociationType.java=src/main/scala/br/com/gfuture/mongodbhelper/annotations/Reference.java\:src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala\:src/main/scala/br/com/gfuture/mongodbhelper/Document.scala
+src/main/scala/br/com/gfuture/mongodbhelper/annotations/DocElement.java=src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala
+src/main/scala/br/com/gfuture/mongodbhelper/annotations/AssociationType.java=src/main/scala/br/com/gfuture/mongodbhelper/annotations/Reference.java\:src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala
 src/main/scala/br/com/gfuture/mongodbhelper/Query.scala=src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala

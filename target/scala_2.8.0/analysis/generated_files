@@ -1,5 +1,5 @@
 #Generated Classes
-#Tue Mar 15 18:20:23 BRT 2011
+#Tue Mar 15 18:36:00 BRT 2011
 src/main/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider$class.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/mongodb/MongoProvider.class
 src/main/scala/br/com/gfuture/mongodbhelper/annotations/CascadeType.java=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/annotations/CascadeType.class
 src/main/scala/br/com/gfuture/mongodbhelper/DocumentTools.scala=target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/DocumentTools$$anonfun$fromMongoObject$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/DocumentTools$$anonfun$toDBObject$1.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/DocumentTools$.class\:target/scala_2.8.0/classes/br/com/gfuture/mongodbhelper/DocumentTools.class
