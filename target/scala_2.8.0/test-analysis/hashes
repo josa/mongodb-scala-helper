@@ -1,7 +1,7 @@
 #Source Hashes
-#Sun Mar 13 23:57:31 BRT 2011
-src/test/scala/br/com/gfuture/mongodbhelper/DocumentReferenceSpec.scala=fa4d53a70ed9c501e8be27b5dde465ee1d12db5b
+#Mon Mar 14 22:09:24 BRT 2011
+src/test/scala/br/com/gfuture/mongodbhelper/DocumentReferenceSpec.scala=93133512bf283794ed060aadb241c1b82e172d04
 src/test/scala/br/com/gfuture/mongodbhelper/QuerySpec.scala=76f3a5e9d8916d7311c4bf4d11432fbba1f71286
-src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala=88903a8ac63532c2b54160497b5db86891fb8313
-src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala=905145c40b6ec1106a1cac7c5aa7e8b3adabbf46
-src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=1ff1a7cb3c2bd3ccd088b37fe7424637d09e0ce4
+src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala=cfdbae88763994e22ce6e2d64b68745c84f1fafe
+src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala=65f6a8bb40b992206aec7165febee2a9e346db6e
+src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala=b3665fb295759611bd6ae7549e1b3588b090fa51

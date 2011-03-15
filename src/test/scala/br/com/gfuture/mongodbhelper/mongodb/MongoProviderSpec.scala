@@ -2,11 +2,9 @@ package br.com.gfuture.mongodbhelper.mongodb
 
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.Spec
-import br.com.gfuture.mongodbhelper.Document
+import br.com.gfuture.mongodbhelper.{DocumentExample, Document}
 
 class MongoProviderSpec extends Spec with ShouldMatchers {
-
-  class DocumentExample extends Document
 
   describe("MongoProvider") {
 

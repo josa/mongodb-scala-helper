@@ -5,10 +5,12 @@ import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
 import com.mongodb.casbah.commons.MongoDBObject
 
-class CategoryExample extends Document {
+class CategoryExample extends Document[CategoryExample](classOf[CategoryExample]) {
 
   @DocElement
-  @Reference(association = AssociationType.ONE_TO_ONE, cascade = CascadeType.SAVE)
+  @Reference(
+    association = AssociationType.ONE_TO_ONE,
+    cascade = CascadeType.SAVE)
   var parent: CategoryExample = null
 
 }
@@ -31,7 +33,7 @@ class DocumentReferenceSpec extends Spec with ShouldMatchers with BeforeAndAfter
 
           category.parent = parentCategory
 
-          val dbObject = Document.toDBObject(category)
+          val dbObject = MongoDocumentHelper.toDBObject(category)
           dbObject should equal(MongoDBObject("_id" -> category.getObjectId, "parent" -> parentCategory.getObjectId))
 
           category.delete
@@ -53,7 +55,7 @@ class DocumentReferenceSpec extends Spec with ShouldMatchers with BeforeAndAfter
 
         val bObject = MongoDBObject("_id" -> category.getObjectId, "parent" -> parentCategory.getObjectId)
 
-        val document = Document.fromMongoObject(bObject, classOf[CategoryExample])
+        val document = MongoDocumentHelper.fromMongoObject(bObject, classOf[CategoryExample])
 
         document.parent should equal(parentCategory)
 

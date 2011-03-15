@@ -10,7 +10,7 @@ import org.bson.types.ObjectId
 
 
 
-class DocumentExample extends Document {
+class DocumentExample extends Document[DocumentExample](classOf[DocumentExample]) {
 
   @DocElement
   var valueOne: String = null
@@ -21,10 +21,6 @@ class DocumentExample extends Document {
     case other: DocumentExample => other.getClass == getClass && other.getObjectId.equals(getObjectId)
     case _ => false
   }
-
-}
-
-class EspecializedDocumentExample extends DocumentExample {
 
 }
 
@@ -48,44 +44,44 @@ class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
   describe("marshall") {
 
     it("the _id should be null before persisting") {
-      Document.toDBObject(document).get("_id") should equal(null)
+      MongoDocumentHelper.toDBObject(document).get("_id") should equal(null)
     }
 
     it("should generate mongodbObject") {
-      Document.toDBObject(document).get("valueOne") should equal("value one")
+      MongoDocumentHelper.toDBObject(document).get("valueOne") should equal("value one")
     }
 
     it("should generate a mongodbObject with only two element") {
-      Document.toDBObject(document).keySet.size should equal(2)
+      MongoDocumentHelper.toDBObject(document).keySet.size should equal(2)
     }
 
     it("should not include valueTransient") {
-      Document.toDBObject(document).get("valueTransient") should equal(null)
+      MongoDocumentHelper.toDBObject(document).get("valueTransient") should equal(null)
     }
 
-    it("should generate mongodbObject in specialized document") {
+    /*it("should generate mongodbObject in specialized document") {
       val especDocument = new EspecializedDocumentExample
       especDocument.valueOne = "value especialized"
-      Document.toDBObject(especDocument).get("valueOne") should equal("value especialized")
-    }
+      MongoDocumentHelper.toDBObject(especDocument).get("valueOne") should equal("value especialized")
+    }*/
 
   }
 
   describe("unmarshall") {
 
     it("should generate object from mongodbObject") {
-      val objectFrom = Document.fromMongoObject(dbObject, classOf[DocumentExample])
+      val objectFrom = MongoDocumentHelper.fromMongoObject(dbObject, classOf[DocumentExample])
       objectFrom.valueOne should equal("value one")
     }
 
     it("should not load transientValue") {
-      val objectFrom = Document.fromMongoObject(dbObject, classOf[DocumentExample])
+      val objectFrom = MongoDocumentHelper.fromMongoObject(dbObject, classOf[DocumentExample])
       objectFrom.valueTransient should equal(null)
     }
 
     it("should throw exception if field not found") {
       evaluating {
-        Document.findField("fieldNotFound", document.getClass)
+        MongoDocumentHelper.findField("fieldNotFound", document.getClass)
       } should produce[RuntimeException]
     }
 
