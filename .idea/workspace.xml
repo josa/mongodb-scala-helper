@@ -87,7 +87,7 @@
       <file leaf-file-name="Document.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="12" selection-start="670" selection-end="670" vertical-scroll-proportion="0.77205884">
+            <state line="15" column="9" selection-start="434" selection-end="434" vertical-scroll-proportion="0.41360295">
               <folding />
             </state>
           </provider>
@@ -926,7 +926,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="12" selection-start="670" selection-end="670" vertical-scroll-proportion="0.77205884">
+        <state line="15" column="9" selection-start="434" selection-end="434" vertical-scroll-proportion="0.41360295">
           <folding />
         </state>
       </provider>

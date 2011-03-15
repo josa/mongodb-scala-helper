@@ -13,7 +13,7 @@ class Document[T](val typeDocument: Class[T]) {
 
   protected lazy val logger = LoggerFactory.getLogger(getClass)
 
-  protected var _id: ObjectId = null
+  private var _id: ObjectId = null
 
   def getObjectId: ObjectId = this._id
 
