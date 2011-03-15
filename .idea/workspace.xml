@@ -84,10 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Document.scala" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Document.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="17" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+            <state line="28" column="12" selection-start="670" selection-end="670" vertical-scroll-proportion="0.77205884">
               <folding />
             </state>
           </provider>
@@ -102,10 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DocumentReferenceSpec.scala" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DocumentReferenceSpec.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentReferenceSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="338" selection-end="338" vertical-scroll-proportion="0.24816176">
+            <state line="9" column="0" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -136,11 +136,11 @@
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/DocumentManager.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Query.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/mongodb/MongoProviderSpec.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/annotations/Reference.java" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/PreAndPosPersistSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentReferenceSpec.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala" />
       </list>
     </option>
   </component>
@@ -910,13 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="17" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="77" column="42" selection-start="2256" selection-end="2275" vertical-scroll-proportion="0.0">
@@ -926,7 +919,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/br/com/gfuture/mongodbhelper/DocumentReferenceSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="338" selection-end="338" vertical-scroll-proportion="0.24816176">
+        <state line="9" column="0" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/br/com/gfuture/mongodbhelper/Document.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="12" selection-start="670" selection-end="670" vertical-scroll-proportion="0.77205884">
           <folding />
         </state>
       </provider>
