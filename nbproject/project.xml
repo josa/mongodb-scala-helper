@@ -6,12 +6,12 @@
             <name>mongo-scala-helper</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <source-roots>
-                <root id="src.resources.dir" name="main/resources"/>
-                <root id="src.scala.dir" name="main/scala"/>
+                <root id="src.resources.dir" name="resources"/>
+                <root id="src.scala.dir" name="scala"/>
             </source-roots>
             <test-roots>
-                <root id="test.resources.dir" name="test/resources"/>
-                <root id="test.scala.dir" name="test/scala"/>
+                <root id="test.resources.dir" name="testresources"/>
+                <root id="test.scala.dir" name="testscala"/>
             </test-roots>
         </data>
     </configuration>
