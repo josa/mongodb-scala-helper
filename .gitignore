@@ -1,5 +1,5 @@
 *.class
-target/scala_2.8.0/test-analysis/**
 *docs.jar
 *src.jar
 *test.jar
+target/**
