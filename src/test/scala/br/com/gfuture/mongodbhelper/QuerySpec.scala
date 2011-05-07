@@ -2,9 +2,16 @@ package br.com.gfuture.mongodbhelper
 
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
+import org.junit.Test
 
+import org.junit.runner.RunWith
+
+@RunWith(classOf[org.scalatest.junit.JUnitRunner])
 class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
+  @Test
+  def test_it = execute() 
+  
   var document: DocumentExample = null
 
   override def beforeEach() {

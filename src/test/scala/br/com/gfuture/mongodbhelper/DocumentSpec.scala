@@ -1,24 +1,20 @@
 package br.com.gfuture.mongodbhelper
 
-import annotations.DocElement
-import mongodb.MongoProvider
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
+import br.com.gfuture.mongodbhelper.mongodb.MongoProvider
 import com.mongodb.DBObject
 import com.mongodb.casbah.commons.MongoDBObject
 import org.bson.types.ObjectId
+import org.junit.Test
+import org.junit.runner.RunWith
 
-class DocumentExample extends Document(classOf[DocumentExample]) {
-
-  @DocElement
-  var valueOne: String = null
-
-  var valueTransient: String = null
-
-}
-
+@RunWith(classOf[org.scalatest.junit.JUnitRunner])
 class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
+  @Test
+  def test_it = execute() 
+    
   var document = null.asInstanceOf[DocumentExample]
 
   var dbObject = null.asInstanceOf[DBObject]
@@ -27,7 +23,6 @@ class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     document = new DocumentExample
     document.valueOne = "value one"
     document.valueTransient = "not included"
-
     dbObject = MongoDBObject("valueOne" -> "value one")
   }
 
@@ -41,6 +36,7 @@ class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
       object1.equals(object2) should equal(true)
     }
 
+    
   }
 
   describe("marshall") {

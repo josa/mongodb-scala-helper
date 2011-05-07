@@ -26,8 +26,16 @@ class SubDocument extends DocumentForReflectUtil{
 
 }
 
+import org.junit.Test
+
+import org.junit.runner.RunWith
+
+@RunWith(classOf[org.scalatest.junit.JUnitRunner])
 class ReflectUtilSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
+  @Test
+  def test_it = execute() 
+  
   describe("ReflectUtil") {
 
     it("should throw exception if field not found") {

@@ -1,9 +1,9 @@
 package br.com.gfuture.mongodbhelper.mongodb
 
 import com.mongodb.DBCollection
-import br.com.gfuture.mongodbhelper.configuration.Configuration
-import com.mongodb.casbah.{MongoDB, MongoConnection}
+import com.mongodb.casbah.MongoConnection
 import org.slf4j.LoggerFactory
+import br.com.gfuture.scalaexternalconf.Configuration
 
 /**
  *  Prover acesso ao mongodb
@@ -20,8 +20,8 @@ trait MongoProvider {
   protected lazy val logger = LoggerFactory.getLogger(getClass)
 
   lazy val connection = {
-    logger.info("connecting to the server MongoDB: %s:%s" format (Configuration.mongodbHost, Configuration.mongodbPort))
-    MongoConnection(Configuration.mongodbHost, Configuration.mongodbPort)
+    logger.info("connecting to the server MongoDB: %s:%s" format (Configuration.get("mongodb.host"), Configuration.get("mongodb.port")))
+    MongoConnection(Configuration.get("mongodb.host").toString, Configuration.get("mongodb.port").toInt)
   }
 
   /**Carrega a coleção do mongo para operaçoes diversas
@@ -36,7 +36,7 @@ trait MongoProvider {
    * @param o nome da coleção
    */
   def getCollection(name: String): DBCollection =
-    connection.getDB(Configuration.mongodbDatabase).getCollection(name)
+    connection.getDB(Configuration.get("mongodb.database").toString).getCollection(name)
 
   /**Gera um nome para a coleção do mongo
    *

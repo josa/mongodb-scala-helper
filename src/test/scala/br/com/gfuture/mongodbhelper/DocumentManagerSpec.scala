@@ -7,8 +7,16 @@ class DocumentRefForManager extends Document(classOf[DocumentRefForManager]) {
 
 }
 
+import org.junit.Test
+
+import org.junit.runner.RunWith
+
+@RunWith(classOf[org.scalatest.junit.JUnitRunner])
 class DocumentManagerSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
+  @Test
+  def test_it = execute() 
+  
   describe("constructor") {
 
     it("should generate new instance") {

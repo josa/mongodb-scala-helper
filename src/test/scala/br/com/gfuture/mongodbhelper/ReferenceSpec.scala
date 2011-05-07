@@ -5,6 +5,10 @@ import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
 import com.mongodb.casbah.commons.MongoDBObject
 
+import org.junit.Test
+import org.junit.runner.RunWith
+
+
 class BaseExample extends Document(classOf[BaseExample]) {
 
   @DocElement
@@ -17,8 +21,12 @@ class ParentExample extends Document(classOf[ParentExample]) {
 
 }
 
+@RunWith(classOf[org.scalatest.junit.JUnitRunner])
 class ReferenceSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
 
+  @Test
+  def test_it = execute() 
+  
   var base = null.asInstanceOf[BaseExample]
   var parent = null.asInstanceOf[ParentExample]
 
