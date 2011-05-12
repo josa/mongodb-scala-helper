@@ -13,15 +13,21 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
   def test_it = execute() 
   
   var document: DocumentExample = null
-
+  var documentTwo: DocumentExample = null
+  
   override def beforeEach() {
     document = new DocumentExample
     document.valueOne = "value for search"
     document.save
+    
+    documentTwo = new DocumentExample
+    documentTwo.valueOne = "value for search 2"
+    documentTwo.save
   }
 
   override def afterEach() {
     document.delete
+    documentTwo.delete
   }
 
   describe("DocumentManager") {
@@ -58,6 +64,29 @@ class QuerySpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
         uniqueResult.getObjectId should not equal (null)
       }
 
+    }
+    
+    describe("find"){
+      
+      it("should find all"){
+        val documentManager = new DocumentManager(classOf[DocumentExample])
+        val resultList = documentManager.findAll
+        resultList.size should equal(2)
+      }
+      
+    }
+    
+    describe("delete"){
+      
+      it("should delete all"){
+        val documentManager = new DocumentManager(classOf[DocumentExample])
+        val doc = new DocumentExample
+        doc.valueOne = "bla"
+        doc.save
+        documentManager.deleteAll
+        documentManager.findAll.size should equal(0)
+      }
+      
     }
 
   }

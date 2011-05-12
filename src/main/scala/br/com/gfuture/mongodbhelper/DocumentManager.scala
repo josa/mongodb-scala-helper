@@ -1,6 +1,9 @@
 package br.com.gfuture.mongodbhelper
 
 import org.bson.types.ObjectId
+import com.mongodb.BasicDBObject
+import com.mongodb.DBCollection
+import mongodb.MongoProvider
 
 /**
  * Implementa uma interface de consultas ao mongo mais amigável
@@ -32,5 +35,19 @@ class DocumentManager(val entityType: Class[_<:Document]) {
   def findById(_id: ObjectId): Document = {
     createQuery.addClause("_id", _id).uniqueResult
   }
+  
+  /**Busca todos os documentos
+   */
+  def findAll():List[Document] = {
+    createQuery.resultList
+  }
+    
+  /**Remove todos os documentos
+   */
+  def deleteAll = {collection.remove(new BasicDBObject())}
+  
+  /**Recupera a colectiond o mongodb
+   */
+  private def collection: DBCollection = MongoProvider.getCollection(entityType)
 
 }

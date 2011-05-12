@@ -3,6 +3,7 @@ package br.com.gfuture.mongodbhelper
 import org.scalatest.matchers.ShouldMatchers
 import org.scalatest.{Spec, BeforeAndAfterEach}
 import br.com.gfuture.mongodbhelper.mongodb.MongoProvider
+import com.mongodb.BasicDBObject
 import com.mongodb.DBObject
 import com.mongodb.casbah.commons.MongoDBObject
 import org.bson.types.ObjectId
@@ -25,6 +26,10 @@ class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
     document.valueTransient = "not included"
     dbObject = MongoDBObject("valueOne" -> "value one")
   }
+  
+  override def afterEach(){
+    MongoProvider.getCollection(document.getClass).remove(new BasicDBObject())
+  }
 
   describe("equals") {
 
@@ -35,7 +40,6 @@ class DocumentSpec extends Spec with ShouldMatchers with BeforeAndAfterEach {
       object2.setObjectId(object1.getObjectId)
       object1.equals(object2) should equal(true)
     }
-
     
   }
 

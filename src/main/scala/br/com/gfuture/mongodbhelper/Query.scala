@@ -31,8 +31,8 @@ class Query(val documentClass: Class[_ <: Document]) {
           case _ =>
             logger.debug("documents found:")
             list.foreach({
-              entity => logger.debug(entity.toString)
-            })
+                entity => logger.debug(entity.toString)
+              })
         }
     }
 
@@ -66,7 +66,7 @@ class Query(val documentClass: Class[_ <: Document]) {
     queryBuilder += field -> value
     this
   }
-
+    
   /**Recupera a coleção do documento
    */
   private def collection: DBCollection = MongoProvider.getCollection(documentClass)
